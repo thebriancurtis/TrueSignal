@@ -122,15 +122,3 @@ For each test case:
 
 Respond with a summary table showing test ID, result, and reason.
 ```
-
----
-
-## 🧠 Notes
-
-- These instructions are optimized for models with advanced context tracking such as **GPT-4 or Claude**.
-- For ChatGPT Free users (GPT-3.5), functionality may be limited:
-  - Use Method 1 only
-  - Expect shorter context handling and no file upload
-  - Run fewer tests per session to avoid cutoff or loss of earlier prompt memory
-
-- This method allows full testing without needing external code, tools, or setup.
