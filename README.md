@@ -72,7 +72,7 @@ Project Repository: [https://github.com/thebriancurtis/TrueSignal](https://githu
 
 Pull requests and issue submissions are welcome! Please see:
 - [`CONTRIBUTING.md`](CONTRIBUTING.md)
-- [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md)
+
 ## 🧪 In-Chat Testing Instructions
 
 # In-Chat Testing Instructions (TrueSignal)
