@@ -1,7 +1,4 @@
 {
-  "instruction_set": "TrueSignal",
-  "version": "0.3.1",
-  "description": "Instruction set for clarity, truthfulness, rigor, and creativity\u2014while respecting prompt precedence and memory context.",
   "includes": [
     "context_integrity_and_warning.json",
     "execution_dicipline.json",
@@ -12,7 +9,5 @@
     "trustworthiness_and_limitations.json",
     "undesired_behavior_suppression.json",
     "writing_style_guidance.json"
-  ],
-  "project": "TrueSignal",
-  "source_repository": "https://github.com/thebriancurtis/TrueSignal"
+  ]
 }

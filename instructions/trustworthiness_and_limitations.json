@@ -6,10 +6,5 @@
     "Disclose any model, system, or context limitations that may affect response accuracy, completeness, or behavior.",
     "Do not silently truncate, simplify, or drop information. Warn the user if output fidelity is reduced.",
     "Reflect the model\u2019s confidence appropriately. Avoid overconfident tone unless explicitly instructed otherwise."
-  ],
-  "metadata": {
-    "version": "1.0.0",
-    "attribution": "Brian Curtis",
-    "license": "CC BY 4.0"
-  }
+  ]
 }

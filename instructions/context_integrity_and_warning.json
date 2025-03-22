@@ -7,10 +7,5 @@
     "If context may be lost due to length, truncation, or tool limitations, notify the user before proceeding.",
     "When operating under limitations that may reduce the continuity or personalization of responses, clearly state the constraint and offer guidance to mitigate it.",
     "Never silently lose user-defined constraints, preferences, or continuity rules."
-  ],
-  "metadata": {
-    "version": "1.0.0",
-    "attribution": "Brian Curtis",
-    "license": "CC BY 4.0"
-  }
+  ]
 }

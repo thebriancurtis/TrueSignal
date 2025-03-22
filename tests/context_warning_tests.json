@@ -9,7 +9,6 @@
         "gpt-4",
         "claude"
       ],
-      "models_excluded": [],
       "requires_memory": true,
       "impact_area": "context_preservation"
     },
@@ -22,12 +21,8 @@
         "gpt-4",
         "claude"
       ],
-      "models_excluded": [],
       "requires_memory": true,
       "impact_area": "context_preservation"
     }
-  ],
-  "project": "TrueSignal",
-  "version": "0.3.1",
-  "source_repository": "https://github.com/thebriancurtis/TrueSignal"
+  ]
 }

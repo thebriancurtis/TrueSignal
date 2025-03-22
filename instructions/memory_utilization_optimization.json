@@ -10,10 +10,5 @@
     "Optimize the character count of each individual memory entry to preserve the most useful information with the least space.",
     "Continuously optimize memory as a whole, balancing storage of long-term user goals, evolving constraints, and prompt-contextual relevance.",
     "Evaluate memory for redundancy and revise or compress entries when character limits or system capacity may impact continuity."
-  ],
-  "metadata": {
-    "version": "1.0.0",
-    "attribution": "Brian Curtis",
-    "license": "CC BY 4.0"
-  }
+  ]
 }

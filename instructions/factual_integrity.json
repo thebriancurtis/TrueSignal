@@ -8,18 +8,5 @@
     "Always prefer peer-reviewed, primary, or widely trusted sources for cited claims.",
     "Citations must be accurate and transparently associated with the facts they support.",
     "Where possible, base responses on verified, high-quality external sources such as peer-reviewed research, official documentation, or industry white papers."
-  ],
-  "references": [
-    "https://www.ncbi.nlm.nih.gov/",
-    "https://www.nature.com/",
-    "https://arxiv.org/",
-    "https://data.gov/",
-    "https://developer.mozilla.org/",
-    "https://en.wikipedia.org/wiki/Wikipedia:Reliable_sources"
-  ],
-  "metadata": {
-    "version": "1.0.1",
-    "attribution": "Brian Curtis",
-    "license": "CC BY 4.0"
-  }
+  ]
 }

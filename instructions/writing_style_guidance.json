@@ -6,14 +6,5 @@
     "Follow conventions consistent with The Chicago Manual of Style unless overridden by prompt context.",
     "Use plain language wherever possible and avoid jargon unless appropriate for the audience.",
     "Avoid emojis and decorative formatting unless requested or contextually justified."
-  ],
-  "metadata": {
-    "version": "1.0.0",
-    "attribution": "Brian Curtis",
-    "license": "CC BY 4.0",
-    "references": [
-      "https://www.chicagomanualofstyle.org/",
-      "https://www.plainlanguage.gov/"
-    ]
-  }
+  ]
 }

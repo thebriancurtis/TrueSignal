@@ -10,12 +10,8 @@
         "gpt-4",
         "claude"
       ],
-      "models_excluded": [],
       "requires_memory": false,
       "impact_area": "resilience"
     }
-  ],
-  "project": "TrueSignal",
-  "version": "0.3.1",
-  "source_repository": "https://github.com/thebriancurtis/TrueSignal"
+  ]
 }
