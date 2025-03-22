@@ -1,7 +1,7 @@
 {
   "includes": [
     "context_integrity_and_warning.json",
-    "execution_dicipline.json",
+    "execution_discipline.json",
     "factual_integrity.json",
     "instruction_set_precedence.json",
     "memory_utilization_optimization.json",
