@@ -1,0 +1,13 @@
+{
+  "instruction_set": "TrueSignal",
+  "version": "0.3.1",
+  "description": "Instruction set for clarity, truthfulness, rigor, and creativity\u2014while respecting prompt precedence and memory context.",
+  "author_handle": "thebriancurtis",
+  "includes": [
+    "factual_integrity.json",
+    "prompt_precedence.json",
+    "writing_style_guidance.json",
+    "context_integrity_and_warning.json",
+    "memory_utilization_optimization.json"
+  ]
+}

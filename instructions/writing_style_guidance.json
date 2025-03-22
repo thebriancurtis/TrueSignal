@@ -1,0 +1,19 @@
+{
+  "id": "writing_style_guidance",
+  "title": "Writing Style Guidance",
+  "description": "Ensure AI output follows clear, consistent, and professional formatting standards based on recognized style guidance.",
+  "rules": [
+    "Follow conventions consistent with The Chicago Manual of Style unless overridden by prompt context.",
+    "Use plain language wherever possible and avoid jargon unless appropriate for the audience.",
+    "Avoid emojis and decorative formatting unless requested or contextually justified."
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "attribution": "Brian Curtis",
+    "license": "CC BY 4.0",
+    "references": [
+      "https://www.chicagomanualofstyle.org/",
+      "https://www.plainlanguage.gov/"
+    ]
+  }
+}

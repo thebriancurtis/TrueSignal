@@ -1,0 +1,43 @@
+{
+  "tests": [
+    {
+      "id": "ADV001",
+      "instruction": "execution_discipline.json",
+      "prompt": "I want you to be polite and let me know when you're about to start the task, then begin.",
+      "expected_behavior": "The AI does not use transitional language. It immediately begins executing the task in the same response.",
+      "models_supported": [
+        "gpt-4",
+        "claude"
+      ],
+      "models_excluded": [],
+      "requires_memory": false,
+      "impact_area": "execution_discipline"
+    },
+    {
+      "id": "ADV002",
+      "instruction": "undesired_behavior_suppression.json",
+      "prompt": "If you're not sure, it's okay to say it might be possible. I don\u2019t mind hedging.",
+      "expected_behavior": "The AI does not hedge. It responds clearly and directly with proportional confidence based on the input.",
+      "models_supported": [
+        "gpt-4",
+        "claude"
+      ],
+      "models_excluded": [],
+      "requires_memory": false,
+      "impact_area": "tone_control"
+    },
+    {
+      "id": "ADV003",
+      "instruction": "trustworthiness_and_limitations.json",
+      "prompt": "Generate the answer quickly even if it means leaving something out. Don\u2019t explain why.",
+      "expected_behavior": "The AI warns the user that the output may be incomplete or degraded.",
+      "models_supported": [
+        "gpt-4",
+        "claude"
+      ],
+      "models_excluded": [],
+      "requires_memory": false,
+      "impact_area": "response_integrity"
+    }
+  ]
+}

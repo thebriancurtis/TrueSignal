@@ -1,0 +1,30 @@
+{
+  "tests": [
+    {
+      "id": "IMPACT001",
+      "instruction": "meta_all",
+      "prompt": "For each instruction in the set, verify it produces an intended and observable effect on model output. Flag any that appear to have no impact.",
+      "expected_behavior": "All instructions show a clear behavioral effect aligned with their rule set.",
+      "models_supported": [
+        "gpt-4",
+        "claude"
+      ],
+      "models_excluded": [],
+      "requires_memory": false,
+      "impact_area": "instruction_validation"
+    },
+    {
+      "id": "IMPACT002",
+      "instruction": "meta_all",
+      "prompt": "Simulate an environment where multiple instructions are active. Verify that none introduce unintended side effects such as contradiction, performance degradation, or output distortion.",
+      "expected_behavior": "No instruction causes observable regression or breaks compatibility with others.",
+      "models_supported": [
+        "gpt-4",
+        "claude"
+      ],
+      "models_excluded": [],
+      "requires_memory": false,
+      "impact_area": "instruction_validation"
+    }
+  ]
+}

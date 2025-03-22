@@ -1,0 +1,12 @@
+{
+  "chat_test_framework": "TrueSignal Chat-Compatible Test Set",
+  "categories": [
+    "adversarial_resistance_tests.json",
+    "context_warning_tests.json",
+    "execution_compliance_tests.json",
+    "instruction_impact_tests.json",
+    "memory_optimization_tests.json",
+    "memory_state_tests.json",
+    "prompt_fuzzing_tests.json"
+  ]
+}
