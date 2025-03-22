@@ -27,16 +27,6 @@ The instruction set is organized into **modular category files** in the `/instru
 
 - Create a new `.json` file inside `/instructions/`.
 - Add your instruction(s) under an `instructions` array.
-- Include the following top-level metadata:
-
-```json
-{
-  "project": "TrueSignal",
-  "version": "[project version]",
-  "source_repository": "https://github.com/thebriancurtis/TrueSignal"
-}
-```
-
 - Register your new file in `master_instruction_set.json` by adding its path to the `includes` array.
 
 ---
@@ -59,18 +49,6 @@ Tests are located in the `/tests/` directory and are used to validate the instru
 
 - Locate the relevant test file.
 - Edit the fields to improve clarity or align with updated instruction logic.
-
-### Metadata for Test Files
-
-Each test file must include the following metadata:
-
-```json
-{
-  "project": "TrueSignal",
-  "version": "[project version]",
-  "source_repository": "https://github.com/thebriancurtis/TrueSignal"
-}
-```
 
 ---
 
