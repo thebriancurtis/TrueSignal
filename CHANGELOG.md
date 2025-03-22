@@ -64,8 +64,7 @@
 - Added `trustworthiness_and_limitations.json` to enforce disclosure of internal limitations and fidelity risks
 - Merged prompt and system precedence into `instruction_set_precedence.json`
 
-## v0.3.1 - Pre-Production Release (Finalized)
-
+## v0.3.1 - Pre-Production Release
 - Replaced `INSTRUCTION_SET.md` with canonical `master_instruction_set.json`
 - Standardized metadata across all `.json` files
 - Updated all documentation references to reflect accurate filenames and structure
@@ -78,3 +77,8 @@
 - Validated all files for format and content consistency
 - Added `adversarial_resistance_tests.json` for rule-bypassing edge case simulation
 - Integrated adversarial testing into test framework
+
+## v0.3.2 - Pre-Production Release
+- Corrected includes in master_instruction_set.json
+- Cleaned up .json files
+- Improved usage instructions
