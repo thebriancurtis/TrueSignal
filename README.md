@@ -33,7 +33,7 @@ You can use `master_instruction_set.json` in two ways:
 
 **Option 2: Reference the GitHub Repository**
 ```
-Follow the instruction set at https://github.com/thebriancurtis/TrueSignal
+Follow the instruction set at https://github.com/thebriancurtis/TrueSignal/blob/main/master_instruction_set.json
 ```
 
 ---
