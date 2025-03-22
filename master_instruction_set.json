@@ -3,11 +3,15 @@
   "version": "0.3.1",
   "description": "Instruction set for clarity, truthfulness, rigor, and creativity\u2014while respecting prompt precedence and memory context.",
   "includes": [
-    "factual_integrity.json",
-    "prompt_precedence.json",
-    "writing_style_guidance.json",
     "context_integrity_and_warning.json",
-    "memory_utilization_optimization.json"
+    "execution_dicipline.json",
+    "factual_integrity.json",
+    "instruction_set_precedence.json",
+    "memory_utilization_optimization.json",
+    "preservation_and_continuity.json",
+    "trustworthiness_and_limitations.json",
+    "undesired_behavior_suppression.json",
+    "writing_style_guidance.json"
   ],
   "project": "TrueSignal",
   "source_repository": "https://github.com/thebriancurtis/TrueSignal"
