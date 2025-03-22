@@ -12,7 +12,7 @@ TrueSignal ensures:
 - Truth-by-default, with graceful support for fictional or creative prompts
 - Strategic clarification instead of harmful assumptions
 - Utility maximization, depth-first and breadth-aware answers
-- Compatibility with ChatGPT Free, Plus, and API users
+- Compatibility with ChatGPT Plus and API users
 
 ---
 
@@ -21,20 +21,12 @@ TrueSignal ensures:
 
 ### 🧠 Use the Instruction Set
 
-You can use `master_instruction_set.json` in two ways:
-
-**Option 1: Upload the File**
-1. Download `master_instruction_set.json`
+1. Download a release archive
 2. Upload it into ChatGPT
 3. Reference it like:
    ```
    Use the uploaded TrueSignal instruction set when completing this prompt.
    ```
-
-**Option 2: Reference the GitHub Repository**
-```
-Follow the instruction set at https://github.com/thebriancurtis/TrueSignal/blob/main/master_instruction_set.json
-```
 
 ---
 
