@@ -73,9 +73,7 @@ Project Repository: [https://github.com/thebriancurtis/TrueSignal](https://githu
 Pull requests and issue submissions are welcome! Please see:
 - [`CONTRIBUTING.md`](CONTRIBUTING.md)
 
-## 🧪 In-Chat Testing Instructions
-
-# In-Chat Testing Instructions (TrueSignal)
+# 🧪 In-Chat Testing Instructions
 
 This guide shows how to run TrueSignal test cases **within any chat-based interface**, including ChatGPT (Free and Plus).
 
