@@ -64,6 +64,17 @@
 - Added `trustworthiness_and_limitations.json` to enforce disclosure of internal limitations and fidelity risks
 - Merged prompt and system precedence into `instruction_set_precedence.json`
 
-## v0.3.1 - Adversarial Testing Framework
+## v0.3.1 - Pre-Production Release (Finalized)
+
+- Replaced `INSTRUCTION_SET.md` with canonical `master_instruction_set.json`
+- Standardized metadata across all `.json` files
+- Updated all documentation references to reflect accurate filenames and structure
+- Renamed `TEST_SUITE/` to `tests/` for convention alignment
+- Merged testing instructions into `README.md`
+- Removed obsolete files: `IN_CHAT_TESTING.md`, `instruction_impact_notes.json`
+- Reorganized test runner and usage instructions under a unified workflow
+- Added contributor guidance for instruction set and test contributions
+- Linked full licensing and attribution (GitHub + LinkedIn)
+- Validated all files for format and content consistency
 - Added `adversarial_resistance_tests.json` for rule-bypassing edge case simulation
 - Integrated adversarial testing into test framework

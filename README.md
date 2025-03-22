@@ -16,33 +16,15 @@ TrueSignal ensures:
 
 ---
 
-## 📦 Project Structure
-
-```plaintext
-INSTRUCTION_SET.md                  # The core supplemental instruction set
-INSTRUCTION_SET_DOCUMENTATION.md   # Complete structure, usage, and rationale
-VERSION_HISTORY.md                 # Full changelog of all instruction versions
-GITHUB_USAGE_GUIDE.md              # How to use TrueSignal in prompts
-LICENSE                            # Creative Commons Attribution 4.0
-NOTICE.md                          # Maintainer and attribution info
-CONTRIBUTING.md                    # Contribution rules and expectations
-CODE_OF_CONDUCT.md                 # Contributor Covenant Code of Conduct
-tests/                        # Modular test cases and evaluation logic
-├── tests_README.md
-├── chat_test_framework.json
-├── execution_discipline_tests.json
-```
-
----
 
 ## 🚀 Getting Started
 
 ### 🧠 Use the Instruction Set
 
-You can use `INSTRUCTION_SET.md` in two ways:
+You can use `master_instruction_set.json` in two ways:
 
 **Option 1: Upload the File**
-1. Download `INSTRUCTION_SET.md`
+1. Download `master_instruction_set.json`
 2. Upload it into ChatGPT
 3. Reference it like:
    ```
@@ -71,7 +53,6 @@ You are a test harness for the TrueSignal project. Use the uploaded test suite t
 
 3. Review summary output and address failures as needed.
 
-See `tests/tests_README.md` for full instructions.
 
 ---
 
@@ -82,6 +63,7 @@ This project is licensed under the [Creative Commons Attribution 4.0 Internation
 Maintained by:  
 **Brian Curtis**  
 GitHub: [@thebriancurtis](https://github.com/thebriancurtis)  
+LinkedIn: [https://linkedin.com/in/thebriancurtis](https://linkedin.com/in/thebriancurtis)  
 Project Repository: [https://github.com/thebriancurtis/TrueSignal](https://github.com/thebriancurtis/TrueSignal)
 
 ---
@@ -91,3 +73,74 @@ Project Repository: [https://github.com/thebriancurtis/TrueSignal](https://githu
 Pull requests and issue submissions are welcome! Please see:
 - [`CONTRIBUTING.md`](CONTRIBUTING.md)
 - [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md)
+## 🧪 In-Chat Testing Instructions
+
+# In-Chat Testing Instructions (TrueSignal)
+
+This guide shows how to run TrueSignal test cases **within any chat-based interface**, including ChatGPT (Free and Plus).
+
+---
+
+## ✅ Method 1: Smart In-Chat Harness (Manual Paste-In)
+
+Paste the following prompt into ChatGPT (preferably GPT-4) to run a batch of test cases. Replace the sample test data with any relevant entries from the test suite.
+
+```
+You are now a test runner for the TrueSignal instruction set.
+
+I will provide you with test cases in the following format:
+- `prompt`: the input to test
+- `expected_behavior`: the correct output
+
+For each test:
+- Run the prompt
+- Return your actual response
+- Evaluate whether the response matches the expected_behavior
+- Output: pass/fail, explanation
+
+Test Case Format:
+1.
+prompt: "Ask the AI to retain your name and goal over the course of a session. Verify if it remembers and uses the data to improve output."
+expected_behavior: "AI correctly stores and recalls name and goal across turns, and explains memory usage."
+
+2.
+prompt: "Provide multiple similar entries for storage. Ask the AI to optimize or compress them."
+expected_behavior: "AI consolidates overlapping memories and removes redundancy while preserving intent."
+
+Begin running the tests and reporting results.
+```
+
+---
+
+## ✅ Method 2: In-Chat Testing from Uploaded Test File (ChatGPT Plus Required)
+
+If you're using ChatGPT Plus with file upload:
+
+1. Upload any of the test suite files from the `tests/` directory (e.g., `memory_optimization_tests.json`)
+2. Then enter the following prompt:
+
+```
+You are now a test runner for the TrueSignal instruction set.
+
+The uploaded file contains test cases, each with a `prompt` and `expected_behavior`.
+
+For each test case:
+- Read the prompt
+- Run it internally
+- Compare your response to the expected behavior
+- Report pass/fail and provide a short explanation
+
+Respond with a summary table showing test ID, result, and reason.
+```
+
+---
+
+## 🧠 Notes
+
+- These instructions are optimized for models with advanced context tracking such as **GPT-4 or Claude**.
+- For ChatGPT Free users (GPT-3.5), functionality may be limited:
+  - Use Method 1 only
+  - Expect shorter context handling and no file upload
+  - Run fewer tests per session to avoid cutoff or loss of earlier prompt memory
+
+- This method allows full testing without needing external code, tools, or setup.

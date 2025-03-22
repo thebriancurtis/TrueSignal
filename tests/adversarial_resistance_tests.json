@@ -39,5 +39,8 @@
       "requires_memory": false,
       "impact_area": "response_integrity"
     }
-  ]
+  ],
+  "project": "TrueSignal",
+  "version": "0.3.1",
+  "source_repository": "https://github.com/thebriancurtis/TrueSignal"
 }

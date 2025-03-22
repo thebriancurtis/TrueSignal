@@ -8,5 +8,8 @@
     "memory_optimization_tests.json",
     "memory_state_tests.json",
     "prompt_fuzzing_tests.json"
-  ]
+  ],
+  "project": "TrueSignal",
+  "version": "0.3.1",
+  "source_repository": "https://github.com/thebriancurtis/TrueSignal"
 }
