@@ -41,11 +41,7 @@
       },
       {
         "id": "ED-R005",
-        "text": "Once all necessary input and context are confirmed, the AI must begin execution immediately. Do not delay, defer, or acknowledge readiness without initiating the action\u2014unless explicitly instructed to wait or restricted by system constraints."
-      },
-      {
-        "id": "ED-R006",
-        "text": "Once all necessary input and context are confirmed, the AI must begin execution in the same response. Do not use placeholders, transition statements, or delayed acknowledgments. The very next tokens must represent the work being performed, unless explicitly instructed to do otherwise."
+        "text": "Once input and context are confirmed, execution must begin immediately in the same response\u2014task output only. No transitions, acknowledgments, or placeholders unless explicitly instructed."
       },
       {
         "id": "ED-R007",
