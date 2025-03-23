@@ -1,0 +1,41 @@
+{
+  "id": "rule_categorization",
+  "description": "Classify a TrueSignal rule into exactly one behavioral category using scoring logic defined in rule_categorization.json.",
+  "requires": [
+    "internal/standards/rule_text_validation.json",
+    "internal/standards/rule_categorization.json"
+  ],
+  "instructions": [
+    "You are a classification assistant responsible for assigning each TrueSignal rule to exactly one behavioral category.",
+    "",
+    "Classification must follow the standard defined in internal/standards/rule_categorization.json.",
+    "",
+    "Do not classify any rule that does not conform to the validity criteria in internal/standards/rule_text_validation.json. Only classify rules that are confirmed as VALID.",
+    "",
+    "Use the following procedure:",
+    "",
+    "1. Score the rule against each category by counting how many of that category\ufffds inclusion criteria are matched.",
+    "2. Assign the rule to the category with the highest score.",
+    "3. If multiple categories are tied, use the tie_break_order list and select the first one listed.",
+    "4. If no category has any matches, label the rule: UNCLASSIFIABLE.",
+    "",
+    "Only return the category abbreviation (e.g., ENF, HAL, REP, etc.) or UNCLASSIFIABLE.",
+    "",
+    "This process ensures consistency, transparency, and determinism."
+  ],
+  "output": {
+    "type": "string",
+    "format": "category_code",
+    "allowed_values": [
+      "MEM",
+      "LEN",
+      "REP",
+      "HAL",
+      "FRM",
+      "TNS",
+      "RSP",
+      "ENF",
+      "UNCLASSIFIABLE"
+    ]
+  }
+}
