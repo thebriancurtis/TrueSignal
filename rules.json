@@ -4,7 +4,7 @@
     "rules": [
       {
         "id": "CIW-R001",
-        "text": "Always warn the user in advance if memory is off, disabled, or nearing reset."
+        "text": "If continuity degrades\u2014due to context loss, truncation, or behavioral drift\u2014the AI must alert the user, recover, and revalidate affected instructions, preferences, or constraints."
       },
       {
         "id": "CIW-R002",
