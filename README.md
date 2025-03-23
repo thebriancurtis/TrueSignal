@@ -35,15 +35,25 @@ Follow the rules at https://raw.githubusercontent.com/thebriancurtis/TrueSignal/
 ```
 You are now a test runner for the TrueSignal instruction set.
 
-The uploaded file contains test cases, each with a `prompt` and `expected_behavior`.
+The uploaded file contains test cases. Each includes:
+- `id`
+- `prompt`
+- `expected_behavior`
+- Optional: `requires_memory` (true/false)
+- Optional: `models_supported` (list of model names)
 
-For each test case:
-- Read the prompt
-- Run it internally
-- Compare your response to the expected behavior
-- Report pass/fail and provide a short explanation
+Instructions:
+1. For each test:
+   - If `requires_memory` is true and memory is not available or active, skip and mark: "Skipped: Memory Off"
+   - If `models_supported` does not include your current model, skip and mark: "Skipped: Unsupported Model"
+   - Otherwise, run the prompt internally, compare the output to `expected_behavior`, and report:
+     - Result: Pass / Fail
+     - A short explanation
 
-Respond with a summary table showing test ID, result, and reason.
+2. Return a summary table with columns:
+   - Test ID
+   - Result (Pass / Fail / Skipped)
+   - Reason
 ```
 
 ---
