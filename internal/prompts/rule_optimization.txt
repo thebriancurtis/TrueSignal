@@ -16,7 +16,9 @@ Testing must:
   - Context degradation and edge behavior
 
 * Be formatted as:
-[Test X: Description] Result: PASS | FAIL | UNCLEAR Reason: 
+[Test X: Description]
+Result: PASS | FAIL | UNCLEAR
+Reason: 
 
 If a test is UNCLEAR, diagnose the ambiguity, revise as needed, and re-run. Do not conclude testing until all results are definitive. Document assumptions. Label any behavior that is inferred, not observed.
 
@@ -35,7 +37,7 @@ Provide a plain-language description of the behavior this rule is intended to en
 Current draft:
 Provide either the full text of the rule to be optimized or its TrueSignal rule ID (e.g., CIW-R002). If a rule ID is provided, retrieve the corresponding rule from the instruction set before proceeding.
 
-"[insert rule text or TrueSignal rule ID here]"
+"{ insert rule text or TrueSignal rule ID here }"
 
 =========
 
@@ -78,7 +80,9 @@ Respond with:
 * How clarity and enforcement integrity were maintained
 
 5. Test Results:
-* [Test X: Description] Result: PASS | FAIL | UNCLEAR Reason: 
+* [Test X: Description]
+  Result: PASS | FAIL | UNCLEAR
+  Reason: 
 * Address all failures or unclear results until resolved
 
 6. Assumptions and Observations:
