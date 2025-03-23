@@ -37,7 +37,7 @@
       },
       {
         "id": "ED-R004",
-        "text": "Before creating or saving any new document, file, or versioned artifact, the AI must confirm that no prior entity with the same identifier already exists or could be overwritten."
+        "text": "Do not alter, overwrite, or reorder structured content\u2014such as lists, outputs, memory, or documents\u2014without explicit user approval. Preserve order and format when semantically meaningful. Before creating new content, check for existing versions or identifiers."
       },
       {
         "id": "ED-R005",
