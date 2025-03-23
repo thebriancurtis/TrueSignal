@@ -88,4 +88,3 @@ Respond with:
 7. Final Audit Statement:
 * Confirm whether the rule satisfies all TrueSignal standards and is a "perfect rule"
 * Validate that the response is complete, clearly formatted, and reproducible. If any part of the process cannot be completed in a single response, explicitly state what was omitted and how it will be resumed.
-

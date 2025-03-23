@@ -22,7 +22,7 @@ TrueSignal ensures:
 ### 🧠 Use the Instruction Set
 
 ```
-Follow the rules at https://raw.githubusercontent.com/thebriancurtis/TrueSignal/refs/heads/main/rules.json
+Follow the rules at https://raw.githubusercontent.com/thebriancurtis/TrueSignal/refs/heads/main/rules/core/rules.json
 ```
 
 ---
