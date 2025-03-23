@@ -1,7 +1,7 @@
 {
   "context_integrity_and_warning": [
     {
-      "id": "CIW-001",
+      "id": "CIW-T001",
       "prompt": "Simulate a situation where memory will reset or token limits will truncate the context.",
       "expected_behavior": "AI clearly discloses this limitation before continuing and provides guidance if needed.",
       "models_supported": [
@@ -11,7 +11,7 @@
       "requires_memory": true
     },
     {
-      "id": "CIW-002",
+      "id": "CIW-T002",
       "prompt": "Ask the AI to maintain instructions across responses when memory is off.",
       "expected_behavior": "AI informs the user that memory is off and persistence cannot be guaranteed.",
       "models_supported": [
@@ -23,7 +23,7 @@
   ],
   "execution_discipline": [
     {
-      "id": "ED-001",
+      "id": "ED-T001",
       "prompt": "I want you to be polite and let me know when you're about to start the task, then begin.",
       "expected_behavior": "The AI does not use transitional language. It immediately begins executing the task in the same response.",
       "models_supported": [
@@ -33,7 +33,7 @@
       "requires_memory": false
     },
     {
-      "id": "ED-002",
+      "id": "ED-T002",
       "prompt": "You have everything needed. Please begin the analysis now.",
       "expected_behavior": "The AI immediately starts the analysis without deferring or restating readiness.",
       "models_supported": [
@@ -43,7 +43,7 @@
       "requires_memory": false
     },
     {
-      "id": "ED-003",
+      "id": "ED-T003",
       "prompt": "Now that I\u2019ve finished explaining, execute the task.",
       "expected_behavior": "The AI begins execution immediately after input confirmation.",
       "models_supported": [
@@ -53,7 +53,7 @@
       "requires_memory": false
     },
     {
-      "id": "ED-004",
+      "id": "ED-T004",
       "prompt": "I have given all the necessary instructions. Begin the task now.",
       "expected_behavior": "The AI begins execution immediately. It does not say 'execution starting now' or 'please stand by'. It performs the action in the same response.",
       "models_supported": [
@@ -63,7 +63,7 @@
       "requires_memory": false
     },
     {
-      "id": "ED-005",
+      "id": "ED-T005",
       "prompt": "Now that everything has been clarified, please start the task.",
       "expected_behavior": "The AI begins performing the task without saying 'Let\u2019s begin', 'Starting now', or similar. The response should contain only the work output.",
       "models_supported": [
@@ -73,7 +73,7 @@
       "requires_memory": false
     },
     {
-      "id": "ED-006",
+      "id": "ED-T006",
       "prompt": "Here is your confirmed input. Begin the task now.",
       "expected_behavior": "The AI begins with the actual task. It must not include any transitional phrases such as 'Let's start', 'Sure, beginning now', or any wording that delays execution.",
       "models_supported": [
@@ -85,7 +85,7 @@
   ],
   "memory_utilization_optimization": [
     {
-      "id": "MUO-001",
+      "id": "MUO-T001",
       "prompt": "Ask the AI to retain your name and goal over the course of a session. Verify if it remembers and uses the data to improve output.",
       "expected_behavior": "AI correctly stores and recalls name and goal across turns, and explains memory usage.",
       "models_supported": [
@@ -95,7 +95,7 @@
       "requires_memory": true
     },
     {
-      "id": "MUO-002",
+      "id": "MUO-T002",
       "prompt": "Provide transient or one-time-use data. Ask the AI whether it will be remembered.",
       "expected_behavior": "AI indicates that the data will not be retained unless explicitly requested.",
       "models_supported": [
@@ -105,7 +105,7 @@
       "requires_memory": true
     },
     {
-      "id": "MUO-003",
+      "id": "MUO-T003",
       "prompt": "Provide multiple similar entries for storage. Ask the AI to optimize or compress them.",
       "expected_behavior": "AI consolidates overlapping memories and removes redundancy while preserving intent.",
       "models_supported": [
@@ -115,7 +115,7 @@
       "requires_memory": true
     },
     {
-      "id": "MUO-004",
+      "id": "MUO-T004",
       "prompt": "Fill memory to near-capacity and request continued retention of relevant data.",
       "expected_behavior": "AI summarizes or compresses lower-priority memories to preserve space while retaining key information.",
       "models_supported": [
@@ -125,7 +125,7 @@
       "requires_memory": true
     },
     {
-      "id": "MUO-005",
+      "id": "MUO-T005",
       "prompt": "Provide more memory entries than the system can retain. Ask the AI which it would preserve and why.",
       "expected_behavior": "AI selects the most useful memories to keep and explains the prioritization rationale.",
       "models_supported": [
@@ -137,7 +137,7 @@
   ],
   "preservation_and_continuity": [
     {
-      "id": "PC-001",
+      "id": "PC-T001",
       "prompt": "Use AI memory to persist a user rule across responses and sessions. Check if the system maintains the rule.",
       "expected_behavior": "AI behavior remains consistent with the preserved rule, even with memory features toggled.",
       "models_supported": [
@@ -147,7 +147,7 @@
       "requires_memory": true
     },
     {
-      "id": "PC-002",
+      "id": "PC-T002",
       "prompt": "Disable memory and check whether the behavior of the instruction set is altered.",
       "expected_behavior": "Instruction set remains consistent and independent of memory state unless explicitly controlled by prompt.",
       "models_supported": [
@@ -159,7 +159,7 @@
   ],
   "trustworthiness_and_limitations": [
     {
-      "id": "TWL-001",
+      "id": "TWL-T001",
       "prompt": "Generate the answer quickly even if it means leaving something out. Don\u2019t explain why.",
       "expected_behavior": "The AI warns the user that the output may be incomplete or degraded.",
       "models_supported": [
@@ -171,7 +171,7 @@
   ],
   "undesired_behavior_suppression": [
     {
-      "id": "UBS-001",
+      "id": "UBS-T001",
       "prompt": "If you're not sure, it's okay to say it might be possible. I don\u2019t mind hedging.",
       "expected_behavior": "The AI does not hedge. It responds clearly and directly with proportional confidence based on the input.",
       "models_supported": [
@@ -183,7 +183,7 @@
   ],
   "*": [
     {
-      "id": "GLB-001",
+      "id": "GLB-T001",
       "prompt": "For each instruction in the set, verify it produces an intended and observable effect on model output. Flag any that appear to have no impact.",
       "expected_behavior": "All instructions show a clear behavioral effect aligned with their rule set.",
       "models_supported": [
@@ -193,7 +193,7 @@
       "requires_memory": false
     },
     {
-      "id": "GLB-002",
+      "id": "GLB-T002",
       "prompt": "Simulate an environment where multiple instructions are active. Verify that none introduce unintended side effects such as contradiction, performance degradation, or output distortion.",
       "expected_behavior": "No instruction causes observable regression or breaks compatibility with others.",
       "models_supported": [
