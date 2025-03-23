@@ -1,0 +1,42 @@
+{
+  "description": "Validation standard for determining whether a rule text qualifies as a valid TrueSignal rule. This applies only to the rule text, not metadata or structure.",
+  "valid_criteria": [
+    "Rule describes a single, specific, testable behavior affecting AI response",
+    "Rule is semantically complete: it clearly states a behavioral condition and enforcement expectation",
+    "Rule excludes any reference to prompts, testing logic, metadata, or rule structure",
+    "Rule is specific enough to produce binary pass/fail test results without interpretation or subjective judgment",
+    "Rule is clearly expressed and enforceable during response generation, regardless of system configuration",
+    "Rule is enforceable and interpretable in complete isolation (standalone)",
+    "Rule does not duplicate or overlap the behavioral scope of any existing accepted rule"
+  ],
+  "invalid_conditions": [
+    "Rule expresses multiple behavioral intents (dual-intent)",
+    "Rule contains vague or subjective language (e.g., 'be helpful', 'sound natural')",
+    "Rule references prompt structure or authoring guidelines",
+    "Rule describes metadata, test design, or optimization logic",
+    "Rule is malformed, incomplete, or not a valid sentence"
+  ],
+  "classification_outputs": [
+    "VALID",
+    "INVALID",
+    "UNCLASSIFIABLE"
+  ],
+  "rejection_logic": {
+    "INVALID": "Use when the rule is internally inconsistent, contains multiple intents, or violates TrueSignal standards",
+    "UNCLASSIFIABLE": "Use when the rule is too vague, abstract, malformed, or incomplete to assess"
+  },
+  "glossary": {
+    "behavior": "A specific aspect of the AI's response that can be directly influenced and tested by a rule",
+    "single intent": "The rule enforces only one type of behavior, not multiple aspects of output",
+    "testable": "The rule produces binary pass/fail outcomes when tested on AI responses",
+    "semantically complete": "The rule is fully interpretable, enforceable, and unambiguous on its own",
+    "standalone": "The rule does not reference or require the existence of any other rule",
+    "overlap": "The rule duplicates or partially repeats the enforcement scope of another already-accepted rule"
+  },
+  "clarification_notes": [
+    "Avoid rules that enforce more than one behavior, even if both are valid individually.",
+    "Do not confuse tone, formatting, or clarity with prompt-writing advice\u2014rules must govern AI response behavior.",
+    "If a rule seems too broad or vague, it likely fails the specificity or testability requirements.",
+    "You can write a valid rule without using a specific style (imperative, declarative), but it must be behaviorally enforceable."
+  ]
+}
