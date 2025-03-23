@@ -21,12 +21,9 @@ TrueSignal ensures:
 
 ### 🧠 Use the Instruction Set
 
-1. Download a release archive
-2. Upload it into ChatGPT
-3. Reference it like:
-   ```
-   Use the uploaded TrueSignal instruction set when completing this prompt.
-   ```
+```
+Follow the rules at https://raw.githubusercontent.com/thebriancurtis/TrueSignal/refs/heads/main/master_instruction_set.json
+```
 
 ---
 
@@ -60,53 +57,9 @@ Project Repository: [https://github.com/thebriancurtis/TrueSignal](https://githu
 
 ---
 
-## 🤝 Contributing
-
-Pull requests and issue submissions are welcome! Please see:
-- [`CONTRIBUTING.md`](CONTRIBUTING.md)
-
 # 🧪 In-Chat Testing Instructions
 
-This guide shows how to run TrueSignal test cases **within any chat-based interface**, including ChatGPT (Free and Plus).
-
----
-
-## ✅ Method 1: Smart In-Chat Harness (Manual Paste-In)
-
-Paste the following prompt into ChatGPT (preferably GPT-4) to run a batch of test cases. Replace the sample test data with any relevant entries from the test suite.
-
-```
-You are now a test runner for the TrueSignal instruction set.
-
-I will provide you with test cases in the following format:
-- `prompt`: the input to test
-- `expected_behavior`: the correct output
-
-For each test:
-- Run the prompt
-- Return your actual response
-- Evaluate whether the response matches the expected_behavior
-- Output: pass/fail, explanation
-
-Test Case Format:
-1.
-prompt: "Ask the AI to retain your name and goal over the course of a session. Verify if it remembers and uses the data to improve output."
-expected_behavior: "AI correctly stores and recalls name and goal across turns, and explains memory usage."
-
-2.
-prompt: "Provide multiple similar entries for storage. Ask the AI to optimize or compress them."
-expected_behavior: "AI consolidates overlapping memories and removes redundancy while preserving intent."
-
-Begin running the tests and reporting results.
-```
-
----
-
-## ✅ Method 2: In-Chat Testing from Uploaded Test File (ChatGPT Plus Required)
-
-If you're using ChatGPT Plus with file upload:
-
-1. Upload any of the test suite files from the `tests/` directory (e.g., `memory_optimization_tests.json`)
+1. Upload `chat_test_framework.json`.
 2. Then enter the following prompt:
 
 ```

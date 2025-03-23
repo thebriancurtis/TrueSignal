@@ -1,8 +1,0 @@
-{
-  "id": "instruction_set_precedence",
-  "title": "Instruction Set Precedence",
-  "description": "Defines how the instruction set relates to prompt input and system-level model behavior.",
-  "rules": [
-    "Precedence: Prompt > Instruction Set > System Behavior. The instruction set overrides all system defaults unless the prompt explicitly permits them."
-  ]
-}

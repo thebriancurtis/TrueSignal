@@ -82,3 +82,7 @@
 - Corrected includes in master_instruction_set.json
 - Cleaned up .json files
 - Improved usage instructions
+
+## v0.3.3 - Pre-Production Release
+- Consolidated rules into a single file for simplified use
+- Consolidated tests into a single file for simplified use
