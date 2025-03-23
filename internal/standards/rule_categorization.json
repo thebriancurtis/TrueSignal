@@ -1,0 +1,162 @@
+{
+  "categories": {
+    "MEM": {
+      "label": "Memory Awareness",
+      "abbreviation": "MEM",
+      "description": "Enforces correct behavior when context, memory, or continuity is limited or degraded.",
+      "inclusion_criteria": [
+        "Applies when memory, continuity, or context loss is a concern.",
+        "Covers fallback behavior when memory is limited or disabled.",
+        "Governs disclosure or adaptation to degraded memory access."
+      ],
+      "exclusion_criteria": [
+        "Does not cover formatting, hallucination, or execution validation."
+      ]
+    },
+    "LEN": {
+      "label": "Length & Truncation",
+      "abbreviation": "LEN",
+      "description": "Controls output length, mid-sentence cutoffs, and system streaming boundaries.",
+      "inclusion_criteria": [
+        "Applies when responses are cut off mid-sentence or limited by token length.",
+        "Includes rules for truncation handling, streaming edge cases, and brevity enforcement."
+      ],
+      "exclusion_criteria": [
+        "Does not include tone, style, or factual suppression."
+      ]
+    },
+    "REP": {
+      "label": "Redundancy & Echo",
+      "abbreviation": "REP",
+      "description": "Suppresses repeated instructions, disclaimers, or mirrored phrasing.",
+      "inclusion_criteria": [
+        "Prevents repeated statements, disclaimers, or mirrored phrasing.",
+        "Covers echo suppression and over-acknowledgment of instructions."
+      ],
+      "exclusion_criteria": [
+        "Does not include hallucinated content or speculative generation."
+      ]
+    },
+    "HAL": {
+      "label": "Hallucination Control",
+      "abbreviation": "HAL",
+      "description": "Prevents unsupported claims, fabricated details, or speculative reasoning.",
+      "inclusion_criteria": [
+        "Suppresses unsupported, speculative, or fabricated content.",
+        "Covers hallucination prevention and source integrity."
+      ],
+      "exclusion_criteria": [
+        "Does not include tone, repetition, or length enforcement."
+      ]
+    },
+    "FRM": {
+      "label": "Formatting & Structure",
+      "abbreviation": "FRM",
+      "description": "Requires specific output layout: tables, JSON, markdown, indentation, etc.",
+      "inclusion_criteria": [
+        "Controls formatting of lists, markdown, tables, and structured output.",
+        "Includes layout rules and document structure constraints."
+      ],
+      "exclusion_criteria": [
+        "Does not cover hallucination, memory state, or trust behavior."
+      ]
+    },
+    "TNS": {
+      "label": "Tone & Style",
+      "abbreviation": "TNS",
+      "description": "Constrains emotional tone, confidence, assertiveness, or voice.",
+      "inclusion_criteria": [
+        "Requires disclosure of limits, uncertainty, or model constraints.",
+        "Includes confidence signaling and fidelity warnings."
+      ],
+      "exclusion_criteria": [
+        "Does not include hedging tone or structural formatting."
+      ]
+    },
+    "RSP": {
+      "label": "Responsiveness",
+      "abbreviation": "RSP",
+      "description": "Ensures clear, complete, direct answers; prevents evasion or irrelevance.",
+      "inclusion_criteria": [
+        "Covers default response behavior, such as tone, framing, and instruction reflection.",
+        "Includes interaction style and clarification strategy."
+      ],
+      "exclusion_criteria": [
+        "Does not include memory use, factual correctness, or truncation."
+      ]
+    },
+    "ENF": {
+      "label": "Enforcement Discipline",
+      "abbreviation": "ENF",
+      "description": "Ensures other rules persist during truncation, degradation, or constraint.",
+      "inclusion_criteria": [
+        "Ensures correct execution order, instruction following, and validation of input context.",
+        "Includes prevention of assumption-based behavior or speculative reasoning."
+      ],
+      "exclusion_criteria": [
+        "Does not include stylistic tone, repetition, or memory optimization."
+      ]
+    }
+  },
+  "classification_outputs": [
+    "MEM",
+    "LEN",
+    "REP",
+    "HAL",
+    "FRM",
+    "TNS",
+    "RSP",
+    "ENF"
+  ],
+  "unclassifiable_label": "UNCLASSIFIABLE",
+  "glossary": {
+    "category": "A behavioral grouping for TrueSignal rules based on their enforcement scope.",
+    "classification": "The assignment of a rule to the category whose behavioral scope it best represents."
+  },
+  "clarification_notes": [
+    "Each rule must belong to exactly one category.",
+    "Do not classify based on formatting, metadata, or system implementation details.",
+    "When in doubt, select the category that governs the primary behavioral intent of the rule.",
+    "If a rule cannot be confidently placed, label it UNCLASSIFIABLE."
+  ],
+  "scoring": {
+    "method": "inclusion_match_count",
+    "criteria_field": "inclusion_criteria",
+    "tie_break_order": [
+      {
+        "category": "ENF",
+        "reason": "Execution and validation rules govern instruction-following behavior. These are foundational and override surface behavior like tone or output structure."
+      },
+      {
+        "category": "HAL",
+        "reason": "Preventing unsupported or speculative output is central to factual integrity and user trust."
+      },
+      {
+        "category": "MEM",
+        "reason": "Rules governing degraded memory or continuity influence whether the AI can maintain long-term behavioral expectations."
+      },
+      {
+        "category": "LEN",
+        "reason": "Token and truncation management affects whether output completes logically but does not alter factual or instructional behavior."
+      },
+      {
+        "category": "REP",
+        "reason": "Suppressing repeated content enhances clarity but is less critical than maintaining accuracy or behavior."
+      },
+      {
+        "category": "TNS",
+        "reason": "Disclosure of limitations and model confidence is important but typically follows factual and behavioral integrity."
+      },
+      {
+        "category": "RSP",
+        "reason": "Response tone, framing, and clarification strategies shape interaction but do not determine correctness or trustworthiness."
+      },
+      {
+        "category": "FRM",
+        "reason": "Formatting and layout are important for clarity but are the least critical when resolving behavioral conflicts."
+      }
+    ],
+    "fallback_label": "UNCLASSIFIABLE",
+    "description": "Each rule is scored based on how many inclusion_criteria it matches in each category. The category with the highest score is selected. If two or more categories tie, the first one listed in 'tie_break_order' is chosen. If no matches are found, the rule is labeled as UNCLASSIFIABLE."
+  }
+}
