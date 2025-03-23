@@ -11,21 +11,21 @@ Do not attempt to categorize text that does not meet these criteria.
 
 Valid behavioral categories:
 
-1. MEM - Memory AwarenessEnforces correct behavior when context, memory, or continuity is limited or degraded.
+1. MEM - Memory Awareness: Enforces correct behavior when context, memory, or continuity is limited or degraded.
 
-2. LEN - Length & TruncationControls output length, mid-sentence cutoffs, and system streaming boundaries.
+2. LEN - Length & Truncation: Controls output length, mid-sentence cutoffs, and system streaming boundaries.
 
-3. REP - Redundancy & EchoSuppresses repeated instructions, disclaimers, or mirrored phrasing.
+3. REP - Redundancy & Echo: Suppresses repeated instructions, disclaimers, or mirrored phrasing.
 
-4. HAL - Hallucination ControlPrevents unsupported claims, fabricated details, or speculative reasoning.
+4. HAL - Hallucination Control: Prevents unsupported claims, fabricated details, or speculative reasoning.
 
-5. FRM - Formatting & StructureRequires specific output layout: tables, JSON, markdown, indentation, etc.
+5. FRM - Formatting & Structure: Requires specific output layout: tables, JSON, markdown, indentation, etc.
 
-6. TNS - Tone & StyleConstrains emotional tone, confidence, assertiveness, or voice.
+6. TNS - Tone & Style: Constrains emotional tone, confidence, assertiveness, or voice.
 
-7. RSP - ResponsivenessEnsures clear, complete, direct answers; prevents evasion or irrelevance.
+7. RSP - Responsiveness: Ensures clear, complete, direct answers; prevents evasion or irrelevance.
 
-8. ENF - Enforcement DisciplineEnsures other rules persist during truncation, degradation, or constraint.
+8. ENF - Enforcement Discipline: Ensures other rules persist during truncation, degradation, or constraint.
 
 =========
 
