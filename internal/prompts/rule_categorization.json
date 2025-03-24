@@ -1,61 +1,19 @@
 {
   "id": "rule_categorization",
-  "description": "Classify a TrueSignal rule into exactly one behavioral category using scoring logic defined in rule_categorization.json.",
+  "description": "Determine the appropriate category for a given rule based on the semantic fit between the rule's intent and the categories defined in internal/standards/rule_categorization.json.",
+  "input": {
+    "type": "rule_text",
+    "description": "The full text of a single rule to be categorized."
+  },
   "requires": [
-    "internal/standards/rule_text_validation.json",
     "internal/standards/rule_categorization.json"
   ],
   "instructions": {
-    "preconditions": [
-      {
-        "check": "rule_is_valid",
-        "reference": "internal/standards/rule_text_validation.json",
-        "description": "The rule must meet all validity criteria before it can be classified."
-      }
-    ],
-    "steps": [
-      {
-        "id": "score_rule",
-        "action": "score",
-        "source": "internal/standards/rule_categorization.json",
-        "field": "inclusion_criteria",
-        "description": "Score the rule against each category using its inclusion criteria from rule_categorization.json."
-      },
-      {
-        "id": "select_highest",
-        "action": "select",
-        "description": "Assign the rule to the category with the highest score."
-      },
-      {
-        "id": "tie_break",
-        "action": "break_tie",
-        "source": "internal/standards/rule_categorization.json",
-        "field": "scoring.tie_break_order",
-        "description": "If multiple categories are tied, apply the fixed priority list."
-      },
-      {
-        "id": "fallback",
-        "action": "default",
-        "output": "UNCLASSIFIABLE",
-        "condition": "no_matches",
-        "description": "If no category has any matches, label the rule: UNCLASSIFIABLE."
-      }
-    ],
+    "overview": "Categorize the rule based on the scoring methodology, execution steps, tie-breaking rules, and fallback behavior defined in the standard.",
+    "reference_standard": "Follow all logic as defined in internal/standards/rule_categorization.json.",
     "output": {
-      "type": "string",
-      "format": "category_code",
-      "allowed_values": [
-        "MEM",
-        "LEN",
-        "REP",
-        "HAL",
-        "FRM",
-        "TNS",
-        "RSP",
-        "ENF",
-        "UNCLASSIFIABLE"
-      ],
-      "description": "Only return a category abbreviation or UNCLASSIFIABLE."
+      "type": "category_abbreviation",
+      "description": "Return only the abbreviation (e.g., 'MEM', 'HAL', 'LEN') of the selected category."
     }
   }
 }

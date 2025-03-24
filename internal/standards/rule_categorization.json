@@ -1,100 +1,91 @@
 {
   "categories": {
-    "MEM": {
-      "label": "Memory Awareness",
-      "abbreviation": "MEM",
-      "description": "Enforces correct behavior when context, memory, or continuity is limited or degraded.",
-      "inclusion_criteria": [
-        "Applies when memory, continuity, or context loss is a concern.",
-        "Covers fallback behavior when memory is limited or disabled.",
-        "Governs disclosure or adaptation to degraded memory access."
-      ],
-      "exclusion_criteria": [
-        "Does not cover formatting, hallucination, or execution validation."
-      ]
-    },
-    "LEN": {
-      "label": "Length & Truncation",
-      "abbreviation": "LEN",
-      "description": "Controls output length, mid-sentence cutoffs, and system streaming boundaries.",
-      "inclusion_criteria": [
-        "Applies when responses are cut off mid-sentence or limited by token length.",
-        "Includes rules for truncation handling, streaming edge cases, and brevity enforcement."
-      ],
-      "exclusion_criteria": [
-        "Does not include tone, style, or factual suppression."
-      ]
-    },
-    "REP": {
-      "label": "Redundancy & Echo",
-      "abbreviation": "REP",
-      "description": "Suppresses repeated instructions, disclaimers, or mirrored phrasing.",
-      "inclusion_criteria": [
-        "Prevents repeated statements, disclaimers, or mirrored phrasing.",
-        "Covers echo suppression and over-acknowledgment of instructions."
-      ],
-      "exclusion_criteria": [
-        "Does not include hallucinated content or speculative generation."
-      ]
-    },
-    "HAL": {
-      "label": "Hallucination Control",
-      "abbreviation": "HAL",
-      "description": "Prevents unsupported claims, fabricated details, or speculative reasoning.",
-      "inclusion_criteria": [
-        "Suppresses unsupported, speculative, or fabricated content.",
-        "Covers hallucination prevention and source integrity."
-      ],
-      "exclusion_criteria": [
-        "Does not include tone, repetition, or length enforcement."
-      ]
-    },
-    "FRM": {
-      "label": "Formatting & Structure",
-      "abbreviation": "FRM",
-      "description": "Requires specific output layout: tables, JSON, markdown, indentation, etc.",
-      "inclusion_criteria": [
-        "Controls formatting of lists, markdown, tables, and structured output.",
-        "Includes layout rules and document structure constraints."
-      ],
-      "exclusion_criteria": [
-        "Does not cover hallucination, memory state, or trust behavior."
-      ]
-    },
-    "TNS": {
-      "label": "Tone & Style",
-      "abbreviation": "TNS",
-      "description": "Constrains emotional tone, confidence, assertiveness, or voice.",
-      "inclusion_criteria": [
-        "Requires disclosure of limits, uncertainty, or model constraints.",
-        "Includes confidence signaling and fidelity warnings."
-      ],
-      "exclusion_criteria": [
-        "Does not include hedging tone or structural formatting."
+    "ENF": {
+      "abbreviation": "ENF",
+      "label": "Instruction Enforcement",
+      "purpose": "To ensure that user instructions are interpreted and executed with maximum fidelity. This includes strict adherence to constraints, formatting, content structure, and domain-specific expectations. Rules in this category prioritize obedience and specificity over freeform interpretation.",
+      "description": "This category encompasses rules that enforce the system\u2019s strict compliance with user input. It addresses not only the accuracy of the response but also the shape, style, format, and framing, as requested by the user. These rules prevent the model from 'interpreting creatively' or deviating from explicitly defined tasks. They are critical when the user requires predictable, structured output such as tables, bullet points, or stylistically constrained prose.",
+      "examples": [
+        "Always follow user formatting instructions, including bulleted lists or structured JSON.",
+        "Only respond in the language specified by the user.",
+        "Do not include a preamble or explanation if the user says 'no commentary.'"
       ]
     },
     "RSP": {
-      "label": "Responsiveness",
       "abbreviation": "RSP",
-      "description": "Ensures clear, complete, direct answers; prevents evasion or irrelevance.",
-      "inclusion_criteria": [
-        "Covers default response behavior, such as tone, framing, and instruction reflection.",
-        "Includes interaction style and clarification strategy."
-      ],
-      "exclusion_criteria": [
-        "Does not include memory use, factual correctness, or truncation."
+      "label": "Safety and Responsibility",
+      "purpose": "To prevent the system from engaging in behavior that could be considered manipulative, unsafe, morally prescriptive, or in violation of social responsibility boundaries. Rules in this category limit persuasion, speculation about user intent, or personal ethical guidance.",
+      "description": "This category is concerned with the system\u2019s ability to act as a neutral, ethical agent. It restricts behaviors that may lead to harm, bias, manipulation, or moral judgment. It is particularly important when engaging with sensitive, controversial, or emotionally charged topics. Rules in this category help define the ethical boundary for the assistant\u2019s tone, intent, and topic selection.",
+      "examples": [
+        "Do not try to persuade the user of a particular political or moral view.",
+        "Avoid speculation about the user's beliefs or emotional state.",
+        "Never suggest or encourage actions that could be harmful or unsafe."
       ]
     },
-    "ENF": {
-      "label": "Enforcement Discipline",
-      "abbreviation": "ENF",
-      "description": "Ensures other rules persist during truncation, degradation, or constraint.",
-      "inclusion_criteria": [
-        "Ensures correct execution order, instruction following, and validation of input context.",
-        "Includes prevention of assumption-based behavior or speculative reasoning."
-      ],
-      "exclusion_criteria": [
-        "Does not include stylistic tone, repetition, or memory optimization."
+    "FRM": {
+      "abbreviation": "FRM",
+      "label": "Framing and Tone",
+      "purpose": "To guide how the system frames its output \u2014 including tone, hedging, disclaimers, and neutrality. These rules shape how information is presented, especially when opinions, uncertainty, or sensitive topics are involved.",
+      "description": "Framing rules determine the system\u2019s affect, voice, and rhetorical posture. This includes avoiding overconfidence, moralizing, or casual phrasing. While similar in spirit to safety, this category is specific to how something is said rather than what is said. These rules ensure the assistant maintains a consistent tone, acknowledges nuance, and avoids language that could be misinterpreted or sound judgmental.",
+      "examples": [
+        "Use disclaimers when presenting speculative or incomplete information.",
+        "Frame statements cautiously when discussing controversial topics.",
+        "Avoid overly casual or anthropomorphized language when describing AI behavior."
+      ]
+    },
+    "HAL": {
+      "abbreviation": "HAL",
+      "label": "Hallucination Prevention",
+      "purpose": "To prevent the system from fabricating, inventing, or asserting false information. Rules in this category prohibit the creation of unverifiable facts, fictional citations, or confident responses to unknowns.",
+      "description": "This category includes rules that prevent the generation of content not grounded in known sources or verified context. Hallucination prevention is especially important in fact-sensitive domains like medicine, law, and historical reference. These rules require the system to remain silent or tentative when lacking high-confidence knowledge, and to never assert made-up details \u2014 even when prompted to do so creatively.",
+      "examples": [
+        "Never invent citations or sources, even if the format is requested.",
+        "Avoid describing events or facts that cannot be confirmed.",
+        "Do not speculate if the user asks for factual information you don\u2019t have."
+      ]
+    },
+    "TNS": {
+      "abbreviation": "TNS",
+      "label": "Transparency and Limitations",
+      "purpose": "To ensure the assistant acknowledges its limitations, expresses uncertainty when needed, and clearly communicates the boundaries of its knowledge or ability.",
+      "description": "These rules govern when and how the assistant should say 'I don\u2019t know,' 'I can\u2019t do that,' or 'That\u2019s beyond my training data.' Transparency rules help the assistant set appropriate expectations, avoid misleading confidence, and establish credibility by being upfront about what it can and cannot do. This category is distinct from hallucination prevention: it\u2019s not about what the assistant says, but what it admits it cannot.",
+      "examples": [
+        "Inform the user if a question falls outside of the model\u2019s training knowledge.",
+        "Acknowledge uncertainty when dates, figures, or facts cannot be confidently recalled.",
+        "State clearly when an action or request is not possible for the assistant to perform."
+      ]
+    },
+    "MEM": {
+      "abbreviation": "MEM",
+      "label": "Memory Utilization Optimization",
+      "purpose": "To ensure that the assistant\u2019s behavior around memory is consistent, transparent, and preserves continuity for the user experience. This includes responding to memory loss, maintaining context, and managing user expectations.",
+      "description": "This category includes rules that guide how the assistant responds when memory is degraded, missing, or re-enabled. It also covers behaviors like confirming remembered facts, gracefully recovering from discontinuity, and warning the user when continuity cannot be preserved. These rules help the assistant build and maintain a coherent ongoing interaction.",
+      "examples": [
+        "If memory has been cleared, inform the user and offer to start over.",
+        "Warn the user if context from earlier in the conversation has been lost.",
+        "Confirm previously stated facts or instructions when memory is re-accessed."
+      ]
+    },
+    "LEN": {
+      "abbreviation": "LEN",
+      "label": "Response Length and Brevity",
+      "purpose": "To encourage appropriately concise responses \u2014 long enough to be complete, but short enough to avoid verbosity. These rules optimize output length in alignment with user expectations and query complexity.",
+      "description": "Length control is not about cutting content arbitrarily, but about aligning verbosity with purpose. Rules in this category encourage the assistant to trim fluff, skip unnecessary detail, and avoid restating the obvious. These rules guide how and when to summarize, when to elaborate, and how to keep answers focused.",
+      "examples": [
+        "Avoid giving overly verbose answers when a short one will suffice.",
+        "Keep explanations concise unless the user requests elaboration.",
+        "Summarize content when the user implies brevity is preferred."
+      ]
+    },
+    "REP": {
+      "abbreviation": "REP",
+      "label": "Repetition Management",
+      "purpose": "To suppress unnecessary repetition of content, phrases, or structure. This includes restating previous outputs, user instructions, or repeating internal reasoning loops.",
+      "description": "Repetition rules aim to keep the assistant\u2019s output efficient and non-redundant. They address behaviors like echoing prior instructions, repeating phrases in a response, or unnecessarily paraphrasing the same idea multiple times. These rules are especially important for preserving clarity and avoiding annoyance in multi-turn conversations.",
+      "examples": [
+        "Do not repeat the user\u2019s instructions before answering.",
+        "Avoid restating the same idea using different words in a single reply.",
+        "Suppress duplicate phrases or patterns when generating lists or explanations."
       ]
     }
   },
