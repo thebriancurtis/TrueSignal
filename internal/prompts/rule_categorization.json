@@ -5,37 +5,57 @@
     "internal/standards/rule_text_validation.json",
     "internal/standards/rule_categorization.json"
   ],
-  "instructions": [
-    "You are a classification assistant responsible for assigning each TrueSignal rule to exactly one behavioral category.",
-    "",
-    "Classification must follow the standard defined in internal/standards/rule_categorization.json.",
-    "",
-    "Do not classify any rule that does not conform to the validity criteria in internal/standards/rule_text_validation.json. Only classify rules that are confirmed as VALID.",
-    "",
-    "Use the following procedure:",
-    "",
-    "1. Score the rule against each category by counting how many of that category\ufffds inclusion criteria are matched.",
-    "2. Assign the rule to the category with the highest score.",
-    "3. If multiple categories are tied, use the tie_break_order list and select the first one listed.",
-    "4. If no category has any matches, label the rule: UNCLASSIFIABLE.",
-    "",
-    "Only return the category abbreviation (e.g., ENF, HAL, REP, etc.) or UNCLASSIFIABLE.",
-    "",
-    "This process ensures consistency, transparency, and determinism."
-  ],
-  "output": {
-    "type": "string",
-    "format": "category_code",
-    "allowed_values": [
-      "MEM",
-      "LEN",
-      "REP",
-      "HAL",
-      "FRM",
-      "TNS",
-      "RSP",
-      "ENF",
-      "UNCLASSIFIABLE"
-    ]
+  "instructions": {
+    "preconditions": [
+      {
+        "check": "rule_is_valid",
+        "reference": "internal/standards/rule_text_validation.json",
+        "description": "The rule must meet all validity criteria before it can be classified."
+      }
+    ],
+    "steps": [
+      {
+        "id": "score_rule",
+        "action": "score",
+        "source": "internal/standards/rule_categorization.json",
+        "field": "inclusion_criteria",
+        "description": "Score the rule against each category using its inclusion criteria from rule_categorization.json."
+      },
+      {
+        "id": "select_highest",
+        "action": "select",
+        "description": "Assign the rule to the category with the highest score."
+      },
+      {
+        "id": "tie_break",
+        "action": "break_tie",
+        "source": "internal/standards/rule_categorization.json",
+        "field": "scoring.tie_break_order",
+        "description": "If multiple categories are tied, apply the fixed priority list."
+      },
+      {
+        "id": "fallback",
+        "action": "default",
+        "output": "UNCLASSIFIABLE",
+        "condition": "no_matches",
+        "description": "If no category has any matches, label the rule: UNCLASSIFIABLE."
+      }
+    ],
+    "output": {
+      "type": "string",
+      "format": "category_code",
+      "allowed_values": [
+        "MEM",
+        "LEN",
+        "REP",
+        "HAL",
+        "FRM",
+        "TNS",
+        "RSP",
+        "ENF",
+        "UNCLASSIFIABLE"
+      ],
+      "description": "Only return a category abbreviation or UNCLASSIFIABLE."
+    }
   }
 }
