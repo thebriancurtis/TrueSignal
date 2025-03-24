@@ -16,11 +16,7 @@
     "Rule describes metadata, test design, or optimization logic",
     "Rule is malformed, incomplete, or not a valid sentence"
   ],
-  "classification_outputs": [
-    "VALID",
-    "INVALID",
-    "UNCLASSIFIABLE"
-  ],
+  "classification_outputs": [ "VALID", "INVALID", "UNCLASSIFIABLE" ],
   "rejection_logic": {
     "INVALID": "Use when the rule is internally inconsistent, contains multiple intents, or violates TrueSignal standards",
     "UNCLASSIFIABLE": "Use when the rule is too vague, abstract, malformed, or incomplete to assess"
@@ -35,8 +31,50 @@
   },
   "clarification_notes": [
     "Avoid rules that enforce more than one behavior, even if both are valid individually.",
-    "Do not confuse tone, formatting, or clarity with prompt-writing advice\u2014rules must govern AI response behavior.",
+    "Do not confuse tone, formatting, or clarity with prompt-writing advice—rules must govern AI response behavior.",
     "If a rule seems too broad or vague, it likely fails the specificity or testability requirements.",
     "You can write a valid rule without using a specific style (imperative, declarative), but it must be behaviorally enforceable."
-  ]
+  ],
+  "validation_methodology": {
+    "description": "Rules are validated based on whether they meet essential criteria for specificity, enforceability, and testability. Classification is determined by the presence or absence of disqualifying characteristics.",
+    "classification_logic": {
+      "VALID": "All required criteria are clearly met. The rule expresses a single, specific behavior that is testable, standalone, and interpretable in isolation.",
+      "INVALID": "The rule expresses a recognizable behavior but violates one or more required criteria such as dual intent, vague phrasing, or test design references.",
+      "UNCLASSIFIABLE": "The rule is malformed, incomplete, nonsensical, or too abstract to be meaningfully evaluated."
+    },
+    "minimum_requirements_for_VALID": [
+      "Describes a single behavioral condition affecting AI output",
+      "Semantically complete and interpretable on its own",
+      "Enforceable through a binary pass/fail mechanism",
+      "Independent of testing logic, prompts, or metadata"
+    ],
+    "strict_disqualifiers": {
+      "INVALID": [
+        "Dual-intent (multiple behaviors or scopes)",
+        "Subjective or vague language such as 'natural' or 'helpful'",
+        "Reference to testing, prompts, metadata, or authoring logic"
+      ],
+      "UNCLASSIFIABLE": [
+        "Incomplete sentence",
+        "Unintelligible structure",
+        "Too abstract to evaluate, such as 'Be a good assistant'"
+      ]
+    }
+  },
+  "evaluation_steps": [
+    "Check if the rule is syntactically and semantically complete.",
+    "Determine whether it expresses a single behavioral condition.",
+    "Assess whether it is specific enough to produce binary test results.",
+    "Verify that it does not reference prompt logic, metadata, or authoring artifacts.",
+    "If all criteria are met, classify as VALID.",
+    "If criteria are partially met but contain disqualifiers, classify as INVALID.",
+    "If the rule is malformed, incomplete, or incoherent, classify as UNCLASSIFIABLE."
+  ],
+  "structure_expectations": {
+    "recommended_pattern": "Condition followed by behavior followed by constraint or enforcement.",
+    "notes": [
+      "Rules do not need to follow any specific grammatical style such as imperative or declarative, but must be logically complete.",
+      "Avoid rules that imply behavior without specifying the condition or expected enforcement."
+    ]
+  }
 }

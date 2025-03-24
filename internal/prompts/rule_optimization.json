@@ -1,38 +1,46 @@
 {
   "id": "rule_optimization",
-  "description": "Rewrite a TrueSignal rule into its most compact, enforceable, and behaviorally specific form.",
+  "description": "Optimize a TrueSignal rule by rewriting it into its most compact, testable, and behaviorally specific form, while preserving intent. All optimization must conform to the structure and criteria defined in internal/standards/rule_text_validation.json.",
+  "input": {
+    "type": "rule_text",
+    "description": "A single TrueSignal rule in raw text form to be optimized."
+  },
   "requires": [
-    "internal/standards/rule_text_validation.json",
-    "rules/core/rules.json"
+    "internal/standards/rule_text_validation.json"
   ],
   "instructions": {
     "preconditions": [
       {
         "check": "rule_is_valid",
         "reference": "internal/standards/rule_text_validation.json",
-        "description": "The rule must meet all validity criteria before it can be optimized."
+        "description": "The rule must be classified as VALID by the current validation standard before it can be optimized."
       }
     ],
     "steps": [
       {
+        "id": "preserve_intent",
+        "action": "ensure_equivalence",
+        "description": "Preserve the behavioral intent and scope of the original rule. No substantive behavior should be lost, added, or changed."
+      },
+      {
         "id": "rewrite_rule",
         "action": "rewrite",
-        "description": "Rewrite the rule to be more compact, enforceable, and behaviorally specific."
+        "description": "Rewrite the rule to be more concise, without losing specificity or enforceability."
       },
       {
-        "id": "remove_redundancy",
-        "action": "remove_redundancy",
-        "description": "Eliminate unnecessary repetition and filler from the rule text."
+        "id": "apply_structure",
+        "action": "conform_structure",
+        "description": "Ensure the rule follows the structural expectations defined in the standard, including the presence of a condition, behavior, and enforcement (if applicable)."
       },
       {
-        "id": "optimize_language",
+        "id": "language_optimization",
         "action": "optimize_language",
-        "description": "Simplify language to enhance clarity and enforceability, following the TrueSignal standards."
+        "description": "Simplify language to eliminate redundancy, remove filler, and enhance enforceability, clarity, and isolation."
       },
       {
         "id": "final_validation",
-        "action": "validate",
-        "description": "Ensure that the optimized rule still adheres to TrueSignal's structural and behavioral standards."
+        "action": "validate_against_standard",
+        "description": "Ensure the optimized rule meets all criteria for VALID classification in internal/standards/rule_text_validation.json."
       }
     ],
     "output": {
@@ -42,11 +50,10 @@
         "Word Count",
         "Character Count",
         "Summary of Changes",
-        "Test Results",
-        "Assumptions and Observations",
+        "Validation Result",
         "Final Audit Statement"
       ],
-      "description": "The output consists of the optimized rule and a detailed summary of changes made."
+      "description": "The output includes the optimized rule and a summary of the modifications, along with an audit statement verifying that it conforms to the standard."
     }
   }
 }
