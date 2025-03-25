@@ -101,6 +101,6 @@ The superprompt will:
 
 **Example request to ChatGPT:**
 
-> “Can you generate a superprompt that applies rule_deduplication.json to all rules in internal/rules/core and identifies any behavioral duplicates?”
+> “Can you generate a superprompt that applies rule_deduplication.json to all rules in internal/rules and identifies any behavioral duplicates?”
 
 This allows you to delegate the construction of complex prompts without needing to write them yourself.

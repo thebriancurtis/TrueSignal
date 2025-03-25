@@ -54,7 +54,7 @@ Use `rule_categorization.json` to assign it to:
 
 ### 7. Submit the Rule
 
-- Add it to the appropriate directory (usually `internal/rules/core`)
+- Add it to the appropriate directory (usually `internal/rules`)
 - If submitting a rule set, define it in `rule_sets.json`
 
 ---
