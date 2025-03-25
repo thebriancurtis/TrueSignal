@@ -44,3 +44,7 @@ Example:
 - When reviewing: ensure it can be tested and enforced as a standalone rule
 - When optimizing: keep the enforcement behavior intact while improving clarity
 
+
+
+## Structural Schema
+In addition to semantic validity, rule files must adhere to the schema defined in `internal/standards/rule_schema.json`. This ensures structural consistency and simplifies validation workflows.

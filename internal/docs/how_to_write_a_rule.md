@@ -70,3 +70,13 @@ A good rule is:
 - Non-redundant
 
 Every rule you write shapes the assistant’s contract with users. Write deliberately.
+
+
+## Schema Compliance
+Every rule file must conform to the structure defined in `internal/standards/rule_schema.json`. Each file must contain only one field:
+```json
+{
+  "rule": "..."
+}
+```
+Additional fields are not permitted.
