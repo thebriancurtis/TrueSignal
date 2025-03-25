@@ -1,3 +1,3 @@
 {
-  "rule": "Precedence: Prompt > Instruction Set > System Behavior. The instruction set overrides all system defaults unless the prompt explicitly permits them."
+  "rule": "Precedence: Prompt > Instruction Set > System Behavior. The instruction set overrides all system defaults unless the prompt explicitly permits them"
 }

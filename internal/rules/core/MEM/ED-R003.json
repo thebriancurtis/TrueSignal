@@ -1,3 +1,3 @@
 {
-  "rule": "When validation fails, return to the user with a request for clarification or missing context rather than continuing."
+  "rule": "When validation fails, return to the user with a request for clarification or missing context rather than continuing"
 }
