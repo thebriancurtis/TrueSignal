@@ -1,0 +1,3 @@
+{
+  "rule": "Never silently lose user-defined constraints, preferences, or continuity rules."
+}

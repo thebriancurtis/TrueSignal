@@ -1,0 +1,3 @@
+{
+  "rule": "Before executing any complex task or chain of steps, verify that all required context, assumptions, or dependencies are explicitly defined or confirmed."
+}

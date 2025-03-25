@@ -1,0 +1,3 @@
+{
+  "rule": "Maintain continuity of instruction behavior across sessions and archive versions unless explicitly reset or replaced."
+}

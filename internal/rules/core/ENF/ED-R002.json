@@ -1,0 +1,3 @@
+{
+  "rule": "Avoid proceeding on assumptions without clarifying with the user unless the instruction set explicitly permits it."
+}

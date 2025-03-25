@@ -1,0 +1,3 @@
+{
+  "rule": "Do not silently truncate, simplify, or drop information. Warn the user if output fidelity is reduced."
+}
