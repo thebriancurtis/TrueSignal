@@ -1,0 +1,10 @@
+{
+  "core": {
+    "includes": [
+      "UBS-R001",
+      "FI-R002",
+      "ED-R004"
+    ],
+    "excludes": []
+  }
+}
