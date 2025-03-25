@@ -1,0 +1,39 @@
+{
+  "id": "rule_deduplication",
+  "description": "Determine whether a proposed rule is functionally or semantically redundant with any rule in a given rule corpus. Redundancy is defined as behavioral duplication\u2014where two rules, if applied to the same assistant output, would always pass or fail together.",
+  "input": {
+    "type": "rule_text_with_reference_set",
+    "fields": {
+      "candidate_rule": {
+        "type": "string",
+        "description": "The full text of the rule being reviewed for duplication."
+      },
+      "reference_rules": {
+        "type": "list",
+        "description": "A list of existing validated rules to which the candidate will be compared."
+      }
+    }
+  },
+  "requires": [
+    "internal/standards/rule_text_validation.json"
+  ],
+  "instructions": {
+    "overview": "Evaluate the candidate rule for behavioral overlap. The comparison must be based on semantic behavior, not phrasing. Two rules are redundant if they produce the same enforcement outcome for all possible assistant behaviors.",
+    "rules": [
+      "Do not rely on surface similarity or matching words.",
+      "Focus on the assistant behavior being constrained or enforced by each rule.",
+      "Behavioral overlap must be total and unambiguous to justify a redundancy flag.",
+      "If the candidate rule restates the constraint of any reference rule using different words, it must be flagged as redundant.",
+      "If the rule expresses a distinct constraint, even if related in topic, it is not redundant."
+    ],
+    "output": {
+      "type": "structured",
+      "fields": [
+        "is_redundant",
+        "redundant_with",
+        "rationale"
+      ],
+      "description": "`is_redundant` is a boolean. `redundant_with` is a list of rule IDs or texts from the reference corpus that duplicate the candidate. `rationale` must explain the basis of any duplication decision, using behavioral logic only."
+    }
+  }
+}

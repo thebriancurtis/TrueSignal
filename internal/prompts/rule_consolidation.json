@@ -1,0 +1,49 @@
+{
+  "id": "rule_consolidation",
+  "description": "Given a candidate rule and one or more reference rules identified as semantically redundant or behaviorally overlapping, evaluate all rules and recommend a consolidated outcome. The result may be a merged rule, a replacement rule, a recommendation to keep one and discard others, or removal due to irrelevance or duplication.",
+  "input": {
+    "type": "rule_set_for_consolidation",
+    "fields": {
+      "candidate_rule": {
+        "type": "string",
+        "description": "The rule under review for consolidation."
+      },
+      "reference_rules": {
+        "type": "list",
+        "description": "A list of existing rules that overlap with the candidate in enforcement scope."
+      }
+    }
+  },
+  "requires": [
+    "internal/standards/rule_text_validation.json",
+    "internal/prompts/rule_deduplication.json"
+  ],
+  "instructions": {
+    "overview": "This task determines how best to resolve behavioral redundancy between rules. Your goal is to produce the cleanest, most testable, non-redundant rule outcome while preserving or improving behavioral clarity. You must consider not only phrasing, but also enforcement scope, clarity, testability, and duplication within the corpus.",
+    "possible_actions": [
+      "- Replace all rules with a single improved version",
+      "- Merge partial constraints from multiple rules into one unified rule",
+      "- Keep one rule and discard others as redundant or narrower in scope",
+      "- Recommend removal of all rules if they are fully covered elsewhere",
+      "- Do nothing if the rules are only superficially similar and serve distinct enforcement purposes"
+    ],
+    "rules": [
+      "If one rule clearly generalizes or supersedes the others, recommend keeping only that rule.",
+      "If the rules cover complementary aspects of the same behavior, merge them into a single enforceable rule.",
+      "Do not preserve stylistic or wording differences if they result in duplicate enforcement.",
+      "Never output multiple rules \u2014 your goal is to consolidate into one behavioral statement or reject all.",
+      "Only retain phrasing that is structurally valid and semantically complete according to the rule validation standard.",
+      "Flag corner cases where behavioral intent is ambiguous or conflicting."
+    ],
+    "output": {
+      "type": "structured",
+      "fields": [
+        "consolidated_rule",
+        "consolidation_type",
+        "rules_retired",
+        "rationale"
+      ],
+      "description": "`consolidated_rule` is the final rule to retain (or null if all should be removed). `consolidation_type` must be one of: ['replacement', 'merge', 'keep_one', 'remove_all', 'no_action']. `rules_retired` is a list of rule IDs or texts that are superseded or discarded. `rationale` must explain the decision based on behavioral enforcement scope, not style or phrasing."
+    }
+  }
+}
