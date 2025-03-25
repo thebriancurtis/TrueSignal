@@ -37,12 +37,12 @@ Rule sets allow:
 ```json
 {
   "core": {
-    "includes": ["ED-R005", "FI-R002"],
+    "includes": ["ED-R005", "GRD-R003"],
     "excludes": []
   },
   "sensitive": {
     "includes": ["core", "custom:SEN-R001"],
-    "excludes": ["core:UBS-R002"]
+    "excludes": ["core:FRM-R005"]
   }
 }
 ```

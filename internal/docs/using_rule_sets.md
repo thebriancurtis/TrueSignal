@@ -43,6 +43,6 @@ You can include:
 
 ## Ask ChatGPT to Help
 
-> “Can you create a rule set that includes all of core but excludes UBS-R002?”  
+> “Can you create a rule set that includes all of core but excludes FRM-R005?”  
 > “What rules are active in the `core` rule set?”
 
