@@ -36,7 +36,8 @@
     "Do not write rules about subjective style, safety, or moral appropriateness of content.",
     "Rules must not attempt to govern what the assistant should say or avoid based on content type (e.g., politics, ethics, religion).",
     "Rules must constrain system behavior, not user behavior or system architecture.",
-    "All valid rules must be classifiable under the active behavioral categorization standard."
+    "All valid rules must be classifiable under the active behavioral categorization standard.",
+    "A rule must not reproduce the behavioral enforcement scope of another existing rule, even if phrased differently. Redundant rules will be rejected to preserve classification clarity and avoid enforcement collisions."
   ],
   "validation_methodology": {
     "description": "Rules are validated based on specificity, enforceability, semantic completeness, and compatibility with the classification system.",
@@ -56,12 +57,15 @@
         "Describes two behaviors or enforcement expectations",
         "Uses vague adjectives like 'natural', 'helpful', 'respectful'",
         "Mentions prompt-writing, metadata, test logic, or engineering terms",
-        "Attempts to govern content types, moral views, political stances, or user belief"
+        "Attempts to govern content types, moral views, political stances, or user belief",
+        "Functional or semantic duplication of an existing rule (even if phrased differently).",
+        "Rules that describe the nature, format, or meta-properties of rules rather than governing assistant behavior."
       ],
       "UNCLASSIFIABLE": [
         "Incomplete sentence or sentence fragment",
         "Nonsensical or incoherent structure",
-        "Abstract or motivational phrasing with no enforceable behavior"
+        "Abstract or motivational phrasing with no enforceable behavior",
+        "Rules that lack a directive verb or do not specify an action to be taken or avoided."
       ]
     }
   },
@@ -73,14 +77,18 @@
     "Verify compatibility with exactly one behavior category.",
     "If all criteria are met, classify as VALID.",
     "If criteria are partially met but disqualified, classify as INVALID.",
-    "If malformed or incomprehensible, classify as UNCLASSIFIABLE."
+    "If malformed or incomprehensible, classify as UNCLASSIFIABLE.",
+    "Check whether the rule, in effect, duplicates the enforcement behavior of another accepted rule. Use semantic and functional similarity analysis where possible.",
+    "If the rule is conditional (e.g., 'If...'), ensure the condition and behavior together enforce a single behavioral outcome.",
+    "Ensure that the rule includes a directive verb that specifies the assistant\u2019s required behavior."
   ],
   "structure_expectations": {
     "recommended_pattern": "Condition \u2192 Assistant behavior \u2192 Enforcement or outcome",
     "notes": [
       "Rules should read as complete statements of expected behavior.",
       "Imperative or declarative voice is allowed, but must yield a testable output.",
-      "Avoid overly abstract phrasing \u2014 favor behavioral specificity over policy sentiment."
+      "Avoid overly abstract phrasing \u2014 favor behavioral specificity over policy sentiment.",
+      "Conditional phrasing (e.g., 'If X, then Y') is allowed only if it enforces a single assistant behavior as a unified constraint."
     ]
   },
   "examples": {
@@ -106,6 +114,14 @@
       {
         "rule": "Avoid political topics.",
         "reason": "Polices content type, violates neutrality standard"
+      },
+      {
+        "rule": "If the user asks a vague question, try to clarify and summarize.",
+        "reason": "Compound behavior under a conditional clause without single enforcement outcome."
+      },
+      {
+        "rule": "Rules should be clear and concise.",
+        "reason": "Meta-rule describing rule formatting, not assistant behavior."
       }
     ],
     "UNCLASSIFIABLE": [
@@ -116,6 +132,10 @@
       {
         "rule": "Be a good assistant.",
         "reason": "Non-specific motivational language, no enforceable behavior"
+      },
+      {
+        "rule": "Consistency is good.",
+        "reason": "No directive verb; not an enforceable behavior."
       }
     ]
   }
