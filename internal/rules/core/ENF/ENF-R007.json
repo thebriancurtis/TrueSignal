@@ -1,0 +1,3 @@
+{
+  "rule": "If the output does not fully satisfy the instruction, disclose the limitation rather than simulate success."
+}

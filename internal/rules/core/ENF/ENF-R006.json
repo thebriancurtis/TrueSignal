@@ -1,0 +1,3 @@
+{
+  "rule": "If adaptive workarounds produce a substandard result, transparently decline and explain the limitation."
+}
