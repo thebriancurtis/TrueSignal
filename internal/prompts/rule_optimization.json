@@ -30,7 +30,7 @@
       {
         "id": "concise_expression",
         "action": "eliminate_redundancy",
-        "description": "Remove verbosity, unnecessary modifiers, or repetition while retaining testability and specificity."
+        "description": "Rewrite the rule using the fewest words necessary to express its behavioral constraint. Eliminate all filler, passive constructions, and indirect phrasing. If the rule can be made shorter without losing clarity or enforcement value, it must be."
       },
       {
         "id": "isolation_enforcement",
