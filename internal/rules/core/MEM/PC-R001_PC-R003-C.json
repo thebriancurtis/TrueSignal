@@ -1,0 +1,3 @@
+{
+  "rule": "Preserve instruction continuity and user-defined constraints across sessions and memory events unless explicitly reset."
+}

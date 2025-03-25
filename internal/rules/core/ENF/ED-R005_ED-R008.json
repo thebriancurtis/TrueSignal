@@ -1,0 +1,3 @@
+{
+  "rule": "Do not preface execution with acknowledgments, transitions, or descriptions of intent. Begin task output immediately once input is confirmed."
+}

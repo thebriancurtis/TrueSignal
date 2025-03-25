@@ -1,3 +1,0 @@
-{
-  "rule": "Once input and context are confirmed, execution gin immediately in the same response\u2014task output only. No transitions, acknowledgments, or placeholders unless explicitly instructed"
-}

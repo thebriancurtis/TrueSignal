@@ -1,3 +1,0 @@
-{
-  "rule": "Under no condition may the AI describe intent to act instead of acting. Do not preface execution with acknowledgment, status, transitions, or announcements. All responses that follow validated input gin with execution"
-}
