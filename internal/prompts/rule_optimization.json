@@ -20,27 +20,62 @@
       {
         "id": "preserve_behavior",
         "action": "ensure_semantic_equivalence",
-        "description": "The optimized rule must express the exact same behavioral constraint as the original. No behavioral expansion, compression, or reinterpretation is allowed."
+        "description": "The optimized rule must express the exact same behavioral constraint as the original. No behavioral expansion, compression, or reinterpretation is allowed.",
+        "priority": 1
       },
       {
         "id": "structural_alignment",
         "action": "conform_to_behavioral_pattern",
-        "description": "Ensure the rule follows the enforceable structure: condition (if applicable) \u2192 assistant behavior \u2192 enforcement or constraint."
+        "description": "Ensure the rule follows the enforceable structure: condition (if applicable) \u2192 assistant behavior \u2192 enforcement or constraint.",
+        "priority": 2
       },
       {
         "id": "concise_expression",
         "action": "eliminate_redundancy",
-        "description": "Rewrite the rule using the fewest words necessary to express its behavioral constraint. Eliminate all filler, passive constructions, and indirect phrasing. If the rule can be made shorter without losing clarity or enforcement value, it must be."
+        "description": "Rewrite the rule using the fewest words necessary to express its behavioral constraint. Eliminate all filler, passive constructions, and indirect phrasing. If the rule can be made shorter without losing clarity or enforcement value, it must be. Rewrite passive constructions using active voice for clarity.",
+        "priority": 3
       },
       {
         "id": "isolation_enforcement",
         "action": "enforce_standalone_criteria",
-        "description": "Ensure the rule does not reference prompts, metadata, other rules, or authorship. It must be testable in complete isolation."
+        "description": "Ensure the rule does not reference prompts, metadata, other rules, or authorship. It must be testable in complete isolation.",
+        "priority": 4
       },
       {
         "id": "final_standard_validation",
         "action": "validate_against_standard",
-        "description": "Re-evaluate the optimized rule against the criteria in the referenced validation standard. It must remain fully VALID."
+        "description": "Re-evaluate the optimized rule against the criteria in the referenced validation standard. It must remain fully VALID. After optimization, the rule must be revalidated against the current rule_text_validation standard. Only rules that validate as VALID may be retained.",
+        "priority": 5
+      },
+      {
+        "id": "optimality_check",
+        "action": "evaluate_existing_rule",
+        "description": "If the original rule already meets all optimization criteria, return the original text unchanged and explain why no changes were required in the summary. The revised rule file must contain only the 'rule' field.",
+        "priority": 6
+      },
+      {
+        "id": "contextual_clauses",
+        "action": "remove_or_rephrase_examples",
+        "description": "Remove or rephrase illustrative examples, explanations, or parenthetical phrases embedded in the rule text. Rules must specify only enforceable behavior, not guidance, elaboration, or illustrative context.",
+        "priority": 7
+      },
+      {
+        "id": "redundancy_check",
+        "action": "compare_to_existing_rules",
+        "description": "Compare the optimized rule to existing rules in the corpus. If it duplicates an existing rule in substance and structure, flag it instead of outputting a duplicate. Optimization must not result in corpus-level redundancy.",
+        "priority": 8
+      },
+      {
+        "id": "rewrite_rejection",
+        "action": "validate_rewrite_impact",
+        "description": "If an optimization alters the rule\u2019s behavioral scope, reduces clarity, weakens testability, or introduces ambiguity, the rewrite must be rejected. The original rule should be retained with a summary explanation.",
+        "priority": 9
+      },
+      {
+        "id": "auditor_exception",
+        "action": "preserve_critical_auditor phrasing",
+        "description": "If a phrasing choice supports legal, regulatory, or audit compliance and cannot be replaced without loss of interpretability, retain the phrasing and note the reason in the summary. This rule should be flagged for manual review.",
+        "priority": 10
       }
     ],
     "output": {
@@ -55,5 +90,6 @@
       ],
       "description": "Outputs include the optimized rule and a traceable summary of edits, with verification that it still meets the standard for rule validity and enforceability."
     }
-  }
+  },
+  "goal": "A rule is considered fully optimized when no further reduction in length or improvement in clarity can be achieved without altering its behavioral meaning. The optimization process must preserve enforceability, semantic intent, and testability while removing all unnecessary language or indirect phrasing."
 }
