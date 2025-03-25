@@ -17,7 +17,7 @@ All rules are globally defined and uniquely identified.
 
 ## Structure
 
-Rule sets are defined in `rule_sets.json` and consist of:
+Rule sets are defined in `rule_sets/core.json` and consist of:
 - `includes`: a list of rule IDs or rule set names
 - `excludes`: a list of rules to remove from inclusion, even if inherited
 
