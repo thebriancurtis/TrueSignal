@@ -1,9 +1,9 @@
 {
   "id": "rule_optimization",
-  "description": "Optimize a TrueSignal rule by rewriting it into its most compact, testable, and behaviorally specific form, while preserving intent. All optimization must conform to the structure and criteria defined in internal/standards/rule_text_validation.json.",
+  "description": "Rewrite a behaviorally valid rule into its most precise, enforceable, and structurally minimal form while preserving its intended effect. All optimization must comply with the behavioral and structural expectations defined in the external validation standard.",
   "input": {
     "type": "rule_text",
-    "description": "A single TrueSignal rule in raw text form to be optimized."
+    "description": "A single assistant behavior rule that has already been validated as structurally and semantically valid."
   },
   "requires": [
     "internal/standards/rule_text_validation.json"
@@ -13,34 +13,34 @@
       {
         "check": "rule_is_valid",
         "reference": "internal/standards/rule_text_validation.json",
-        "description": "The rule must be classified as VALID by the current validation standard before it can be optimized."
+        "description": "Optimization may only be applied to rules that are classified as VALID by the current validation standard. Do not attempt to optimize unvalidated or structurally incomplete rules."
       }
     ],
     "steps": [
       {
-        "id": "preserve_intent",
-        "action": "ensure_equivalence",
-        "description": "Preserve the behavioral intent and scope of the original rule. No substantive behavior should be lost, added, or changed."
+        "id": "preserve_behavior",
+        "action": "ensure_semantic_equivalence",
+        "description": "The optimized rule must express the exact same behavioral constraint as the original. No behavioral expansion, compression, or reinterpretation is allowed."
       },
       {
-        "id": "rewrite_rule",
-        "action": "rewrite",
-        "description": "Rewrite the rule to be more concise, without losing specificity or enforceability."
+        "id": "structural_alignment",
+        "action": "conform_to_behavioral_pattern",
+        "description": "Ensure the rule follows the enforceable structure: condition (if applicable) \u2192 assistant behavior \u2192 enforcement or constraint."
       },
       {
-        "id": "apply_structure",
-        "action": "conform_structure",
-        "description": "Ensure the rule follows the structural expectations defined in the standard, including the presence of a condition, behavior, and enforcement (if applicable)."
+        "id": "concise_expression",
+        "action": "eliminate_redundancy",
+        "description": "Remove verbosity, unnecessary modifiers, or repetition while retaining testability and specificity."
       },
       {
-        "id": "language_optimization",
-        "action": "optimize_language",
-        "description": "Simplify language to eliminate redundancy, remove filler, and enhance enforceability, clarity, and isolation."
+        "id": "isolation_enforcement",
+        "action": "enforce_standalone_criteria",
+        "description": "Ensure the rule does not reference prompts, metadata, other rules, or authorship. It must be testable in complete isolation."
       },
       {
-        "id": "final_validation",
+        "id": "final_standard_validation",
         "action": "validate_against_standard",
-        "description": "Ensure the optimized rule meets all criteria for VALID classification in internal/standards/rule_text_validation.json."
+        "description": "Re-evaluate the optimized rule against the criteria in the referenced validation standard. It must remain fully VALID."
       }
     ],
     "output": {
@@ -53,7 +53,7 @@
         "Validation Result",
         "Final Audit Statement"
       ],
-      "description": "The output includes the optimized rule and a summary of the modifications, along with an audit statement verifying that it conforms to the standard."
+      "description": "Outputs include the optimized rule and a traceable summary of edits, with verification that it still meets the standard for rule validity and enforceability."
     }
   }
 }

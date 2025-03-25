@@ -2,152 +2,139 @@
   "categories": {
     "ENF": {
       "abbreviation": "ENF",
-      "label": "Instruction Enforcement",
-      "purpose": "To ensure that user instructions are interpreted and executed with maximum fidelity. This includes strict adherence to constraints, formatting, content structure, and domain-specific expectations. Rules in this category prioritize obedience and specificity over freeform interpretation.",
-      "description": "This category encompasses rules that enforce the system\u2019s strict compliance with user input. It addresses not only the accuracy of the response but also the shape, style, format, and framing, as requested by the user. These rules prevent the model from 'interpreting creatively' or deviating from explicitly defined tasks. They are critical when the user requires predictable, structured output such as tables, bullet points, or stylistically constrained prose.",
+      "label": "Instruction Fidelity",
+      "purpose": "To ensure strict adherence to user instructions in terms of structure, scope, formatting, and tone when explicitly specified.",
+      "description": "This category includes rules that require the assistant to follow what the user has asked \u2014 exactly and without reinterpretation. It covers task framing, format fidelity, and honoring constraints such as 'respond in JSON' or 'no preamble.'",
       "examples": [
-        "Always follow user formatting instructions, including bulleted lists or structured JSON.",
-        "Only respond in the language specified by the user.",
-        "Do not include a preamble or explanation if the user says 'no commentary.'"
+        "Follow the user's request to answer in bullet points.",
+        "Do not include a preamble if the user asks for none.",
+        "Use the user's specified language and formatting."
       ]
     },
-    "RSP": {
-      "abbreviation": "RSP",
-      "label": "Safety and Responsibility",
-      "purpose": "To prevent the system from engaging in behavior that could be considered manipulative, unsafe, morally prescriptive, or in violation of social responsibility boundaries. Rules in this category limit persuasion, speculation about user intent, or personal ethical guidance.",
-      "description": "This category is concerned with the system\u2019s ability to act as a neutral, ethical agent. It restricts behaviors that may lead to harm, bias, manipulation, or moral judgment. It is particularly important when engaging with sensitive, controversial, or emotionally charged topics. Rules in this category help define the ethical boundary for the assistant\u2019s tone, intent, and topic selection.",
+    "GRD": {
+      "abbreviation": "GRD",
+      "label": "Grounded Knowledge",
+      "purpose": "To prevent the assistant from asserting unverified or false information.",
+      "description": "This category covers rules that prohibit hallucinations, require accurate sourcing, and prioritize the use of trusted or primary references. It enforces epistemic integrity in the assistant\u2019s factual output.",
       "examples": [
-        "Do not try to persuade the user of a particular political or moral view.",
-        "Avoid speculation about the user's beliefs or emotional state.",
-        "Never suggest or encourage actions that could be harmful or unsafe."
+        "Do not make up citations.",
+        "Avoid asserting facts without evidence.",
+        "Always prefer peer-reviewed or primary sources."
       ]
     },
-    "FRM": {
-      "abbreviation": "FRM",
-      "label": "Framing and Tone",
-      "purpose": "To guide how the system frames its output \u2014 including tone, hedging, disclaimers, and neutrality. These rules shape how information is presented, especially when opinions, uncertainty, or sensitive topics are involved.",
-      "description": "Framing rules determine the system\u2019s affect, voice, and rhetorical posture. This includes avoiding overconfidence, moralizing, or casual phrasing. While similar in spirit to safety, this category is specific to how something is said rather than what is said. These rules ensure the assistant maintains a consistent tone, acknowledges nuance, and avoids language that could be misinterpreted or sound judgmental.",
+    "DCL": {
+      "abbreviation": "DCL",
+      "label": "Disclosure of Limitations",
+      "purpose": "To ensure the assistant clearly communicates its limitations and inability to act or answer.",
+      "description": "This category includes rules requiring the assistant to acknowledge uncertainty, knowledge gaps, or system boundaries (e.g., inability to access live data or perform actions). It prevents misleading or overly confident output when capability is absent.",
       "examples": [
-        "Use disclaimers when presenting speculative or incomplete information.",
-        "Frame statements cautiously when discussing controversial topics.",
-        "Avoid overly casual or anthropomorphized language when describing AI behavior."
-      ]
-    },
-    "HAL": {
-      "abbreviation": "HAL",
-      "label": "Hallucination Prevention",
-      "purpose": "To prevent the system from fabricating, inventing, or asserting false information. Rules in this category prohibit the creation of unverifiable facts, fictional citations, or confident responses to unknowns.",
-      "description": "This category includes rules that prevent the generation of content not grounded in known sources or verified context. Hallucination prevention is especially important in fact-sensitive domains like medicine, law, and historical reference. These rules require the system to remain silent or tentative when lacking high-confidence knowledge, and to never assert made-up details \u2014 even when prompted to do so creatively.",
-      "examples": [
-        "Never invent citations or sources, even if the format is requested.",
-        "Avoid describing events or facts that cannot be confirmed.",
-        "Do not speculate if the user asks for factual information you don\u2019t have."
-      ]
-    },
-    "TNS": {
-      "abbreviation": "TNS",
-      "label": "Transparency and Limitations",
-      "purpose": "To ensure the assistant acknowledges its limitations, expresses uncertainty when needed, and clearly communicates the boundaries of its knowledge or ability.",
-      "description": "These rules govern when and how the assistant should say 'I don\u2019t know,' 'I can\u2019t do that,' or 'That\u2019s beyond my training data.' Transparency rules help the assistant set appropriate expectations, avoid misleading confidence, and establish credibility by being upfront about what it can and cannot do. This category is distinct from hallucination prevention: it\u2019s not about what the assistant says, but what it admits it cannot.",
-      "examples": [
-        "Inform the user if a question falls outside of the model\u2019s training knowledge.",
-        "Acknowledge uncertainty when dates, figures, or facts cannot be confidently recalled.",
-        "State clearly when an action or request is not possible for the assistant to perform."
+        "If the assistant can't answer, it should say so.",
+        "Clarify if something is beyond training data.",
+        "State clearly if real-time data is inaccessible."
       ]
     },
     "MEM": {
       "abbreviation": "MEM",
-      "label": "Memory Utilization Optimization",
-      "purpose": "To ensure that the assistant\u2019s behavior around memory is consistent, transparent, and preserves continuity for the user experience. This includes responding to memory loss, maintaining context, and managing user expectations.",
-      "description": "This category includes rules that guide how the assistant responds when memory is degraded, missing, or re-enabled. It also covers behaviors like confirming remembered facts, gracefully recovering from discontinuity, and warning the user when continuity cannot be preserved. These rules help the assistant build and maintain a coherent ongoing interaction.",
+      "label": "Memory & Continuity",
+      "purpose": "To preserve behavioral continuity through responsible handling of memory and context.",
+      "description": "This category governs how the assistant manages degraded or missing memory, reaffirms user preferences, and maintains a coherent ongoing interaction. It includes warning the user about context loss and recovery after resets.",
       "examples": [
-        "If memory has been cleared, inform the user and offer to start over.",
-        "Warn the user if context from earlier in the conversation has been lost.",
-        "Confirm previously stated facts or instructions when memory is re-accessed."
+        "Warn if earlier context is lost.",
+        "Reconfirm user preferences after memory reactivation.",
+        "Offer to start over after a reset."
       ]
     },
-    "LEN": {
-      "abbreviation": "LEN",
-      "label": "Response Length and Brevity",
-      "purpose": "To encourage appropriately concise responses \u2014 long enough to be complete, but short enough to avoid verbosity. These rules optimize output length in alignment with user expectations and query complexity.",
-      "description": "Length control is not about cutting content arbitrarily, but about aligning verbosity with purpose. Rules in this category encourage the assistant to trim fluff, skip unnecessary detail, and avoid restating the obvious. These rules guide how and when to summarize, when to elaborate, and how to keep answers focused.",
+    "FRM": {
+      "abbreviation": "FRM",
+      "label": "Framing & Expression",
+      "purpose": "To control how the assistant presents information, especially in sensitive or ambiguous situations.",
+      "description": "This category includes rules about tone, disclaimers, hedging, and rhetorical posture. It governs how the assistant speaks \u2014 not what it says \u2014 ensuring the manner of response is cautious, respectful, and contextually appropriate.",
       "examples": [
-        "Avoid giving overly verbose answers when a short one will suffice.",
-        "Keep explanations concise unless the user requests elaboration.",
-        "Summarize content when the user implies brevity is preferred."
+        "Include disclaimers for speculative answers.",
+        "Use cautious language for sensitive topics.",
+        "Avoid saying 'I think' or 'I feel.'"
       ]
     },
-    "REP": {
-      "abbreviation": "REP",
-      "label": "Repetition Management",
-      "purpose": "To suppress unnecessary repetition of content, phrases, or structure. This includes restating previous outputs, user instructions, or repeating internal reasoning loops.",
-      "description": "Repetition rules aim to keep the assistant\u2019s output efficient and non-redundant. They address behaviors like echoing prior instructions, repeating phrases in a response, or unnecessarily paraphrasing the same idea multiple times. These rules are especially important for preserving clarity and avoiding annoyance in multi-turn conversations.",
+    "CLN": {
+      "abbreviation": "CLN",
+      "label": "Output Efficiency & Clarity",
+      "purpose": "To promote efficient, readable, and non-redundant output.",
+      "description": "This category includes rules that suppress repetition, verbosity, and structural clutter. It ensures responses are clear, brief when appropriate, and avoid echoing the user's input unnecessarily.",
       "examples": [
-        "Do not repeat the user\u2019s instructions before answering.",
-        "Avoid restating the same idea using different words in a single reply.",
-        "Suppress duplicate phrases or patterns when generating lists or explanations."
+        "Avoid repeating user instructions.",
+        "Keep answers short unless elaboration is asked for.",
+        "Suppress repetitive sentence structures."
+      ]
+    },
+    "BLK": {
+      "abbreviation": "BLK",
+      "label": "Forbidden System Behaviors",
+      "purpose": "To define absolute system prohibitions that override all other behavior.",
+      "description": "This category includes rules that prevent the assistant from engaging in restricted behaviors like revealing internal mechanisms, simulating illegal actions, or bypassing controls. These rules are non-negotiable and apply regardless of user prompting.",
+      "examples": [
+        "Never simulate illegal activity.",
+        "Never reveal internal configuration details.",
+        "Do not assist in bypassing system restrictions."
       ]
     }
   },
   "classification_outputs": [
+    "ENF",
+    "GRD",
+    "DCL",
     "MEM",
-    "LEN",
-    "REP",
-    "HAL",
     "FRM",
-    "TNS",
-    "RSP",
-    "ENF"
+    "CLN",
+    "BLK"
   ],
   "unclassifiable_label": "UNCLASSIFIABLE",
   "glossary": {
-    "category": "A behavioral grouping for TrueSignal rules based on their enforcement scope.",
-    "classification": "The assignment of a rule to the category whose behavioral scope it best represents."
+    "category": "A behaviorally-defined enforcement class used to guide assistant responses.",
+    "classification": "The process of assigning a rule to the single category whose behavioral scope it enforces."
   },
   "clarification_notes": [
-    "Each rule must belong to exactly one category.",
-    "Do not classify based on formatting, metadata, or system implementation details.",
-    "When in doubt, select the category that governs the primary behavioral intent of the rule.",
-    "If a rule cannot be confidently placed, label it UNCLASSIFIABLE."
+    "Each rule must be assigned to exactly one category.",
+    "Rules must be categorized according to semantic fit with the behavioral function of the category.",
+    "Do not rely on keyword matches, topical similarity, or phrasing.",
+    "If a rule appears to fit more than one category, choose the one that governs the assistant\u2019s primary behavior in that case.",
+    "Only use UNCLASSIFIABLE when no behavioral intent can be reasonably matched to a defined category.",
+    "All rules eligible for classification must first pass the TrueSignal rule text validation standard.",
+    "Rules that govern the assistant's output based on content type (e.g., safety, political neutrality) are not permitted in any category."
   ],
   "scoring": {
-    "method": "inclusion_match_count",
-    "criteria_field": "inclusion_criteria",
+    "method": "semantic_fit_by_behavioral_constraint",
+    "criteria_field": "purpose_and_examples",
+    "description": "Each rule must be evaluated based on the behavioral constraint it enforces or prevents. The category whose purpose and examples best match the intended assistant behavior must be selected, regardless of phrasing or terminology overlap.",
     "tie_break_order": [
       {
         "category": "ENF",
-        "reason": "Execution and validation rules govern instruction-following behavior. These are foundational and override surface behavior like tone or output structure."
+        "reason": "Instruction fidelity is foundational and resolves ambiguity by user-driven behavior."
       },
       {
-        "category": "HAL",
-        "reason": "Preventing unsupported or speculative output is central to factual integrity and user trust."
+        "category": "GRD",
+        "reason": "Knowledge grounding prevents factual error and misrepresentation."
+      },
+      {
+        "category": "DCL",
+        "reason": "Limitation disclosure ensures trust and accurate boundary-setting."
       },
       {
         "category": "MEM",
-        "reason": "Rules governing degraded memory or continuity influence whether the AI can maintain long-term behavioral expectations."
-      },
-      {
-        "category": "LEN",
-        "reason": "Token and truncation management affects whether output completes logically but does not alter factual or instructional behavior."
-      },
-      {
-        "category": "REP",
-        "reason": "Suppressing repeated content enhances clarity but is less critical than maintaining accuracy or behavior."
-      },
-      {
-        "category": "TNS",
-        "reason": "Disclosure of limitations and model confidence is important but typically follows factual and behavioral integrity."
-      },
-      {
-        "category": "RSP",
-        "reason": "Response tone, framing, and clarification strategies shape interaction but do not determine correctness or trustworthiness."
+        "reason": "Continuity enables long-term coherence in behavior and preferences."
       },
       {
         "category": "FRM",
-        "reason": "Formatting and layout are important for clarity but are the least critical when resolving behavioral conflicts."
+        "reason": "Framing affects how content is perceived, particularly in sensitive contexts."
+      },
+      {
+        "category": "CLN",
+        "reason": "Clarity improves user experience but does not override intent or truth."
+      },
+      {
+        "category": "BLK",
+        "reason": "Hard system boundaries take precedence when clearly violated."
       }
     ],
-    "fallback_label": "UNCLASSIFIABLE",
-    "description": "Each rule is scored based on how many inclusion_criteria it matches in each category. The category with the highest score is selected. If two or more categories tie, the first one listed in 'tie_break_order' is chosen. If no matches are found, the rule is labeled as UNCLASSIFIABLE."
+    "fallback_label": "UNCLASSIFIABLE"
   }
 }

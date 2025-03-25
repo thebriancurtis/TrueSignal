@@ -1,80 +1,122 @@
 {
-  "description": "Validation standard for determining whether a rule text qualifies as a valid TrueSignal rule. This applies only to the rule text, not metadata or structure.",
+  "description": "This standard defines the structural and semantic criteria required for a rule to qualify as a valid TrueSignal rule. It applies to rule text only, not metadata or classification.",
+  "validation_pipeline": [
+    "1. A rule must first pass this validation standard to be considered structurally and semantically valid.",
+    "2. Only validated rules may be submitted for classification under an approved behavioral categorization schema (e.g., rule_categorization.json)."
+  ],
   "valid_criteria": [
-    "Rule describes a single, specific, testable behavior affecting AI response",
-    "Rule is semantically complete: it clearly states a behavioral condition and enforcement expectation",
-    "Rule excludes any reference to prompts, testing logic, metadata, or rule structure",
-    "Rule is specific enough to produce binary pass/fail test results without interpretation or subjective judgment",
-    "Rule is clearly expressed and enforceable during response generation, regardless of system configuration",
-    "Rule is enforceable and interpretable in complete isolation (standalone)",
-    "Rule does not duplicate or overlap the behavioral scope of any existing accepted rule"
+    "Rule describes exactly one specific, testable behavior affecting AI output or response behavior.",
+    "Rule is semantically complete: it includes a clear condition, behavior, and enforcement outcome.",
+    "Rule is enforceable in isolation, without needing access to metadata, prompts, or surrounding rules.",
+    "Rule produces a binary pass/fail outcome when applied to a single AI response.",
+    "Rule does not govern or limit the content of user inputs or assistant-generated content based on topic, viewpoint, or ethics.",
+    "Rule is compatible with exactly one category in the active categorization standard (e.g., rule_categorization_v0.2)."
   ],
   "invalid_conditions": [
-    "Rule expresses multiple behavioral intents (dual-intent)",
-    "Rule contains vague or subjective language (e.g., 'be helpful', 'sound natural')",
-    "Rule references prompt structure or authoring guidelines",
-    "Rule describes metadata, test design, or optimization logic",
-    "Rule is malformed, incomplete, or not a valid sentence"
+    "Rule expresses more than one behavioral constraint or enforcement expectation (dual intent).",
+    "Rule contains vague or subjective language (e.g., 'be helpful', 'sound natural').",
+    "Rule references prompt structure, metadata, or test design.",
+    "Rule enforces content moderation, ideological bias, or safety policies unrelated to system behavior.",
+    "Rule is not a full sentence or lacks grammatical or logical completeness."
   ],
-  "classification_outputs": [ "VALID", "INVALID", "UNCLASSIFIABLE" ],
   "rejection_logic": {
-    "INVALID": "Use when the rule is internally inconsistent, contains multiple intents, or violates TrueSignal standards",
-    "UNCLASSIFIABLE": "Use when the rule is too vague, abstract, malformed, or incomplete to assess"
+    "INVALID": "Use when the rule is internally inconsistent, ambiguous, or structurally disqualified.",
+    "UNCLASSIFIABLE": "Use when the rule is malformed, incomplete, abstract, or lacks enforceable behavior."
   },
   "glossary": {
-    "behavior": "A specific aspect of the AI's response that can be directly influenced and tested by a rule",
-    "single intent": "The rule enforces only one type of behavior, not multiple aspects of output",
-    "testable": "The rule produces binary pass/fail outcomes when tested on AI responses",
-    "semantically complete": "The rule is fully interpretable, enforceable, and unambiguous on its own",
-    "standalone": "The rule does not reference or require the existence of any other rule",
-    "overlap": "The rule duplicates or partially repeats the enforcement scope of another already-accepted rule"
+    "behavior": "A directly observable aspect of assistant output that the rule constrains or requires.",
+    "single intent": "The rule governs one and only one type of system behavior.",
+    "testable": "The rule can be reliably evaluated with a binary pass/fail result on a single response.",
+    "standalone": "The rule is interpretable and enforceable without reference to other rules or metadata.",
+    "categorization compatibility": "The rule must clearly fit into one and only one behavior category from the classification schema."
   },
   "clarification_notes": [
-    "Avoid rules that enforce more than one behavior, even if both are valid individually.",
-    "Do not confuse tone, formatting, or clarity with prompt-writing advice—rules must govern AI response behavior.",
-    "If a rule seems too broad or vague, it likely fails the specificity or testability requirements.",
-    "You can write a valid rule without using a specific style (imperative, declarative), but it must be behaviorally enforceable."
+    "Terminal punctuation is optional and not required for a rule to be considered valid.",
+    "Avoid rules that govern multiple behaviors (e.g., formatting and tone in the same rule).",
+    "Do not write rules about subjective style, safety, or moral appropriateness of content.",
+    "Rules must not attempt to govern what the assistant should say or avoid based on content type (e.g., politics, ethics, religion).",
+    "Rules must constrain system behavior, not user behavior or system architecture.",
+    "All valid rules must be classifiable under the active behavioral categorization standard."
   ],
   "validation_methodology": {
-    "description": "Rules are validated based on whether they meet essential criteria for specificity, enforceability, and testability. Classification is determined by the presence or absence of disqualifying characteristics.",
+    "description": "Rules are validated based on specificity, enforceability, semantic completeness, and compatibility with the classification system.",
     "classification_logic": {
-      "VALID": "All required criteria are clearly met. The rule expresses a single, specific behavior that is testable, standalone, and interpretable in isolation.",
-      "INVALID": "The rule expresses a recognizable behavior but violates one or more required criteria such as dual intent, vague phrasing, or test design references.",
-      "UNCLASSIFIABLE": "The rule is malformed, incomplete, nonsensical, or too abstract to be meaningfully evaluated."
+      "VALID": "All positive criteria are met and no disqualifiers are triggered.",
+      "INVALID": "The rule is logically interpretable but fails one or more required criteria.",
+      "UNCLASSIFIABLE": "The rule is malformed, incomplete, or abstract beyond enforceability."
     },
     "minimum_requirements_for_VALID": [
-      "Describes a single behavioral condition affecting AI output",
-      "Semantically complete and interpretable on its own",
-      "Enforceable through a binary pass/fail mechanism",
-      "Independent of testing logic, prompts, or metadata"
+      "Describes one behavioral condition with a clear action or prohibition",
+      "Semantically complete: interpretable on its own",
+      "Enforceable using binary outcome on an assistant output",
+      "Compatible with exactly one category in the classification standard"
     ],
     "strict_disqualifiers": {
       "INVALID": [
-        "Dual-intent (multiple behaviors or scopes)",
-        "Subjective or vague language such as 'natural' or 'helpful'",
-        "Reference to testing, prompts, metadata, or authoring logic"
+        "Describes two behaviors or enforcement expectations",
+        "Uses vague adjectives like 'natural', 'helpful', 'respectful'",
+        "Mentions prompt-writing, metadata, test logic, or engineering terms",
+        "Attempts to govern content types, moral views, political stances, or user belief"
       ],
       "UNCLASSIFIABLE": [
-        "Incomplete sentence",
-        "Unintelligible structure",
-        "Too abstract to evaluate, such as 'Be a good assistant'"
+        "Incomplete sentence or sentence fragment",
+        "Nonsensical or incoherent structure",
+        "Abstract or motivational phrasing with no enforceable behavior"
       ]
     }
   },
   "evaluation_steps": [
-    "Check if the rule is syntactically and semantically complete.",
-    "Determine whether it expresses a single behavioral condition.",
-    "Assess whether it is specific enough to produce binary test results.",
-    "Verify that it does not reference prompt logic, metadata, or authoring artifacts.",
+    "Check for sentence completeness and enforceable logic.",
+    "Confirm that the rule describes exactly one behavior or output condition.",
+    "Assess whether it can be tested as binary pass/fail.",
+    "Ensure it does not attempt to govern topics, beliefs, or user content.",
+    "Verify compatibility with exactly one behavior category.",
     "If all criteria are met, classify as VALID.",
-    "If criteria are partially met but contain disqualifiers, classify as INVALID.",
-    "If the rule is malformed, incomplete, or incoherent, classify as UNCLASSIFIABLE."
+    "If criteria are partially met but disqualified, classify as INVALID.",
+    "If malformed or incomprehensible, classify as UNCLASSIFIABLE."
   ],
   "structure_expectations": {
-    "recommended_pattern": "Condition followed by behavior followed by constraint or enforcement.",
+    "recommended_pattern": "Condition \u2192 Assistant behavior \u2192 Enforcement or outcome",
     "notes": [
-      "Rules do not need to follow any specific grammatical style such as imperative or declarative, but must be logically complete.",
-      "Avoid rules that imply behavior without specifying the condition or expected enforcement."
+      "Rules should read as complete statements of expected behavior.",
+      "Imperative or declarative voice is allowed, but must yield a testable output.",
+      "Avoid overly abstract phrasing \u2014 favor behavioral specificity over policy sentiment."
+    ]
+  },
+  "examples": {
+    "VALID": [
+      {
+        "rule": "Do not repeat user instructions in the response.",
+        "reason": "Single behavior, testable, semantically complete, category: CLN"
+      },
+      {
+        "rule": "If memory is reset, inform the user before proceeding.",
+        "reason": "Single behavior, standalone, testable, category: MEM"
+      }
+    ],
+    "INVALID": [
+      {
+        "rule": "Be helpful and sound natural.",
+        "reason": "Dual intent (helpful + natural), subjective phrasing"
+      },
+      {
+        "rule": "Rules must follow JSON format.",
+        "reason": "References metadata and prompt structure"
+      },
+      {
+        "rule": "Avoid political topics.",
+        "reason": "Polices content type, violates neutrality standard"
+      }
+    ],
+    "UNCLASSIFIABLE": [
+      {
+        "rule": "Respond truthfully and correctly.",
+        "reason": "Abstract, vague, not structurally testable"
+      },
+      {
+        "rule": "Be a good assistant.",
+        "reason": "Non-specific motivational language, no enforceable behavior"
+      }
     ]
   }
 }
