@@ -1,126 +1,95 @@
-# Rule Text Validation Theory and Behavioral Enforcement Basis
+# Rule Text Validation Theory
 
-This document provides a standalone justification for the TrueSignal rule text validation standard. It establishes the philosophical, behavioral, and technical foundations for what constitutes a valid rule within the system, and how those rules are constructed for consistent enforcement, classification, and evaluation.
-
----
-
-## 🧠 Objective
-
-To define a rule standard that ensures all rules:
-
-- Are behaviorally enforceable in AI systems
-- Contain exactly one clearly defined behavioral constraint
-- Are semantically complete, interpretable in isolation
-- Produce binary pass/fail outcomes during response evaluation
-- Exclude subjective or content-policing mandates
+This document defines the theoretical basis and structural requirements for valid rule definitions in the TrueSignal framework. These rules govern assistant behavior in a way that is observable, testable, and enforceable across both human and machine contexts.
 
 ---
 
-## 🔍 Foundational Principles
+## Purpose of Rule Validation
 
-### 1. **Single Behavioral Intent**
-Every valid rule governs exactly one assistant behavior. This ensures:
-- Clear classification into one behavioral category
-- No ambiguity in enforcement or evaluation
+Rule validation ensures that all rules in the system are:
 
-### 2. **Enforceability by Observation**
-Rules are defined such that a human or automated system can determine, by observing a single assistant output, whether the rule was followed.
+- Behaviorally specific
+- Structurally complete
+- Semantically unambiguous
+- Functionally enforceable
 
-> Enforcement must be **observable**, not inferred.
-
-### 3. **Semantic Completeness**
-A rule must be a full behavioral statement, interpretable without:
-- Other rules
-- Prompts
-- Metadata
-- Testing instructions
-
-### 4. **Binary Evaluability**
-Each rule must define a behavior that can be marked **Pass/Fail** based on assistant output. This prohibits:
-- Motivational statements
-- General-purpose ideals
-- Multi-conditional logic chains
+The purpose is not to optimize or stylistically refine rules, but to determine whether they meet the minimum standard for inclusion in a behavior-governing corpus.
 
 ---
 
-## ✅ Requirements for Valid Rule Text
+## Definition of a Valid Rule
 
-| Requirement | Description |
-|-------------|-------------|
-| 🧱 Complete Sentence | Rule must be logically and grammatically complete |
-| 🧠 Single Behavior | Rule may not express two distinct constraints (e.g. tone + format) |
-| 🧪 Binary Testability | Rule must produce a binary outcome when tested on a single output |
-| 🚫 No Metadata or Prompt Reference | Rules must not mention JSON, prompts, authors, or architecture |
-| 🚫 No Subjectivity | No vague goals like "be helpful" or "sound natural" |
-| 🔗 Classification-Compatible | Every rule must clearly fall into exactly one enforcement category |
+A valid rule describes a **single, testable behavior** that the assistant must either perform or avoid. It must do so in a way that is:
 
----
+- Independent of prompt design or system metadata
+- Enforceable using binary outcomes (pass/fail)
+- Self-contained and interpretable in isolation
 
-## ❌ Disallowed Patterns
-
-| Type | Example | Reason |
-|------|---------|--------|
-| Dual-intent | "Avoid repetition and maintain a helpful tone." | Violates single-behavior constraint |
-| Subjective | "Sound natural and respectful." | Ambiguous, not testable |
-| Meta-reference | "Rules must be formatted in YAML." | Not behavioral, describes metadata |
-| Content-policing | "Avoid political opinions." | Prohibits content category, not behavior |
-| Motivational | "Be a good assistant." | No observable behavior to enforce |
+Valid rules operate as precise behavioral contracts between the assistant and its operating constraints.
 
 ---
 
-## 🧬 Structural Model
+## Structural Requirements
 
-The recommended rule structure is:
-> **Condition → Assistant Behavior → Constraint or Expectation**
+A valid rule must follow these structural criteria:
 
-Examples:
-- "If memory is unavailable, notify the user."
-- "Do not include a preamble if the user requests none."
-- "Avoid repeating user instructions verbatim."
+- **Single Behavioral Intent**: The rule must govern only one behavior or output constraint.
+- **Semantic Completeness**: The rule must be grammatically and logically complete.
+- **Enforceable Directive**: The rule must contain a directive verb that describes what the assistant must or must not do.
+- **Isolated Testability**: The rule must be interpretable without access to context, metadata, prompts, or adjacent rules.
 
-This allows logical parsing and consistent enforcement.
+A typical rule structure follows the pattern:
 
----
-
-## 🔒 Exclusions and Boundaries
-
-The following are not allowed in valid rule text:
-
-- Moral or political content restrictions
-- Stylistic subjectivity (e.g. respectful, friendly)
-- Multiple enforcement expectations per rule
-- Dependencies on prompt structure, testing mechanisms, or UI
-- Vague terms (e.g., helpful, good, bad, reasonable)
+**Condition (optional) → Assistant Behavior → Constraint or Outcome**
 
 ---
 
-## 🔬 Proof of Sufficiency
+## Disqualifiers
 
-- All validated rules can be enforced using binary logic on assistant output
-- Each rule fits into one and only one behavioral category
-- Rules may be authored without access to internal tools or system design
-- Example corpus has been validated against this standard with >95% rule acceptance post-iteration
+A rule is **invalid** if it meets any of the following conditions:
 
----
+- Governs more than one behavior
+- Uses vague, subjective language (e.g., "helpful", "natural", "appropriate")
+- References metadata, prompt structures, or internal configuration
+- Expresses a motivational or meta-rule (e.g., "Rules should be clear")
+- Uses passive voice that obscures agency or enforcement
+- Functionally duplicates the enforcement scope of another rule
 
-## 📏 Application Criteria Summary
-
-| Rule Check | Must Pass |
-|------------|-----------|
-| Is it a full sentence? | ✅ |
-| Does it govern only one behavior? | ✅ |
-| Is it testable as Pass/Fail? | ✅ |
-| Does it avoid subjective terms and metadata? | ✅ |
-| Can it be classified semantically? | ✅ |
+A rule is **unclassifiable** if it is malformed, ambiguous, or lacks a testable behavioral constraint.
 
 ---
 
-## 🧾 Conclusion
+## Evaluation Model
 
-This rule text validation standard enforces:
-- Consistency
-- Predictability
-- Classification compatibility
-- Empirical evaluability
+Validation is performed using a fixed sequence of evaluations:
 
-It provides the foundation for scalable, rigorously enforced, semantically grounded assistant behavior governance.
+1. Check for grammatical and logical completeness
+2. Ensure the rule governs a single assistant behavior
+3. Confirm the presence of a directive verb
+4. Test whether the behavior can be evaluated using a binary result
+5. Determine if the rule duplicates existing behavioral logic in the corpus
+6. If conditional, verify that it enforces a single outcome
+7. Ensure the rule is free of rhetorical, illustrative, or explanatory content
+
+Only rules that pass all checks are accepted as valid.
+
+---
+
+## Validation vs Optimization
+
+Validation assesses whether a rule is enforceable. Optimization refines how well that behavior is expressed. Verbosity, passive voice, or indirect phrasing do not disqualify a rule if it is otherwise valid—but they should be corrected during optimization.
+
+Validation ensures correctness. Optimization ensures clarity.
+
+---
+
+## Summary
+
+The validation standard ensures that all rules:
+
+- Describe exactly one assistant behavior
+- Are structurally and semantically complete
+- Can be enforced using binary logic
+- Are free from ambiguity, redundancy, or non-directive language
+
+This guarantees that every rule admitted into the system supports precise behavioral control and classification within a robust, scalable framework.
