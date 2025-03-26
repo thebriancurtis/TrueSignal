@@ -45,3 +45,9 @@ This separation guarantees:
 | Required? | ✅ Always |
 | Referencable in rule_sets? | ❌ Never |
 | Validated by | `rule_schema.json` |
+
+
+## 📄 Compiled Core Output
+
+The core rules are compiled automatically to `/rule_sets/core.json`.
+This file contains a flat array of foundational rules applied to all rule sets.
