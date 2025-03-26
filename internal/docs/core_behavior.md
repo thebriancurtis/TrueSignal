@@ -12,7 +12,7 @@ These rules define the baseline for:
 
 ## 📂 Where is Core Defined?
 
-Core rules are defined in the project’s `/core/` directory.
+Core rules are defined in the project’s `/internal/core/` directory.
 
 Each rule in that folder is:
 - Automatically validated against `rule_schema.json`
@@ -28,7 +28,7 @@ Each rule in that folder is:
 ## 🧠 Why This Matters
 
 This creates a strict separation between:
-- **Foundational behavior** (in `/core/`)
+- **Foundational behavior** (in `/internal/core/`)
 - **Compositional behavior** (in `/rules/` and `/internal/rule_sets/`)
 
 This separation guarantees:
@@ -40,7 +40,7 @@ This separation guarantees:
 
 | Concept | Value |
 |--------|-------|
-| Defined in | `/core/` |
+| Defined in | `/internal/core/` |
 | Composable? | ❌ No |
 | Required? | ✅ Always |
 | Referencable in rule_sets? | ❌ Never |

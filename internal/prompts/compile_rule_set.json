@@ -21,5 +21,5 @@
     "on_missing": "Report missing rule IDs.",
     "on_invalid_rule": "Report validation failure with rule ID."
   },
-  "notes": "This rule set compiler uses strict composition. Rules and rule sets are additive only. No exclusions are supported. The final output is a flat array of {id, rule} objects, validated and compiled from the declared components.\n\nNote: The TrueSignal core is now defined by all rule files located in `/core/`. These rules are foundational and automatically included in all compiled rule sets. They are not composable and must not be referenced in any `rule_sets` declaration."
+  "notes": "This rule set compiler uses strict composition. Rules and rule sets are additive only. No exclusions are supported. The final output is a flat array of {id, rule} objects, validated and compiled from the declared components.\n\nNote: Core rules are now sourced from `/internal/core/` and compiled automatically to `/rule_sets/core.json`."
 }
