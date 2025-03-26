@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TrueSignal Compiled Rule Set Schema",
+  "description": "Validates a compiled rule set consisting of { id, rule } pairs.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "id",
+      "rule"
+    ],
+    "properties": {
+      "id": {
+        "type": "string",
+        "pattern": "^[A-Z]{3}-R\\d{3}$",
+        "description": "The rule ID in TrueSignal format (e.g. ENF-R001)"
+      },
+      "rule": {
+        "type": "string",
+        "description": "The rule text associated with this ID"
+      }
+    },
+    "additionalProperties": false
+  }
+}

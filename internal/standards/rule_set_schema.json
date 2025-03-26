@@ -1,29 +1,25 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TrueSignal Rule Set Definition Schema",
+  "description": "Schema for a declarative rule set definition. Requires 'rules' and 'rule_sets' fields, even if empty.",
   "type": "object",
-  "patternProperties": {
-    "^[a-z0-9_-]+$": {
-      "type": "object",
-      "properties": {
-        "includes": {
-          "type": "array",
-          "items": {
-            "type": "string",
-            "pattern": "^[a-z0-9_-]+:[A-Z]{2}-R\\d{3}$|^[A-Z]{2}-R\\d{3}$|^[a-z0-9_-]+$"
-          }
-        },
-        "excludes": {
-          "type": "array",
-          "items": {
-            "type": "string",
-            "pattern": "^[a-z0-9_-]+:[A-Z]{2}-R\\d{3}$|^[A-Z]{2}-R\\d{3}$"
-          }
-        }
-      },
-      "required": [
-        "includes"
-      ],
-      "additionalProperties": false
+  "required": [
+    "rules",
+    "rule_sets"
+  ],
+  "properties": {
+    "rules": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Z]{3}-R\\d{3}$"
+      }
+    },
+    "rule_sets": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
     }
   },
   "additionalProperties": false
