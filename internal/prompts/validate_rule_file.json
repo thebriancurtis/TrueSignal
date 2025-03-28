@@ -1,0 +1,69 @@
+{
+  "name": "validate_rule_file.json",
+  "description": "Validates rule files against the rule.json standard.",
+  "instructions": "Execute the purpose of `validate_rule_file.json` using the schema-defined structure and rules.",
+  "schema": {
+    "inputs": {
+      "type": "object",
+      "description": "Map of rule filenames to rule file contents.",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "text"
+        ]
+      }
+    },
+    "outputs": {
+      "type": "object",
+      "properties": {
+        "results": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "filename": {
+                "type": "string"
+              },
+              "valid": {
+                "type": "boolean"
+              },
+              "errors": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "filename",
+              "valid",
+              "errors"
+            ]
+          }
+        }
+      },
+      "required": [
+        "results"
+      ]
+    }
+  },
+  "example_input": {
+    "ENF-R001.json": {
+      "text": "All access must be authenticated."
+    }
+  },
+  "example_output": {
+    "results": [
+      {
+        "filename": "ENF-R001.json",
+        "valid": true,
+        "errors": []
+      }
+    ]
+  }
+}

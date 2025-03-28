@@ -1,0 +1,57 @@
+{
+  "description": "Auto-generated expert test suite for rule_workflow.json",
+  "tests": [
+    {
+      "name": "Minimal valid input",
+      "input": {
+        "rule_text": "x",
+        "existing_rules": [
+          "x"
+        ],
+        "rule_set_changed": true
+      },
+      "expected_keys": [],
+      "golden_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "assert": [],
+      "type": "regression",
+      "goal": "Validate historical or complex logic path is preserved."
+    },
+    {
+      "name": "Missing required field",
+      "input": {},
+      "expected_error": "Missing required field",
+      "golden_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "assert": [],
+      "type": "negative",
+      "goal": "Ensure error is raised when required fields are missing or input is invalid."
+    },
+    {
+      "name": "Wrong type input",
+      "input": {
+        "rule_text": 123,
+        "existing_rules": 123,
+        "rule_set_changed": 123
+      },
+      "expected_error": "Invalid type",
+      "golden_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "assert": [],
+      "type": "negative",
+      "goal": "Ensure error is raised when required fields are missing or input is invalid."
+    },
+    {
+      "name": "Boolean flip edge: rule_set_changed",
+      "input": {
+        "rule_text": "x",
+        "existing_rules": [
+          "x"
+        ],
+        "rule_set_changed": false
+      },
+      "expected_keys": [],
+      "golden_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "assert": [],
+      "type": "regression",
+      "goal": "Validate historical or complex logic path is preserved."
+    }
+  ]
+}

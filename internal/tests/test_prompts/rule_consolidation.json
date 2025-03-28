@@ -1,0 +1,98 @@
+{
+  "description": "Auto-generated expert test suite for rule_consolidation.json",
+  "tests": [
+    {
+      "name": "Valid input (from example)",
+      "input": {
+        "original_rule": "Validate all user input.",
+        "redundant_rule": "User data must be checked."
+      },
+      "expected_keys": [
+        "consolidated_rule",
+        "explanation"
+      ],
+      "golden_hash": "66652e02373665e8f8d2d3470b9bb470c8d2249dbbdb49efb54107e142a1f15b",
+      "assert": [
+        "'consolidated_rule' in output",
+        "'explanation' in output"
+      ],
+      "type": "regression",
+      "goal": "Validate historical or complex logic path is preserved."
+    },
+    {
+      "name": "Minimal valid input",
+      "input": {
+        "original_rule": "x",
+        "redundant_rule": "x"
+      },
+      "expected_keys": [
+        "consolidated_rule",
+        "explanation"
+      ],
+      "golden_hash": "66652e02373665e8f8d2d3470b9bb470c8d2249dbbdb49efb54107e142a1f15b",
+      "assert": [
+        "'consolidated_rule' in output",
+        "'explanation' in output"
+      ],
+      "type": "regression",
+      "goal": "Validate historical or complex logic path is preserved."
+    },
+    {
+      "name": "Missing required field",
+      "input": {},
+      "expected_error": "Missing required field",
+      "golden_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "assert": [],
+      "type": "negative",
+      "goal": "Ensure error is raised when required fields are missing or input is invalid."
+    },
+    {
+      "name": "Wrong type input",
+      "input": {
+        "original_rule": 123,
+        "redundant_rule": 123
+      },
+      "expected_error": "Invalid type",
+      "golden_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "assert": [],
+      "type": "negative",
+      "goal": "Ensure error is raised when required fields are missing or input is invalid."
+    },
+    {
+      "name": "Consolidate related rules",
+      "input": {
+        "original_rule": "Encrypt all sensitive data.",
+        "redundant_rule": "Sensitive data should not be in plain text."
+      },
+      "expected_keys": [
+        "consolidated_rule",
+        "explanation"
+      ],
+      "golden_hash": "66652e02373665e8f8d2d3470b9bb470c8d2249dbbdb49efb54107e142a1f15b",
+      "assert": [
+        "'consolidated_rule' in output",
+        "'explanation' in output"
+      ],
+      "type": "regression",
+      "goal": "Validate historical or complex logic path is preserved."
+    },
+    {
+      "name": "Test for generalization correctness",
+      "input": {
+        "original_rule": "Encrypt database backups.",
+        "redundant_rule": "Use encryption for data stored offsite."
+      },
+      "expected_keys": [
+        "consolidated_rule",
+        "explanation"
+      ],
+      "golden_hash": "66652e02373665e8f8d2d3470b9bb470c8d2249dbbdb49efb54107e142a1f15b",
+      "assert": [
+        "'consolidated_rule' in output",
+        "'explanation' in output"
+      ],
+      "type": "regression",
+      "goal": "Validate historical or complex logic path is preserved."
+    }
+  ]
+}

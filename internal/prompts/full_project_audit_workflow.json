@@ -1,0 +1,52 @@
+{
+  "name": "Full Project Audit Workflow",
+  "steps": [
+    {
+      "prompt": "validate_prompts.json",
+      "input": {},
+      "output": {}
+    },
+    {
+      "prompt": "validate_rule_file.json",
+      "input": {},
+      "output": {}
+    },
+    {
+      "prompt": "validate_provisional_rule.json",
+      "input": {},
+      "output": {}
+    },
+    {
+      "prompt": "validate_rule_filename.json",
+      "input": {},
+      "output": {}
+    },
+    {
+      "prompt": "validate_workflow.json",
+      "input": {},
+      "output": {}
+    }
+  ],
+  "schema": {
+    "inputs": {
+      "type": "object",
+      "properties": {},
+      "description": "These workflows are triggered automatically and require no manual input."
+    },
+    "outputs": {
+      "type": "object",
+      "properties": {
+        "completed": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "completed"
+      ]
+    }
+  },
+  "example_input": {},
+  "example_output": {
+    "completed": true
+  }
+}

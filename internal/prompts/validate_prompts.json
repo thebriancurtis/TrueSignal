@@ -1,0 +1,73 @@
+{
+  "name": "validate_prompts.json",
+  "description": "Validates a set of prompt files against the official prompt.json schema.",
+  "instructions": "Execute the purpose of `validate_prompts.json` using the schema-defined structure and rules.",
+  "schema": {
+    "inputs": {
+      "type": "object",
+      "description": "Map of prompt filenames to their JSON contents.",
+      "additionalProperties": {
+        "type": "object"
+      }
+    },
+    "outputs": {
+      "type": "object",
+      "properties": {
+        "results": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "filename": {
+                "type": "string"
+              },
+              "valid": {
+                "type": "boolean"
+              },
+              "errors": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "filename",
+              "valid",
+              "errors"
+            ]
+          }
+        }
+      },
+      "required": [
+        "results"
+      ]
+    }
+  },
+  "example_input": {
+    "compile_rule_set.json": {
+      "name": "compile_rule_set.json",
+      "description": "Compiles a rule set definition into an actionable rule set.",
+      "instructions": "Transform a rule set JSON into its compiled form.",
+      "schema": {
+        "inputs": {
+          "type": "object"
+        },
+        "outputs": {
+          "type": "object"
+        }
+      },
+      "example_input": {},
+      "example_output": {}
+    }
+  },
+  "example_output": {
+    "results": [
+      {
+        "filename": "compile_rule_set.json",
+        "valid": true,
+        "errors": []
+      }
+    ]
+  }
+}

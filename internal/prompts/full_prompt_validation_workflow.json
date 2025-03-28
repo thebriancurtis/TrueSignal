@@ -1,0 +1,32 @@
+{
+  "name": "Full Prompt Validation Workflow",
+  "steps": [
+    {
+      "prompt": "validate_prompts.json",
+      "input": {},
+      "output": {}
+    }
+  ],
+  "schema": {
+    "inputs": {
+      "type": "object",
+      "properties": {},
+      "description": "These workflows are triggered automatically and require no manual input."
+    },
+    "outputs": {
+      "type": "object",
+      "properties": {
+        "completed": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "completed"
+      ]
+    }
+  },
+  "example_input": {},
+  "example_output": {
+    "completed": true
+  }
+}

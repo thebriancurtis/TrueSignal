@@ -1,0 +1,108 @@
+{
+  "description": "Auto-generated expert test suite for is_core_rule.json",
+  "tests": [
+    {
+      "name": "Valid input (from example)",
+      "input": "$template:valid_rule",
+      "expected_keys": [
+        "is_core",
+        "violations"
+      ],
+      "golden_hash": "43a86300d53875e09e76560d8ad1e8cd649b838d9531e97a23b592b83085871d",
+      "assert": [
+        "'is_core' in output",
+        "'violations' in output"
+      ],
+      "type": "regression",
+      "goal": "Validate historical or complex logic path is preserved."
+    },
+    {
+      "name": "Minimal valid input",
+      "input": {
+        "text": "x"
+      },
+      "expected_keys": [
+        "is_core",
+        "violations"
+      ],
+      "golden_hash": "43a86300d53875e09e76560d8ad1e8cd649b838d9531e97a23b592b83085871d",
+      "assert": [
+        "'is_core' in output",
+        "'violations' in output"
+      ],
+      "type": "regression",
+      "goal": "Validate historical or complex logic path is preserved."
+    },
+    {
+      "name": "Missing required field",
+      "input": {},
+      "expected_error": "Missing required field",
+      "golden_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "assert": [],
+      "type": "negative",
+      "goal": "Ensure error is raised when required fields are missing or input is invalid."
+    },
+    {
+      "name": "Wrong type input",
+      "input": {
+        "text": 123
+      },
+      "expected_error": "Invalid type",
+      "golden_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "assert": [],
+      "type": "negative",
+      "goal": "Ensure error is raised when required fields are missing or input is invalid."
+    },
+    {
+      "name": "Core-eligible rule",
+      "input": "$template:valid_rule",
+      "assertions": {
+        "is_core": true,
+        "violations": []
+      },
+      "golden_hash": "1061ba86150cbf94c53541145ae81dcf9fefb6aeedfe67ce0595d36b04367b38",
+      "assert": [
+        "output['is_core'] == true",
+        "output['violations'] == []"
+      ],
+      "type": "valid",
+      "goal": "Validate standard successful behavior with clean input."
+    },
+    {
+      "name": "Ineligible rule with violations",
+      "input": {
+        "text": "We should maybe try to secure stuff."
+      },
+      "assertions": {
+        "is_core": false
+      },
+      "expected_keys": [
+        "violations"
+      ],
+      "golden_hash": "51c0746021760c01ee163bf5791e6d31e3a147300ef8423394311acbf6196806",
+      "assert": [
+        "output['is_core'] == false",
+        "'violations' in output"
+      ],
+      "type": "valid",
+      "goal": "Validate standard successful behavior with clean input."
+    },
+    {
+      "name": "Fails due to vague language",
+      "input": "$template:vague_rule",
+      "assertions": {
+        "is_core": false
+      },
+      "expected_keys": [
+        "violations"
+      ],
+      "golden_hash": "51c0746021760c01ee163bf5791e6d31e3a147300ef8423394311acbf6196806",
+      "assert": [
+        "output['is_core'] == false",
+        "'violations' in output"
+      ],
+      "type": "valid",
+      "goal": "Validate standard successful behavior with clean input."
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "description": "Auto-generated expert test suite for validate_rule_filename.json",
+  "tests": [
+    {
+      "name": "Valid input (from example)",
+      "input": {
+        "filenames": [
+          "ENF-R001.json",
+          "FRM-R004.json",
+          "VAL-XYZ.json"
+        ]
+      },
+      "expected_keys": [
+        "results"
+      ],
+      "golden_hash": "bec5d0c0b0b471c31ee78ace464ae051ecf0e02f0a869d2b11e4cde560de862c",
+      "assert": [
+        "'results' in output"
+      ],
+      "type": "regression",
+      "goal": "Validate historical or complex logic path is preserved."
+    },
+    {
+      "name": "Minimal valid input",
+      "input": {
+        "filenames": [
+          "x"
+        ]
+      },
+      "expected_keys": [
+        "results"
+      ],
+      "golden_hash": "bec5d0c0b0b471c31ee78ace464ae051ecf0e02f0a869d2b11e4cde560de862c",
+      "assert": [
+        "'results' in output"
+      ],
+      "type": "regression",
+      "goal": "Validate historical or complex logic path is preserved."
+    },
+    {
+      "name": "Missing required field",
+      "input": {},
+      "expected_error": "Missing required field",
+      "golden_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "assert": [],
+      "type": "negative",
+      "goal": "Ensure error is raised when required fields are missing or input is invalid."
+    },
+    {
+      "name": "Wrong type input",
+      "input": {
+        "filenames": 123
+      },
+      "expected_error": "Invalid type",
+      "golden_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "assert": [],
+      "type": "negative",
+      "goal": "Ensure error is raised when required fields are missing or input is invalid."
+    }
+  ]
+}

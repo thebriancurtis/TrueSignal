@@ -1,0 +1,65 @@
+{
+  "name": "validate_test_suite.json",
+  "description": "Validates structure, assertions, and integrity of prompt test suites.",
+  "instructions": "\nValidate a given test suite to ensure each test contains required fields: `name`, `input`, and at least one of `expected_keys`, `assert`, or `expected_error`. Verify that any `$template:` used resolves to a known input template. Check that `goal` and `type` are present and valid. Flag any missing or inconsistent structure.\n",
+  "uses_standards": [
+    "prompt.json"
+  ],
+  "schema": {
+    "inputs": {
+      "type": "object",
+      "properties": {
+        "test_suite": {
+          "type": "object"
+        },
+        "input_templates": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "test_suite",
+        "input_templates"
+      ]
+    },
+    "outputs": {
+      "type": "object",
+      "properties": {
+        "validation_passed": {
+          "type": "boolean"
+        },
+        "issues": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "validation_passed",
+        "issues"
+      ]
+    }
+  },
+  "example_input": {
+    "test_suite": {
+      "tests": [
+        {
+          "name": "Test core rule",
+          "input": "$template:valid_rule",
+          "expected_keys": [
+            "is_core"
+          ]
+        }
+      ]
+    },
+    "input_templates": {
+      "valid_rule": {
+        "text": "All access must require authentication."
+      }
+    }
+  },
+  "example_output": {
+    "validation_passed": true,
+    "issues": []
+  }
+}

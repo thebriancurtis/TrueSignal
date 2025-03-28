@@ -1,0 +1,108 @@
+{
+  "name": "validate_workflow.json",
+  "description": "Validates that a workflow definition conforms to TrueSignal's workflow schema and structural expectations.",
+  "instructions": "Execute the purpose of `validate_workflow.json` using the schema-defined structure and rules.",
+  "schema": {
+    "inputs": {
+      "type": "object",
+      "properties": {
+        "workflow_files": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "steps": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "prompt": {
+                      "type": "string"
+                    },
+                    "input": {
+                      "type": "object"
+                    },
+                    "output": {
+                      "type": "object"
+                    }
+                  },
+                  "required": [
+                    "prompt",
+                    "input",
+                    "output"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "name",
+              "steps"
+            ]
+          }
+        }
+      },
+      "required": [
+        "workflow_files"
+      ]
+    },
+    "outputs": {
+      "type": "object",
+      "properties": {
+        "results": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "filename": {
+                "type": "string"
+              },
+              "valid": {
+                "type": "boolean"
+              },
+              "errors": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "filename",
+              "valid",
+              "errors"
+            ]
+          }
+        }
+      },
+      "required": [
+        "results"
+      ]
+    }
+  },
+  "example_input": {
+    "workflow_files": {
+      "rule_workflow.json": {
+        "name": "Rule Workflow",
+        "steps": [
+          {
+            "prompt": "rule_categorization.json",
+            "input": {},
+            "output": {}
+          }
+        ]
+      }
+    }
+  },
+  "example_output": {
+    "results": [
+      {
+        "filename": "rule_workflow.json",
+        "valid": true,
+        "errors": []
+      }
+    ]
+  }
+}

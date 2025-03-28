@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TrueSignal Prompt Schema",
+  "description": "Defines the standard structure and expectations for all prompts used in TrueSignal.",
+  "type": "object",
+  "required": [
+    "name",
+    "description",
+    "instructions",
+    "schema"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "A unique, human-readable name for the prompt."
+    },
+    "description": {
+      "type": "string",
+      "description": "A brief description of what this prompt is responsible for."
+    },
+    "instructions": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "object"
+        }
+      ],
+      "description": "The core functional logic and guidance for the prompt."
+    },
+    "schema": {
+      "type": "object",
+      "required": [
+        "inputs",
+        "outputs"
+      ],
+      "properties": {
+        "inputs": {
+          "type": "object",
+          "description": "The expected input structure for the prompt."
+        },
+        "outputs": {
+          "type": [
+            "object",
+            "string"
+          ],
+          "description": "The expected output structure or a reference to a shared standard schema."
+        }
+      }
+    },
+    "example_input": {
+      "type": "object",
+      "description": "An example of valid input to this prompt."
+    },
+    "example_output": {
+      "type": "object",
+      "description": "An example of expected output from this prompt."
+    }
+  },
+  "additionalProperties": false
+}

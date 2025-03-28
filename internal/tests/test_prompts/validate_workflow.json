@@ -1,0 +1,66 @@
+{
+  "description": "Auto-generated expert test suite for validate_workflow.json",
+  "tests": [
+    {
+      "name": "Valid input (from example)",
+      "input": {
+        "workflow_files": {
+          "rule_workflow.json": {
+            "name": "Rule Workflow",
+            "steps": [
+              {
+                "prompt": "rule_categorization.json",
+                "input": {},
+                "output": {}
+              }
+            ]
+          }
+        }
+      },
+      "expected_keys": [
+        "results"
+      ],
+      "golden_hash": "bec5d0c0b0b471c31ee78ace464ae051ecf0e02f0a869d2b11e4cde560de862c",
+      "assert": [
+        "'results' in output"
+      ],
+      "type": "regression",
+      "goal": "Validate historical or complex logic path is preserved."
+    },
+    {
+      "name": "Minimal valid input",
+      "input": {
+        "workflow_files": {}
+      },
+      "expected_keys": [
+        "results"
+      ],
+      "golden_hash": "bec5d0c0b0b471c31ee78ace464ae051ecf0e02f0a869d2b11e4cde560de862c",
+      "assert": [
+        "'results' in output"
+      ],
+      "type": "regression",
+      "goal": "Validate historical or complex logic path is preserved."
+    },
+    {
+      "name": "Missing required field",
+      "input": {},
+      "expected_error": "Missing required field",
+      "golden_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "assert": [],
+      "type": "negative",
+      "goal": "Ensure error is raised when required fields are missing or input is invalid."
+    },
+    {
+      "name": "Wrong type input",
+      "input": {
+        "workflow_files": 123
+      },
+      "expected_error": "Invalid type",
+      "golden_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "assert": [],
+      "type": "negative",
+      "goal": "Ensure error is raised when required fields are missing or input is invalid."
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "description": "Auto-generated expert test suite for compile_rule_set.json",
+  "tests": [
+    {
+      "name": "Valid input (from example)",
+      "input": {
+        "rule_set_definition": {
+          "name": "Core Access Controls",
+          "rules": [
+            "ENF-R001.json",
+            "VAL-R004.json"
+          ]
+        }
+      },
+      "expected_keys": [
+        "compiled_rule_set"
+      ],
+      "golden_hash": "9b69a240e979b3ed14b2534020c4da16b3c77f4dc6f8bfe4e55b1b2542400ef9",
+      "assert": [
+        "'compiled_rule_set' in output"
+      ],
+      "type": "regression",
+      "goal": "Validate historical or complex logic path is preserved."
+    },
+    {
+      "name": "Minimal valid input",
+      "input": {
+        "rule_set_definition": {}
+      },
+      "expected_keys": [
+        "compiled_rule_set"
+      ],
+      "golden_hash": "9b69a240e979b3ed14b2534020c4da16b3c77f4dc6f8bfe4e55b1b2542400ef9",
+      "assert": [
+        "'compiled_rule_set' in output"
+      ],
+      "type": "regression",
+      "goal": "Validate historical or complex logic path is preserved."
+    },
+    {
+      "name": "Missing required field",
+      "input": {},
+      "expected_error": "Missing required field",
+      "golden_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "assert": [],
+      "type": "negative",
+      "goal": "Ensure error is raised when required fields are missing or input is invalid."
+    },
+    {
+      "name": "Wrong type input",
+      "input": {
+        "rule_set_definition": 123
+      },
+      "expected_error": "Invalid type",
+      "golden_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "assert": [],
+      "type": "negative",
+      "goal": "Ensure error is raised when required fields are missing or input is invalid."
+    },
+    {
+      "name": "Compile valid rule set",
+      "input": {
+        "rule_set_definition": {
+          "name": "Core Rules",
+          "rules": [
+            "ENF-R001.json",
+            "VAL-R002.json"
+          ]
+        }
+      },
+      "expected_keys": [
+        "compiled_rule_set"
+      ],
+      "golden_hash": "9b69a240e979b3ed14b2534020c4da16b3c77f4dc6f8bfe4e55b1b2542400ef9",
+      "assert": [
+        "'compiled_rule_set' in output"
+      ],
+      "type": "regression",
+      "goal": "Validate historical or complex logic path is preserved."
+    },
+    {
+      "name": "Missing rule set definition",
+      "input": {},
+      "expected_error": "Missing required field",
+      "golden_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "assert": [],
+      "type": "negative",
+      "goal": "Ensure error is raised when required fields are missing or input is invalid."
+    },
+    {
+      "name": "Test failure to resolve rule",
+      "input": {
+        "rule_set_definition": {
+          "name": "Broken Rules",
+          "rules": [
+            "NONEXISTENT.json"
+          ]
+        }
+      },
+      "expected_error": "Unable to resolve rule",
+      "golden_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "assert": [],
+      "type": "negative",
+      "goal": "Ensure error is raised when required fields are missing or input is invalid."
+    }
+  ]
+}

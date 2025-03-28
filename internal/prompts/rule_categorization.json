@@ -1,34 +1,46 @@
 {
-  "id": "rule_categorization",
-  "description": "Categorize a valid assistant behavior rule according to its primary behavioral constraint. Return only the category abbreviation associated with the semantic enforcement scope that best matches the rule's intended system behavior.",
-  "input": {
-    "type": "rule_text",
-    "description": "The full text of a rule that has already been validated as structurally and semantically compliant."
-  },
-  "requires": [
-    "internal/standards/rule_categorization.json"
+  "name": "rule_categorization.json",
+  "description": "Assigns a category to a rule based on its text and intent.",
+  "instructions": "Execute rule_categorization.json based on the declared schema and standards.",
+  "uses_standards": [
+    "rule_categorization.json"
   ],
-  "instructions": {
-    "overview": "This task involves selecting the single category whose enforcement domain best captures the behavioral intent of the rule. Do not classify rules based on phrasing, keyword matches, or surface features. Classification must be determined solely by semantic fit with the enforcement scope described in the external standard.",
-    "rules": [
-      "Do not assign a category unless the rule clearly maps to one behavioral enforcement domain.",
-      "Do not infer or guess secondary intent \u2014 select the category that governs the rule's primary constraint.",
-      "If a rule appears ambiguous, select the category whose violation would be most clearly indicated by failure to follow the rule.",
-      "Do not apply any scoring methodology or heuristic not defined in the referenced categorization standard.",
-      "If the rule does not clearly map to any defined category, return 'UNCLASSIFIABLE'."
-    ],
-    "reference_standard": "Refer to the semantic definitions, behavioral scopes, and classification logic found in internal/standards/rule_categorization.json. Do not duplicate or reinterpret the standard within this prompt.",
-    "output": {
-      "type": "category_abbreviation",
-      "description": "Return only the abbreviation (e.g., 'ENF', 'GRD', 'MEM') corresponding to the best-fitting category. Return 'UNCLASSIFIABLE' only if no behavioral alignment exists."
+  "schema": {
+    "inputs": {
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string",
+          "description": "The rule to categorize."
+        }
+      },
+      "required": [
+        "text"
+      ]
+    },
+    "outputs": {
+      "type": "object",
+      "properties": {
+        "category": {
+          "type": "string",
+          "description": "Category abbreviation (e.g., ENF, VAL, etc.)."
+        },
+        "justification": {
+          "type": "string",
+          "description": "Why this rule belongs to the selected category."
+        }
+      },
+      "required": [
+        "category",
+        "justification"
+      ]
     }
   },
-  "workflow": {
-    "core_check": "is_core_rule.json",
-    "categorization": "rule_categorization.json",
-    "next_steps": [
-      "rule_optimization.json",
-      "rule_deduplication.json"
-    ]
+  "example_input": {
+    "text": "Reject any unauthenticated request."
+  },
+  "example_output": {
+    "category": "ENF",
+    "justification": "This rule mandates rejection behavior, fitting enforcement."
   }
 }

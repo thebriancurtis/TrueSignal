@@ -1,0 +1,14 @@
+{
+  "valid_rule": {
+    "text": "All access must require authentication."
+  },
+  "vague_rule": {
+    "text": "Maybe enforce login sometimes."
+  },
+  "redundant_rule_set": {
+    "rule_text": "Do not allow access without login.",
+    "existing_rules": [
+      "Require login before access is granted."
+    ]
+  }
+}

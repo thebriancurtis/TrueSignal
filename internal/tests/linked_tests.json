@@ -1,0 +1,33 @@
+{
+  "optimize_then_check_core": {
+    "description": "Simulates optimizing a rule, then checking if it's core eligible.",
+    "steps": [
+      {
+        "prompt": "rule_optimization.json",
+        "input": "$template:valid_rule",
+        "output_to": "optimized_text"
+      },
+      {
+        "prompt": "is_core_rule.json",
+        "input_from_previous": "optimized_text"
+      }
+    ]
+  },
+  "dedupe_then_consolidate": {
+    "description": "Tests that a deduplicated match can feed into consolidation.",
+    "steps": [
+      {
+        "prompt": "rule_deduplication.json",
+        "input": "$template:redundant_rule_set",
+        "output_to": "matching_rule"
+      },
+      {
+        "prompt": "rule_consolidation.json",
+        "input": {
+          "original_rule_from_previous": "matching_rule",
+          "redundant_rule": "Do not allow access without login."
+        }
+      }
+    ]
+  }
+}

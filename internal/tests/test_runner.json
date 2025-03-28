@@ -1,0 +1,62 @@
+{
+  "description": "Standardized test harness for running prompt and workflow test cases.",
+  "schema": {
+    "inputs": {
+      "type": "object",
+      "properties": {
+        "test_suite": {
+          "type": "string",
+          "description": "Path to the test suite file to run."
+        }
+      },
+      "required": [
+        "test_suite"
+      ]
+    },
+    "outputs": {
+      "type": "object",
+      "properties": {
+        "results": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "test_name": {
+                "type": "string"
+              },
+              "passed": {
+                "type": "boolean"
+              },
+              "error": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "example_input": {
+    "test_suite": "internal/tests/test_prompts.json"
+  },
+  "example_output": {
+    "results": [
+      {
+        "test_name": "Valid core rule",
+        "passed": true
+      },
+      {
+        "test_name": "Not a core rule",
+        "passed": true
+      },
+      {
+        "test_name": "Missing field",
+        "passed": true
+      },
+      {
+        "test_name": "Malformed input",
+        "passed": true
+      }
+    ]
+  }
+}

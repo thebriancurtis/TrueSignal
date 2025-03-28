@@ -1,43 +1,54 @@
 {
-  "id": "rule_deduplication",
-  "description": "Determine whether a proposed rule is functionally or semantically redundant with any rule in a given rule corpus. Redundancy is defined as behavioral duplication\u2014where two rules, if applied to the same assistant output, would always pass or fail together.",
-  "input": {
-    "type": "rule_text_with_reference_set",
-    "fields": {
-      "candidate_rule": {
-        "type": "string",
-        "description": "The full text of the rule being reviewed for duplication."
-      },
-      "reference_rules": {
-        "type": "list",
-        "description": "A list of existing validated rules to which the candidate will be compared."
-      }
-    }
-  },
-  "requires": [
-    "internal/standards/rule.json"
+  "name": "rule_deduplication.json",
+  "description": "Determines whether a rule is redundant given a set of existing rules.",
+  "instructions": "Execute rule_deduplication.json based on the declared schema and standards.",
+  "uses_standards": [
+    "rule.json"
   ],
-  "instructions": {
-    "overview": "Evaluate the candidate rule for behavioral overlap. The comparison must be based on semantic behavior, not phrasing. Two rules are redundant if they produce the same enforcement outcome for all possible assistant behaviors.",
-    "rules": [
-      "Do not rely on surface similarity or matching words.",
-      "Focus on the assistant behavior being constrained or enforced by each rule.",
-      "Behavioral overlap must be total and unambiguous to justify a redundancy flag.",
-      "If the candidate rule restates the constraint of any reference rule using different words, it must be flagged as redundant.",
-      "If the rule expresses a distinct constraint, even if related in topic, it is not redundant."
-    ],
-    "output": {
-      "type": "structured",
-      "fields": [
+  "schema": {
+    "inputs": {
+      "type": "object",
+      "properties": {
+        "rule_text": {
+          "type": "string"
+        },
+        "existing_rules": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "rule_text",
+        "existing_rules"
+      ]
+    },
+    "outputs": {
+      "type": "object",
+      "properties": {
+        "is_redundant": {
+          "type": "boolean"
+        },
+        "matching_rule": {
+          "type": "string"
+        }
+      },
+      "required": [
         "is_redundant",
-        "redundant_with",
-        "rationale"
-      ],
-      "description": "`is_redundant` is a boolean. `redundant_with` is a list of rule IDs or texts from the reference corpus that duplicate the candidate. `rationale` must explain the basis of any duplication decision, using behavioral logic only."
+        "matching_rule"
+      ]
     }
   },
-  "workflow": {
-    "core_check": "is_core_rule.json",
-    "deduplication": "rule_deduplication.json"
+  "example_input": {
+    "rule_text": "All passwords must be hashed.",
+    "existing_rules": [
+      "Passwords must be stored using cryptographic hashing.",
+      "Do not store plain text passwords."
+    ]
+  },
+  "example_output": {
+    "is_redundant": true,
+    "matching_rule": "Passwords must be stored using cryptographic hashing."
   }
 }

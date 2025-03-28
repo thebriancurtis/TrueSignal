@@ -1,25 +1,80 @@
 {
-  "task": "Compile a rule set into a flat array of validated rules with IDs.",
-  "inputs": {
-    "rule_set_definition": "/internal/rule_sets/{set_id}.json",
-    "rule_directory": "/rules/",
-    "rule_schema": "/internal/standards/rule_schema.json"
+  "name": "compile_rule_set.json",
+  "description": "Compiles a rule set definition into a finalized list of rule files with references resolved.",
+  "instructions": "Execute compile_rule_set.json based on the declared schema and standards.",
+  "uses_standards": [
+    "rule_set_schema.json"
+  ],
+  "schema": {
+    "inputs": {
+      "type": "object",
+      "properties": {
+        "rule_set_definition": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "rules": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "name",
+            "rules"
+          ]
+        }
+      },
+      "required": [
+        "rule_set_definition"
+      ]
+    },
+    "outputs": {
+      "type": "object",
+      "properties": {
+        "compiled_rule_set": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "compiled_rules": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "name",
+            "compiled_rules"
+          ]
+        }
+      },
+      "required": [
+        "compiled_rule_set"
+      ]
+    }
   },
-  "behavior": {
-    "rules": "An array of rule IDs (e.g., ENF-R001) to include in this rule set.",
-    "rule_sets": "An array of other rule set IDs (e.g., context/code_review) whose rules should be recursively resolved and included.",
-    "validate_each_rule": true,
-    "abort_on_missing_rule": true,
-    "abort_on_schema_violation": true
+  "example_input": {
+    "rule_set_definition": {
+      "name": "Core Access Controls",
+      "rules": [
+        "ENF-R001.json",
+        "VAL-R004.json"
+      ]
+    }
   },
-  "output": {
-    "format": "array_of_objects",
-    "schema": "/internal/standards/compiled_rule_set_schema.json",
-    "destination": "/rule_sets/{set_id}.json"
-  },
-  "errors": {
-    "on_missing": "Report missing rule IDs.",
-    "on_invalid_rule": "Report validation failure with rule ID."
-  },
-  "notes": "This rule set compiler uses strict composition. Rules and rule sets are additive only. No exclusions are supported. The final output is a flat array of {id, rule} objects, validated and compiled from the declared components.\n\nNote: Core rules are now sourced from `/internal/core/` and compiled automatically to `/rule_sets/core.json`."
+  "example_output": {
+    "compiled_rule_set": {
+      "name": "Core Access Controls",
+      "compiled_rules": [
+        "All access must be authenticated.",
+        "Reject invalid inputs."
+      ]
+    }
+  }
 }

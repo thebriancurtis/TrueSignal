@@ -1,14 +1,71 @@
 {
-  "workflow_sequence": [
-    "is_core_rule.json",
-    "rule_categorization.json",
-    "rule_optimization.json",
-    "rule_deduplication.json"
-  ],
-  "workflow_logic": {
-    "is_core_rule.json": "Determine if the rule is core or composable, run first.",
-    "rule_categorization.json": "Categorize the rule after core eligibility is determined.",
-    "rule_optimization.json": "Optimize the rule after categorization.",
-    "rule_deduplication.json": "Perform deduplication after optimization."
-  }
+  "name": "Rule Processing Workflow",
+  "steps": [
+    {
+      "prompt": "rule_optimization.json",
+      "input": {
+        "text": "<<input.text>>"
+      },
+      "output": {
+        "optimized_text": "<<step.rule_optimization.json.optimized_text>>"
+      }
+    },
+    {
+      "prompt": "is_core_rule.json",
+      "input": {
+        "text": "<<step.rule_optimization.json.optimized_text>>"
+      },
+      "output": {
+        "is_core": "<<step.is_core_rule.json.is_core>>"
+      }
+    },
+    {
+      "prompt": "rule_categorization.json",
+      "input": {
+        "text": "<<step.rule_optimization.json.optimized_text>>"
+      },
+      "output": {
+        "category": "<<step.rule_categorization.json.category>>"
+      }
+    },
+    {
+      "prompt": "rule_deduplication.json",
+      "input": {
+        "rule_text": "<<step.rule_optimization.json.optimized_text>>",
+        "existing_rules": "<<reference.rules_in_category>>"
+      },
+      "output": {
+        "is_redundant": "<<step.rule_deduplication.json.is_redundant>>"
+      }
+    },
+    {
+      "prompt": "rule_consolidation.json",
+      "input": {
+        "original_rule": "<<step.rule_optimization.json.optimized_text>>",
+        "redundant_rule": "<<matched_redundant_rule>>"
+      },
+      "output": {
+        "consolidated_rule": "<<step.rule_consolidation.json.consolidated_rule>>"
+      },
+      "run_if": {
+        "from": "rule_deduplication.json",
+        "field": "is_redundant",
+        "equals": true
+      }
+    },
+    {
+      "prompt": "compile_rule_set.json",
+      "input": {
+        "rule_set_definition": "<<definition_if_applicable>>"
+      },
+      "output": {
+        "compiled_rule_set": "<<step.compile_rule_set.json.compiled_rule_set>>"
+      },
+      "run_if": {
+        "from": "external_trigger",
+        "field": "rule_set_changed",
+        "equals": true
+      }
+    }
+  ]
 }
