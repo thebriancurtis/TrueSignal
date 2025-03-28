@@ -22,5 +22,13 @@
       "type": "category_abbreviation",
       "description": "Return only the abbreviation (e.g., 'ENF', 'GRD', 'MEM') corresponding to the best-fitting category. Return 'UNCLASSIFIABLE' only if no behavioral alignment exists."
     }
+  },
+  "workflow": {
+    "core_check": "is_core_rule.json",
+    "categorization": "rule_categorization.json",
+    "next_steps": [
+      "rule_optimization.json",
+      "rule_deduplication.json"
+    ]
   }
 }

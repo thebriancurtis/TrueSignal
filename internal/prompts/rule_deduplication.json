@@ -35,5 +35,9 @@
       ],
       "description": "`is_redundant` is a boolean. `redundant_with` is a list of rule IDs or texts from the reference corpus that duplicate the candidate. `rationale` must explain the basis of any duplication decision, using behavioral logic only."
     }
+  },
+  "workflow": {
+    "core_check": "is_core_rule.json",
+    "deduplication": "rule_deduplication.json"
   }
 }

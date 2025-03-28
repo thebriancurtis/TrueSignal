@@ -91,5 +91,9 @@
       "description": "Outputs include the optimized rule and a traceable summary of edits, with verification that it still meets the standard for rule validity and enforceability."
     }
   },
-  "goal": "A rule is considered fully optimized when no further reduction in length or improvement in clarity can be achieved without altering its behavioral meaning. The optimization process must preserve enforceability, semantic intent, and testability while removing all unnecessary language or indirect phrasing.\n\nYour output must comply with the structure defined in `internal/standards/rule_schema.json`. Return only a JSON object with a single `rule` field."
+  "goal": "A rule is considered fully optimized when no further reduction in length or improvement in clarity can be achieved without altering its behavioral meaning. The optimization process must preserve enforceability, semantic intent, and testability while removing all unnecessary language or indirect phrasing.\n\nYour output must comply with the structure defined in `internal/standards/rule_schema.json`. Return only a JSON object with a single `rule` field.",
+  "workflow": {
+    "core_check": "is_core_rule.json",
+    "optimization": "rule_optimization.json"
+  }
 }
