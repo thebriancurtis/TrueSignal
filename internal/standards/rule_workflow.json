@@ -1,0 +1,14 @@
+{
+  "workflow_sequence": [
+    "is_core_rule.json",
+    "rule_categorization.json",
+    "rule_optimization.json",
+    "rule_deduplication.json"
+  ],
+  "workflow_logic": {
+    "is_core_rule.json": "Determine if the rule is core or composable, run first.",
+    "rule_categorization.json": "Categorize the rule after core eligibility is determined.",
+    "rule_optimization.json": "Optimize the rule after categorization.",
+    "rule_deduplication.json": "Perform deduplication after optimization."
+  }
+}
