@@ -1,0 +1,31 @@
+{
+  "name": "is_core_rule.json",
+  "description": "Determines whether a given rule meets the criteria for inclusion in the core rule set based on core_rule.json.",
+  "input_format": {
+    "rule": {
+      "type": "object",
+      "description": "A complete rule object conforming to rule.json structure."
+    }
+  },
+  "output_format": {
+    "is_core": {
+      "type": "boolean",
+      "description": "True if the rule qualifies for core based on core_rule.json."
+    },
+    "reason": {
+      "type": "string",
+      "description": "Optional explanation for why the rule did or did not qualify."
+    },
+    "failures": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Optional list of specific eligibility criteria not met."
+    }
+  },
+  "uses_standards": [
+    "core_rule.json"
+  ],
+  "notes": "This prompt is used in rule validation workflows to determine whether a rule should be treated as a core rule or a composable rule."
+}
