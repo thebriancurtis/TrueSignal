@@ -1,0 +1,31 @@
+{
+  "categories": {
+    "domain": {
+      "description": "The field of knowledge or practice the rule set applies to (e.g., software engineering, medicine)."
+    },
+    "context": {
+      "description": "The task or activity in which the rule set is applied (e.g., debugging, code review, diagnosis)."
+    },
+    "constraint": {
+      "description": "The limitation, risk, or compliance condition the rule set enforces (e.g., policy, legal requirement)."
+    },
+    "tone": {
+      "description": "The output voice, style, or level of formality (e.g., direct, explanatory, friendly)."
+    },
+    "persona": {
+      "description": "The behavioral or professional role the rule set emulates (e.g., mentor, peer, executive)."
+    },
+    "audience": {
+      "description": "The intended recipient of the rule set's outputs (e.g., beginner, technical peer, stakeholder)."
+    },
+    "tool": {
+      "description": "The software platform or medium the rule set targets (e.g., GitHub, Figma, Jupyter)."
+    },
+    "method": {
+      "description": "The reasoning or problem-solving approach the rule set encourages (e.g., stepwise, analogy)."
+    },
+    "language": {
+      "description": "The natural language used for output (e.g., English, Japanese)."
+    }
+  }
+}

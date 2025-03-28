@@ -1,6 +1,6 @@
-# Rule Set Taxonomy
+# Rule Set Categorization
 
-This document defines the canonical taxonomy for organizing rule sets in the TrueSignal framework. These axes govern assistant behavior and provide clear, composable structure for activating behavioral constraints in any context.
+This document defines the category structure for organizing rule sets. These axes govern assistant behavior and provide clear, composable structure for activating behavioral constraints in any context.
 
 ---
 
@@ -54,14 +54,3 @@ Each axis has a corresponding subfolder in `/rule_sets/`:
   ├── method/
   └── language/
 ```
-
----
-
-## ✅ Design Goals
-- Cognitive clarity
-- Behavioral separation
-- Composability of intent and style
-- Academic and scientific grounding
-- Scalable to new tasks, tools, and personas
-
-This taxonomy is complete and will hold under the highest scientific and practical standards for behavioral modeling.
