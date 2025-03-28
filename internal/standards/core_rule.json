@@ -1,0 +1,68 @@
+{
+  "extends": "rule.json",
+  "core_requirements": [
+    {
+      "name": "Philosophical Alignment",
+      "description": "The rule must encode or express a core TrueSignal principle. If a rule is merely useful but not tied to project values (e.g. interpretability, precision, composability), it is not eligible.",
+      "enforced": true,
+      "testable": false,
+      "category": "philosophy"
+    },
+    {
+      "name": "High Value-to-Complexity Ratio",
+      "description": "The rule must provide high practical or conceptual value relative to its complexity. Simpler, more universally valuable rules are favored.",
+      "enforced": true,
+      "testable": false,
+      "category": "efficiency"
+    },
+    {
+      "name": "Durability",
+      "description": "The rule must remain meaningful across prompt design changes, schema evolution, or model behavior shifts. Fragile rules are ineligible.",
+      "enforced": true,
+      "testable": false,
+      "category": "robustness"
+    },
+    {
+      "name": "Testability",
+      "description": "There must be a clear, automatable way to determine whether the rule is satisfied. Rules requiring subjective judgment without strict definitions are discouraged.",
+      "enforced": true,
+      "testable": true,
+      "category": "validation"
+    },
+    {
+      "name": "Teachable / Self-Revealing",
+      "description": "The rule should help train or inform a future maintainer. Core rules should clarify system behavior, not just constrain it.",
+      "enforced": false,
+      "testable": false,
+      "category": "education"
+    },
+    {
+      "name": "Precision & Clarity",
+      "description": "The rule\u2019s intent must be unambiguous and implementation-ready. Rules with vague or overlapping scopes must be reworded or split.",
+      "enforced": true,
+      "testable": true,
+      "category": "clarity"
+    },
+    {
+      "name": "Non-Genericity",
+      "description": "The rule must not be overly broad or universally applicable (e.g. 'be clear'). Generic guidance belongs elsewhere \u2014 not in the core.",
+      "enforced": true,
+      "testable": false,
+      "category": "specificity"
+    },
+    {
+      "name": "Independence",
+      "description": "Whenever possible, the rule should be atomic and not rely on other rules for meaning. Interdependencies should be minimal and explicit.",
+      "enforced": false,
+      "testable": false,
+      "category": "structure"
+    },
+    {
+      "name": "Alignment with Schemas and Standards",
+      "description": "Core rules must integrate cleanly with TrueSignal\u2019s evolving schemas, validation rules, and prompt composition standards.",
+      "enforced": true,
+      "testable": false,
+      "category": "schema"
+    }
+  ]
+}

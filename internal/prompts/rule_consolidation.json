@@ -15,7 +15,7 @@
     }
   },
   "requires": [
-    "internal/standards/rule_text_validation.json",
+    "internal/standards/rule.json",
     "internal/prompts/rule_deduplication.json"
   ],
   "instructions": {

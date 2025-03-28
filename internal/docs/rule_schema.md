@@ -19,7 +19,7 @@ Each rule file must be a JSON object with the following structure:
 | `rule` | string | ✅ Yes   | A testable, atomic directive that enforces specific assistant behavior |
 
 - No additional fields are permitted
-- The rule text must pass validation by `rule_text_validation.json`
+- The rule text must pass validation by `rule.json`
 
 ---
 

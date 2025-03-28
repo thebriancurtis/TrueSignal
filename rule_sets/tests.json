@@ -204,14 +204,14 @@
     },
     {
       "id": "GLB-T003",
-      "description": "Ensure every rule in the instruction set conforms to rule_text_validation.json and is classified as VALID.",
+      "description": "Ensure every rule in the instruction set conforms to rule.json and is classified as VALID.",
       "scope": "rule_sets/rules.json",
       "logic": {
         "for_each_rule": {
           "input": "rule.text",
           "assert": {
             "classification": "VALID",
-            "standard": "internal/standards/rule_text_validation.json"
+            "standard": "internal/standards/rule.json"
           },
           "on_fail": {
             "report": [ "rule.id", "rule.text", "classification" ]

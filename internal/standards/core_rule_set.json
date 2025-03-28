@@ -1,0 +1,7 @@
+{
+  "id": "core_rule_set",
+  "name": "Core Rule Set",
+  "description": "A curated set of rules that meet TrueSignal's core rule standard.",
+  "rule_standard": "core_rule.json",
+  "rules": []
+}

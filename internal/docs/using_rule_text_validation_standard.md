@@ -1,6 +1,6 @@
 # Using the Rule Text Validation Standard
 
-This guide explains how to interpret and apply the `rule_text_validation.json` standard when writing or reviewing TrueSignal rules.
+This guide explains how to interpret and apply the `rule.json` standard when writing or reviewing TrueSignal rules.
 
 ---
 

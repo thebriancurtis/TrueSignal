@@ -6,13 +6,13 @@
     "description": "A single assistant behavior rule that has already been validated as structurally and semantically valid."
   },
   "requires": [
-    "internal/standards/rule_text_validation.json"
+    "internal/standards/rule.json"
   ],
   "instructions": {
     "preconditions": [
       {
         "check": "rule_is_valid",
-        "reference": "internal/standards/rule_text_validation.json",
+        "reference": "internal/standards/rule.json",
         "description": "Optimization may only be applied to rules that are classified as VALID by the current validation standard. Do not attempt to optimize unvalidated or structurally incomplete rules."
       }
     ],

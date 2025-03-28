@@ -53,7 +53,7 @@ Rules must be rewritten in active voice to ensure clear agent-action structure.
 An optimized rule must be rejected if:
 - It alters the rule's meaning
 - It introduces ambiguity or weakens testability
-- It fails revalidation under the current rule_text_validation.json standard
+- It fails revalidation under the current rule.json standard
 
 ---
 

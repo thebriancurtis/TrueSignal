@@ -29,7 +29,7 @@ Use directive verbs. Avoid passive voice or vague language.
 
 ### 3. Validate the Rule
 
-Check against the `rule_text_validation.json` standard:
+Check against the `rule.json` standard:
 - Is it valid?
 - Is it enforceable?
 - Is it a single behavioral constraint?

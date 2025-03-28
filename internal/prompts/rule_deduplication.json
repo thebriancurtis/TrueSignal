@@ -15,7 +15,7 @@
     }
   },
   "requires": [
-    "internal/standards/rule_text_validation.json"
+    "internal/standards/rule.json"
   ],
   "instructions": {
     "overview": "Evaluate the candidate rule for behavioral overlap. The comparison must be based on semantic behavior, not phrasing. Two rules are redundant if they produce the same enforcement outcome for all possible assistant behaviors.",
