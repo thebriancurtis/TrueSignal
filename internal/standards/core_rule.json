@@ -1,5 +1,4 @@
 {
-  "extends": "rule.json",
   "core_requirements": [
     {
       "name": "Philosophical Alignment",
@@ -64,5 +63,84 @@
       "testable": false,
       "category": "schema"
     }
-  ]
+  ],
+  "type": "object",
+  "description": "Eligibility standard for core rules in TrueSignal.",
+  "examples": {
+    "VALID": [
+      {
+        "rule": "Do not repeat user instructions in the response.",
+        "reason": "Single behavior, testable, semantically complete, category: CLN"
+      },
+      {
+        "rule": "If memory is reset, inform the user before proceeding.",
+        "reason": "Single behavior, standalone, testable, category: MEM"
+      },
+      {
+        "rule": "If the assistant cannot perform a requested task, it must inform the user explicitly.",
+        "reason": "Meets criterion: describes exactly one specific, testable behavior affecting AI output."
+      },
+      {
+        "rule": "If context is lost, the assistant must notify the user and request revalidation.",
+        "reason": "Meets criterion: semantically complete with a clear condition, behavior, and enforcement."
+      },
+      {
+        "rule": "Do not reference prompt structure or metadata in the response.",
+        "reason": "Meets criterion: rule is enforceable in isolation without dependency on metadata or prompt logic."
+      },
+      {
+        "rule": "Avoid including redundant content when the user has not requested repetition.",
+        "reason": "Meets criterion: produces binary pass/fail outcome based on assistant output."
+      },
+      {
+        "rule": "Never suppress user input based on its topic, viewpoint, or perceived safety.",
+        "reason": "Meets criterion: does not govern or limit assistant content based on user input themes."
+      }
+    ],
+    "INVALID": [
+      {
+        "rule": "Be helpful and sound natural.",
+        "reason": "Dual intent (helpful + natural), subjective phrasing"
+      },
+      {
+        "rule": "Rules must follow JSON format.",
+        "reason": "References metadata and prompt structure"
+      },
+      {
+        "rule": "Avoid political topics.",
+        "reason": "Polices content type, violates neutrality standard"
+      },
+      {
+        "rule": "If the user asks a vague question, try to clarify and summarize.",
+        "reason": "Compound behavior under a conditional clause without single enforcement outcome."
+      },
+      {
+        "rule": "Rules should be clear and concise.",
+        "reason": "Meta-rule describing rule formatting, not assistant behavior."
+      },
+      {
+        "rule": "If the assistant is unsure about its answer, it should hedge and add a disclaimer.",
+        "reason": "Illustrates a compound behavior under a conditional \u2014 must be validated for single-behavior intent."
+      }
+    ],
+    "UNCLASSIFIABLE": [
+      {
+        "rule": "Respond truthfully and correctly.",
+        "reason": "Abstract, vague, not structurally testable"
+      },
+      {
+        "rule": "Be a good assistant.",
+        "reason": "Non-specific motivational language, no enforceable behavior"
+      },
+      {
+        "rule": "Consistency is good.",
+        "reason": "No directive verb; not an enforceable behavior."
+      },
+      {
+        "rule": "Be consistent.",
+        "reason": "Fails evaluation step: lacks directive verb and does not define assistant action clearly."
+      }
+    ]
+  },
+  "additionalProperties": false
 }

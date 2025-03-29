@@ -1,0 +1,54 @@
+{
+  "name": "rule_standard_schema.json",
+  "description": "Defines the required structure for all rule standards in TrueSignal. All rule standards must conform to this schema and implicitly extend rule.json.",
+  "type": "object",
+  "required": [
+    "description",
+    "version",
+    "type",
+    "required",
+    "properties",
+    "examples",
+    "additionalProperties"
+  ],
+  "properties": {
+    "description": {
+      "type": "string",
+      "description": "A plain language description of the rule standard's purpose."
+    },
+    "version": {
+      "type": "string",
+      "description": "Version of the rule standard."
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "object"
+      ],
+      "description": "Must always be 'object'."
+    },
+    "required": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Array of required field names for the rule."
+    },
+    "properties": {
+      "type": "object",
+      "description": "Field definitions for rules conforming to this standard."
+    },
+    "examples": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "description": "Array of example rule objects that conform to this standard."
+    },
+    "additionalProperties": {
+      "type": "boolean",
+      "description": "Whether additional fields are allowed beyond those defined in 'properties'."
+    }
+  },
+  "additionalProperties": false
+}

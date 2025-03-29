@@ -166,5 +166,7 @@
         "reason": "Fails evaluation step: lacks directive verb and does not define assistant action clearly."
       }
     ]
-  }
+  },
+  "type": "object",
+  "additionalProperties": false
 }
