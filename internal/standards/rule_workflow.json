@@ -52,20 +52,6 @@
         "field": "is_redundant",
         "equals": true
       }
-    },
-    {
-      "prompt": "compile_rule_set.json",
-      "input": {
-        "rule_set_definition": "<<definition_if_applicable>>"
-      },
-      "output": {
-        "compiled_rule_set": "<<step.compile_rule_set.json.compiled_rule_set>>"
-      },
-      "run_if": {
-        "from": "external_trigger",
-        "field": "rule_set_changed",
-        "equals": true
-      }
     }
   ]
 }
