@@ -44,5 +44,20 @@
   "example_output": {
     "consolidated_rule": "All user input must be validated.",
     "explanation": "Unified language while preserving both intents."
+  },
+  "input_schema": {
+    "type": "object",
+    "required": [
+      "rules"
+    ],
+    "properties": {
+      "rules": {
+        "type": "array",
+        "items": {
+          "type": "object"
+        },
+        "description": "Array of redundant rules to consolidate."
+      }
+    }
   }
 }

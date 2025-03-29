@@ -76,5 +76,29 @@
         "Reject invalid inputs."
       ]
     }
+  },
+  "input_schema": {
+    "type": "object",
+    "required": [
+      "rule_set_definition"
+    ],
+    "properties": {
+      "rule_set_definition": {
+        "type": "object",
+        "description": "Definition of a rule set including name, category, and rules."
+      }
+    }
+  },
+  "output_schema": {
+    "type": "object",
+    "required": [
+      "compiled_rule_set"
+    ],
+    "properties": {
+      "compiled_rule_set": {
+        "type": "object",
+        "description": "Compiled version of the rule set ready for deployment."
+      }
+    }
   }
 }

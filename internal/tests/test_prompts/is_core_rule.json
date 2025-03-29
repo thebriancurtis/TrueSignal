@@ -104,5 +104,29 @@
       "type": "valid",
       "goal": "Validate standard successful behavior with clean input."
     }
-  ]
+  ],
+  "input_schema": {
+    "type": "object",
+    "required": [
+      "rule"
+    ],
+    "properties": {
+      "rule": {
+        "type": "object",
+        "description": "A rule object to evaluate for core eligibility."
+      }
+    }
+  },
+  "output_schema": {
+    "type": "object",
+    "required": [
+      "is_core"
+    ],
+    "properties": {
+      "is_core": {
+        "type": "boolean",
+        "description": "True if the rule meets the criteria for core status."
+      }
+    }
+  }
 }
