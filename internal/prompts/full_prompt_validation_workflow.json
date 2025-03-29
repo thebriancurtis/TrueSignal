@@ -27,6 +27,31 @@
   },
   "example_input": {},
   "example_output": {
-    "completed": true
+    "validation_results": [
+      {
+        "prompt": "rule_optimization.json",
+        "status": "valid"
+      }
+    ]
+  },
+  "instructions": "This workflow runs validation across all internal prompts and their associated tests to ensure consistency, correctness, and schema conformance.",
+  "input_schema": {
+    "type": "object",
+    "properties": {},
+    "additionalProperties": false
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "validation_results": {
+        "type": "array",
+        "items": {
+          "type": "object"
+        }
+      }
+    },
+    "required": [
+      "validation_results"
+    ]
   }
 }

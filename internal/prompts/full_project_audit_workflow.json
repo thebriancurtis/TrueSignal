@@ -48,5 +48,6 @@
   "example_input": {},
   "example_output": {
     "completed": true
-  }
+  },
+  "instructions": "This workflow performs a comprehensive audit of the entire TrueSignal project, including prompt validation, workflow correctness, rule file compliance, and filename standards."
 }
