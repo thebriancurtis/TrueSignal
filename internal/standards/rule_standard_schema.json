@@ -4,7 +4,6 @@
   "type": "object",
   "required": [
     "description",
-    "version",
     "type",
     "required",
     "properties",
@@ -15,10 +14,6 @@
     "description": {
       "type": "string",
       "description": "A plain language description of the rule standard's purpose."
-    },
-    "version": {
-      "type": "string",
-      "description": "Version of the rule standard."
     },
     "type": {
       "type": "string",
@@ -50,5 +45,30 @@
       "description": "Whether additional fields are allowed beyond those defined in 'properties'."
     }
   },
-  "additionalProperties": false
+  "additionalProperties": false,
+  "examples": [
+    {
+      "description": "Defines a rule structure for a given purpose.",
+      "type": "object",
+      "required": [
+        "text",
+        "category"
+      ],
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        }
+      },
+      "examples": [
+        {
+          "text": "Keep explanations logically consistent and free of contradictions.",
+          "category": "logic"
+        }
+      ],
+      "additionalProperties": false
+    }
+  ]
 }
