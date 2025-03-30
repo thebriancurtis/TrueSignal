@@ -57,6 +57,35 @@ Instructions:
 ```
 
 ---
+---
+
+## 📚 Documentation Index
+
+### 🧱 Core System
+- [Core Rule System](internal/docs/core_rule_system.md)
+
+### ✍️ Rule Authoring
+- [How to Write a Rule](internal/docs/how_to_write_a_rule.md)
+- [Rule Categorization Standard](internal/docs/rule_set_categorization.md)
+- [Rule Schema Overview](internal/docs/rule_schema.md)
+
+### ⚙️ Validation Workflow
+- [Validation Workflow](internal/docs/workflow.md)
+- [Rule Deduplication and Consolidation](internal/docs/rule_deduplication_and_consolidation.md)
+
+### 🔎 Usage Guides
+- [Using Rule Sets](internal/docs/using_rule_sets.md)
+- [Using Rule Optimization Prompt](internal/docs/using_rule_optimization_prompt.md)
+- [Using Rule Categorization Prompt](internal/docs/using_rule_categorization_prompt.md)
+- [Using Rule Deduplication with ChatGPT](internal/docs/using_rule_deduplication_with_chatgpt.md)
+- [Using Rule Text Validation Standard](internal/docs/using_rule_text_validation_standard.md)
+
+### 📐 Standards and Theory
+- [Rule Standards](internal/docs/rule_standards.md)
+- [Rule Optimization Theory](internal/docs/rule_optimization_theory.md)
+- [Rule Text Validation Theory](internal/docs/rule_text_validation_theory.md)
+- [Category Theory and Justification](internal/docs/category_theory_and_justification.md)
+
 
 ## 🧾 License
 
