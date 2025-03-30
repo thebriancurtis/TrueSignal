@@ -1,82 +1,31 @@
 {
-  "name": "validate_rule_filename.json",
-  "description": "Validates that rule filenames conform to the rule_filename.json standard.",
-  "instructions": "Execute the purpose of `validate_rule_filename.json` using the schema-defined structure and rules.",
-  "schema": {
-    "inputs": {
-      "type": "object",
-      "properties": {
-        "filenames": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
+  "name": "validate_rule_filename",
+  "description": "Validates that a rule filename conforms to naming conventions and category rules.",
+  "instructions": "Check that the filename matches the pattern {CATEGORY}-R00X.json and ensure the category prefix is defined in the rule_categorization.json standard.",
+  "uses_standard": "rule_filename.json",
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "valid": {
+        "type": "boolean"
       },
-      "required": [
-        "filenames"
-      ]
+      "errors": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
     },
-    "outputs": {
-      "type": "object",
-      "properties": {
-        "results": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "filename": {
-                "type": "string"
-              },
-              "valid": {
-                "type": "boolean"
-              },
-              "errors": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              }
-            },
-            "required": [
-              "filename",
-              "valid",
-              "errors"
-            ]
-          }
-        }
-      },
-      "required": [
-        "results"
-      ]
-    }
+    "required": [
+      "valid",
+      "errors"
+    ]
   },
   "example_input": {
-    "filenames": [
-      "ENF-R001.json",
-      "FRM-R004.json",
-      "VAL-XYZ.json"
-    ]
+    "filename": "ACC-R001.json"
   },
   "example_output": {
-    "results": [
-      {
-        "filename": "ENF-R001.json",
-        "valid": true,
-        "errors": []
-      },
-      {
-        "filename": "FRM-R004.json",
-        "valid": true,
-        "errors": []
-      },
-      {
-        "filename": "VAL-XYZ.json",
-        "valid": false,
-        "errors": [
-          "invalid rule ID format"
-        ]
-      }
-    ]
+    "valid": true,
+    "errors": []
   }
 }

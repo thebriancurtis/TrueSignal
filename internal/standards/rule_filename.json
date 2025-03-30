@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Rule Filename Standard",
+  "description": "Validates that a rule filename follows the format {CATEGORY}-R00X.json and uses a valid category prefix.",
+  "type": "object",
+  "uses_standard": "rule_categorization.json",
+  "properties": {
+    "filename": {
+      "type": "string",
+      "pattern": "^[A-Z]{3}-R\\d{3}\\.json$",
+      "description": "Filename must follow the pattern {CATEGORY}-R###.json, using a valid category defined in rule_categorization.json."
+    }
+  },
+  "required": [
+    "filename"
+  ],
+  "examples": [
+    {
+      "filename": "ACC-R001.json"
+    },
+    {
+      "filename": "CLT-R012.json"
+    }
+  ]
+}
