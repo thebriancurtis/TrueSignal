@@ -49,6 +49,18 @@
   "example_output": {
     "completed": true
   },
-  "instructions": "This workflow performs a comprehensive audit of the entire TrueSignal project, including prompt validation, workflow correctness, rule file compliance, and filename standards.",
+  "instructions": {
+    "steps": [
+      {
+        "description": "Validate all prompts against the prompt standard."
+      },
+      {
+        "description": "Ensure all workflows follow structural and logical best practices."
+      },
+      {
+        "description": "Verify all rule sets are consistent and correctly linked."
+      }
+    ]
+  },
   "description": "Performs an end-to-end audit of prompts, workflows, rule files, and naming standards."
 }

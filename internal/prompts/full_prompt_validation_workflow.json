@@ -34,7 +34,16 @@
       }
     ]
   },
-  "instructions": "This workflow runs validation across all internal prompts and their associated tests to ensure consistency, correctness, and schema conformance.",
+  "instructions": {
+    "steps": [
+      {
+        "description": "Run validation against each internal prompt file."
+      },
+      {
+        "description": "Ensure test coverage and standard usage are enforced."
+      }
+    ]
+  },
   "input_schema": {
     "type": "object",
     "properties": {},

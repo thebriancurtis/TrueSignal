@@ -1,7 +1,16 @@
 {
   "name": "compile_rule_set.json",
   "description": "Compiles a rule set definition into a finalized list of rule files with references resolved.",
-  "instructions": "Execute compile_rule_set.json based on the declared schema and standards.",
+  "instructions": {
+    "steps": [
+      {
+        "description": "Validate the rule set file structure using the rule_set_schema.json standard."
+      },
+      {
+        "description": "Resolve rule IDs to actual rule content to compile the full rule set."
+      }
+    ]
+  },
   "uses_standards": [
     "compiled_rule_set_schema.json",
     "rule_set_schema.json"
@@ -76,30 +85,6 @@
         "All access must be authenticated.",
         "Reject invalid inputs."
       ]
-    }
-  },
-  "input_schema": {
-    "type": "object",
-    "required": [
-      "rule_set_definition"
-    ],
-    "properties": {
-      "rule_set_definition": {
-        "type": "object",
-        "description": "Definition of a rule set including name, category, and rules."
-      }
-    }
-  },
-  "output_schema": {
-    "type": "object",
-    "required": [
-      "compiled_rule_set"
-    ],
-    "properties": {
-      "compiled_rule_set": {
-        "type": "object",
-        "description": "Compiled version of the rule set ready for deployment."
-      }
     }
   }
 }
