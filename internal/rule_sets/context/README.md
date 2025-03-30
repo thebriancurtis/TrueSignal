@@ -1,3 +1,5 @@
-# internal/rule_sets/context
+# Internal Rule Sets: Context
 
-This folder contains the JSON rule set definition for the `context` category. Rule sets here define their composition, metadata, and organization before compilation.
+This folder contains raw, authorable rule sets for the **context** theme.
+
+Each file will be validated and compiled into `/rule_sets/context/`.

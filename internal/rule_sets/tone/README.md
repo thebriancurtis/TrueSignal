@@ -1,3 +1,5 @@
-# internal/rule_sets/tone
+# Internal Rule Sets: Tone
 
-This folder contains the JSON rule set definition for the `tone` category. Rule sets here define their composition, metadata, and organization before compilation.
+This folder contains raw, authorable rule sets for the **tone** theme.
+
+Each file will be validated and compiled into `/rule_sets/tone/`.

@@ -1,3 +1,5 @@
-# internal/rule_sets/method
+# Internal Rule Sets: Method
 
-This folder contains the JSON rule set definition for the `method` category. Rule sets here define their composition, metadata, and organization before compilation.
+This folder contains raw, authorable rule sets for the **method** theme.
+
+Each file will be validated and compiled into `/rule_sets/method/`.

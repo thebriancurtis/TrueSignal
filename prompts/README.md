@@ -1,3 +1,8 @@
-# Prompts for End Users
+# Prompts
 
-This folder is intended to store prompts that may be useful to end users. The folder is currently empty, but it will be populated as the project develops.
+This folder contains ChatGPT prompts that:
+- Validate rules or rule sets
+- Suggest categories
+- Optimize or deduplicate rule text
+
+Each file is a `.json` ChatGPT-native instruction block used in tooling and workflows.

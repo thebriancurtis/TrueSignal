@@ -1,3 +1,5 @@
-# internal/rule_sets/domain
+# Internal Rule Sets: Domain
 
-This folder contains the JSON rule set definition for the `domain` category. Rule sets here define their composition, metadata, and organization before compilation.
+This folder contains raw, authorable rule sets for the **domain** theme.
+
+Each file will be validated and compiled into `/rule_sets/domain/`.

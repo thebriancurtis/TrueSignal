@@ -1,3 +1,5 @@
-# rule_sets/method
+# Rule Sets: Method
 
-This folder contains published and compiled rule sets grouped by category for production use in TrueSignal.
+This folder contains compiled rule sets for the **method** theme.
+
+Each `.json` file defines a named set of rule IDs conforming to `rule_set.json`.

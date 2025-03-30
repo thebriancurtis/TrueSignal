@@ -1,3 +1,5 @@
-# internal/rule_sets/audience
+# Internal Rule Sets: Audience
 
-This folder contains the JSON rule set definition for the `audience` category. Rule sets here define their composition, metadata, and organization before compilation.
+This folder contains raw, authorable rule sets for the **audience** theme.
+
+Each file will be validated and compiled into `/rule_sets/audience/`.

@@ -1,3 +1,5 @@
-# rule_sets/context
+# Rule Sets: Context
 
-This folder contains published and compiled rule sets grouped by category for production use in TrueSignal.
+This folder contains compiled rule sets for the **context** theme.
+
+Each `.json` file defines a named set of rule IDs conforming to `rule_set.json`.
