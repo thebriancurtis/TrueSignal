@@ -3,6 +3,7 @@
   "description": "Compiles a rule set definition into a finalized list of rule files with references resolved.",
   "instructions": "Execute compile_rule_set.json based on the declared schema and standards.",
   "uses_standards": [
+    "compiled_rule_set_schema.json",
     "rule_set_schema.json"
   ],
   "schema": {
