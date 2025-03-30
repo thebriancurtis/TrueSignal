@@ -1,8 +1,16 @@
 {
   "name": "validate_rule_file",
   "description": "Validates the internal structure of a rule file using the rule.json standard.",
-  "instructions": "Ensure that the rule file conforms to the rule.json standard. This includes checking for required fields, valid data types, and structural completeness.",
-  "uses_standard": "rule.json",
+  "instructions": {
+    "steps": [
+      {
+        "description": "Validate the structure of the rule file using the rule_schema.json standard."
+      },
+      {
+        "description": "Validate the 'rule' field using the rule.json standard."
+      }
+    ]
+  },
   "output_schema": {
     "type": "object",
     "properties": {
@@ -30,5 +38,9 @@
   "example_output": {
     "valid": true,
     "errors": []
-  }
+  },
+  "uses_standards": [
+    "rule_schema.json",
+    "rule.json"
+  ]
 }
