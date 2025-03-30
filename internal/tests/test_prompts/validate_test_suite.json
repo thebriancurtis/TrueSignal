@@ -1,0 +1,28 @@
+{
+  "name": "validate_test_suite",
+  "description": "Test for the validate_test_suite.json prompt to ensure it correctly validates test suite structure.",
+  "input": {
+    "test_suite": {
+      "tests": [
+        {
+          "name": "basic rule file test",
+          "prompt": "validate_rule_file.json",
+          "input": {
+            "rule": {
+              "rule": "Avoid passive voice",
+              "category": "LNG"
+            }
+          },
+          "expected_output": {
+            "valid": true,
+            "errors": []
+          }
+        }
+      ]
+    }
+  },
+  "expected_output": {
+    "valid": true,
+    "errors": []
+  }
+}
