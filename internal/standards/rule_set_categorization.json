@@ -1,31 +1,143 @@
 {
   "categories": {
-    "domain": {
-      "description": "The field of knowledge or practice the rule set applies to (e.g., software engineering, medicine)."
-    },
     "context": {
-      "description": "The task or activity in which the rule set is applied (e.g., debugging, code review, diagnosis)."
+      "description": "Covers rule sets that adapt to the task or activity being performed (e.g., reviewing, brainstorming, writing).",
+      "purpose": "Ensure rule sets reflect task-specific expectations or constraints.",
+      "examples": [
+        "Rules for code review feedback.",
+        "Steps for brainstorming sessions."
+      ]
     },
     "constraint": {
-      "description": "The limitation, risk, or compliance condition the rule set enforces (e.g., policy, legal requirement)."
+      "description": "Rule sets that enforce limitations such as policy, risk, safety, or compliance requirements.",
+      "purpose": "Prevent undesired or unsafe outcomes by enforcing strict limits.",
+      "examples": [
+        "Ensure no personally identifiable information is leaked.",
+        "Block unverified medical advice."
+      ]
     },
-    "tone": {
-      "description": "The output voice, style, or level of formality (e.g., direct, explanatory, friendly)."
-    },
-    "persona": {
-      "description": "The behavioral or professional role the rule set emulates (e.g., mentor, peer, executive)."
-    },
-    "audience": {
-      "description": "The intended recipient of the rule set's outputs (e.g., beginner, technical peer, stakeholder)."
+    "domain": {
+      "description": "Rule sets tied to a specific field of knowledge or professional area.",
+      "purpose": "Provide domain-specific logic or behavior adaptation.",
+      "examples": [
+        "Medical terminology filters.",
+        "Software engineering guidance rules."
+      ]
     },
     "tool": {
-      "description": "The software platform or medium the rule set targets (e.g., GitHub, Figma, Jupyter)."
+      "description": "Rule sets specific to tools, platforms, or environments (e.g., Figma, GitHub, spreadsheets).",
+      "purpose": "Align rule enforcement with the interface, API, or features of a specific tool.",
+      "examples": [
+        "Naming conventions for GitHub pull requests.",
+        "Layout rules for Figma components."
+      ]
     },
     "method": {
-      "description": "The reasoning or problem-solving approach the rule set encourages (e.g., stepwise, analogy)."
+      "description": "Rule sets that guide reasoning, strategy, or problem-solving approach.",
+      "purpose": "Ensure the assistant follows a consistent methodology when generating output.",
+      "examples": [
+        "Use analogies to explain technical concepts.",
+        "Apply stepwise reasoning for math tasks."
+      ]
+    },
+    "tone": {
+      "description": "Rule sets controlling tone, voice, or affective style of output.",
+      "purpose": "Match the assistant's expression to expectations of politeness, formality, or clarity.",
+      "examples": [
+        "Maintain neutral tone in reports.",
+        "Use informal tone for peer support."
+      ]
+    },
+    "persona": {
+      "description": "Rule sets governing the assistant\u2019s projected role or character.",
+      "purpose": "Ensure consistency in behavior, vocabulary, and attitude matching the intended persona.",
+      "examples": [
+        "Behave like a peer reviewer in feedback.",
+        "Act as a supportive mentor."
+      ]
+    },
+    "audience": {
+      "description": "Rule sets designed for particular types of users or stakeholders.",
+      "purpose": "Adapt the assistant\u2019s output to match the knowledge level and expectations of the intended audience.",
+      "examples": [
+        "Simplify terminology for first-time users.",
+        "Use technical jargon with expert developers."
+      ]
     },
     "language": {
-      "description": "The natural language used for output (e.g., English, Japanese)."
+      "description": "Rule sets specifying the natural language or dialect to be used.",
+      "purpose": "Control phrasing, grammar, and cultural conventions across languages.",
+      "examples": [
+        "Write in French with Canadian localization.",
+        "Avoid informal contractions in German."
+      ]
     }
+  },
+  "classification_outputs": [
+    "context",
+    "constraint",
+    "domain",
+    "tool",
+    "method",
+    "tone",
+    "persona",
+    "audience",
+    "language"
+  ],
+  "unclassifiable_label": "unclassifiable",
+  "glossary": {
+    "rule set": "A structured group of related rules designed to work together toward a specific behavioral or output goal.",
+    "segmentation axis": "The primary conceptual dimension that defines how rule sets are grouped or categorized (e.g., tone, domain, tool).",
+    "tie breaker": "A fallback mechanism used when more than one category is equally applicable.",
+    "unclassifiable": "A label for rule sets that do not cleanly fit any defined category."
+  },
+  "clarification_notes": [
+    "Classify based on the dominant axis of behavioral segmentation, not secondary traits.",
+    "If a rule set contains multiple overlapping goals, prioritize the one that governs its structure and inclusion.",
+    "Do not use tone or phrasing alone as a basis for categorization\u2014focus on organizational purpose."
+  ],
+  "scoring": {
+    "method": "semantic_fit_by_behavioral_constraint",
+    "criteria_field": "purpose_and_examples",
+    "description": "Classify rule sets based on the semantic fit of their intended use and structural role.",
+    "tie_break_order": [
+      {
+        "category": "context",
+        "reason": "Task-based structure usually defines primary behavior."
+      },
+      {
+        "category": "constraint",
+        "reason": "Safety, policy, and compliance override stylistic logic."
+      },
+      {
+        "category": "domain",
+        "reason": "Field-specific rule sets are typically highly structured."
+      },
+      {
+        "category": "tool",
+        "reason": "Tool-linked logic often defines scope and limits."
+      },
+      {
+        "category": "method",
+        "reason": "Strategy and explanation patterns sometimes dominate."
+      },
+      {
+        "category": "tone",
+        "reason": "Tone influences output but rarely segmentation."
+      },
+      {
+        "category": "persona",
+        "reason": "Persona affects style but is often implicit."
+      },
+      {
+        "category": "audience",
+        "reason": "Audience targeting is rarely a structural basis."
+      },
+      {
+        "category": "language",
+        "reason": "Language governs output, not structure."
+      }
+    ],
+    "fallback_label": "unclassifiable"
   }
 }

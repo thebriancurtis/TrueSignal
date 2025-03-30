@@ -1,0 +1,38 @@
+{
+  "name": "validate_rule_set_category",
+  "description": "Validates that the rule set contains a valid category defined in rule_set_categorization.json.",
+  "uses_standards": [
+    "rule_set_categorization.json"
+  ],
+  "instructions": {
+    "steps": [
+      {
+        "description": "Extract the 'category' field from the rule set and confirm it exists in rule_set_categorization.json."
+      },
+      {
+        "description": "Evaluate whether the assigned category best aligns with its defined purpose and follows behavioral constraints."
+      },
+      {
+        "description": "Apply the fallback logic defined in rule_set_categorization.json.fallback if scoring or ranking produces a tie or ambiguity."
+      }
+    ]
+  },
+  "example_input": {
+    "rule_set": {
+      "name": "context-aware validation rules",
+      "category": "context",
+      "rules": [
+        "CTX-R001",
+        "CTX-R002"
+      ]
+    }
+  },
+  "example_output": {
+    "valid": true,
+    "errors": [],
+    "notes": [
+      "The category is valid.",
+      "The assigned category appears to be a good semantic match based on the category's defined purpose."
+    ]
+  }
+}

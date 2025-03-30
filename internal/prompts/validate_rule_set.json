@@ -1,0 +1,46 @@
+{
+  "name": "validate_rule_set",
+  "description": "Validates a rule set object against the constraints defined in rule_set_schema.json.",
+  "uses_standards": [
+    "rule_set_schema.json"
+  ],
+  "instructions": {
+    "steps": [
+      {
+        "description": "Confirm the input is an object with exactly two fields: 'rules' and 'rule_sets'."
+      },
+      {
+        "description": "Ensure 'rules' is an array of strings matching the pattern /^[A-Z]{3}-R\\d{3}$/."
+      },
+      {
+        "description": "Ensure 'rule_sets' is an array of strings."
+      },
+      {
+        "description": "Reject the input if any additional fields are present."
+      },
+      {
+        "description": "If the rule set is valid, return { valid: true, errors: [], notes: [...] }."
+      },
+      {
+        "description": "If the rule set is invalid, return { valid: false, errors: [reasons], notes: [...] }."
+      }
+    ]
+  },
+  "example_input": {
+    "rules": [
+      "ENF-R001",
+      "CTX-R002"
+    ],
+    "rule_sets": [
+      "contextual_rules"
+    ]
+  },
+  "example_output": {
+    "valid": true,
+    "errors": [],
+    "notes": [
+      "The rule set includes only expected fields.",
+      "All rule IDs match the required pattern."
+    ]
+  }
+}

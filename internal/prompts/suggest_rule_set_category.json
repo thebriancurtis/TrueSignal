@@ -1,0 +1,27 @@
+{
+  "name": "suggest_rule_set_category",
+  "description": "Suggests the most appropriate rule set category based on a description of the rule set's intent or focus.",
+  "uses_standards": [
+    "rule_set_categorization.json"
+  ],
+  "instructions": {
+    "steps": [
+      {
+        "description": "Analyze the description of the rule set's purpose or focus."
+      },
+      {
+        "description": "Match the input description against each category's purpose and behavioral constraints."
+      },
+      {
+        "description": "Apply the fallback logic defined in rule_set_categorization.json.fallback if scoring or ranking produces a tie or ambiguity."
+      }
+    ]
+  },
+  "example_input": {
+    "description": "This rule set applies logical checks that depend on prior context and conversational flow."
+  },
+  "example_output": {
+    "category": "context",
+    "justification": "The rule set focuses on context-aware logic, which aligns best with the 'context' category based on scoring and tie-breaker logic."
+  }
+}
