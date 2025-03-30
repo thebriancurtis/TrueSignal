@@ -53,5 +53,6 @@
     "required": [
       "validation_results"
     ]
-  }
+  },
+  "description": "Validates all internal prompts and their associated test coverage."
 }
