@@ -1,22 +1,59 @@
 # Getting Started with TrueSignal
 
-TrueSignal gives you fine-grained control over ChatGPT assistant behavior using a validated system of rules.
+TrueSignal gives you precise control over how ChatGPT behaves using structured, validated rules grouped into named rule sets.
 
-## What Can I Do With It?
-- Add clarity, structure, and factuality to ChatGPT responses
-- Configure tone, persona, domain specificity, and formatting
-- Combine rule sets to adapt behavior in specific contexts
+---
 
-## What's a Rule?
-A **rule** defines a constraint like:
-- "The assistant must avoid speculation."
-- "The assistant must use structured bullet points."
+## 🔍 What Can You Do With It?
 
-Rules are grouped into **rule sets**, which are validated, compiled, and published.
+- Apply tone, persona, and formatting constraints
+- Prevent speculation or hallucination
+- Tailor responses for specific audiences or use cases
+- Create reusable logic for prompt workflows
 
-## How to Use It
-1. Pick a rule set from `/rule_sets/`
-2. Add it to your system or ChatGPT instructions
-3. Apply it with the core rule set for reliability
+---
 
-Start exploring rule sets or learn [how to write your own](writing/how_to_write_a_rule.md).
+## 🧱 The System
+
+- **Rules** are atomic behavior constraints (e.g. “Avoid speculation”)
+- **Rule Sets** are themed collections of rules (e.g. “Professional Tone”)
+
+(Advanced: internal prompts are used to validate and compile rule sets. If you're interested in contributing, see `/internal/docs/`.)
+
+---
+
+## ✅ How to Use Rule Sets
+
+You can apply one or more **compiled rule sets** in a single prompt.
+
+Each compiled rule set:
+- Is validated and deduplicated
+- Automatically includes `core`
+- Should be used exactly as provided — do not copy or merge contents
+
+---
+
+## 🔗 Usage Example
+
+In your system prompt or custom instructions, you can say:
+
+```text
+Follow all constraints in:
+https://raw.githubusercontent.com/your-org/TrueSignal/main/rule_sets/tone/professional.json
+```
+
+Or, when using an uploaded archive:
+
+```text
+Use the rules defined in: rule_sets/persona/investigator.json
+```
+
+There is no need to merge or deduplicate — compiled sets are ready to go.
+
+---
+
+## 🛠 Next Steps
+
+- [Use Rule Sets](usage/using_rule_sets.md)
+- [Write a Rule](writing/how_to_write_a_rule.md)
+- [Understand Rule Set Structure](reference/rule_set.json.md)
