@@ -102,3 +102,27 @@ Compiled rule sets are designed to be used **as-is**.
 - Do not attempt to merge or deduplicate them at runtime
 - Simply refer to them by file path or GitHub URL in your prompt
 - Each includes the `core` rule set and is fully validated
+
+
+---
+
+## ✍️ Contributor Workflow
+
+To contribute a new rule set:
+
+1. Create it in `/internal/rule_sets/{category}/`
+2. Conform to `rule_set.json` and naming conventions
+3. Use `suggest_rule_set_category.json` to check classification
+4. Validate it using `validate_rule_set.json`
+5. Compile it using `compile_rule_set.json`
+6. Submit the compiled output to `/rule_sets/{category}/`
+
+Do not include `"core"` in `rule_sets`. It will be automatically included during compilation.
+
+---
+
+## 🔗 Related Prompts
+
+- `validate_rule_set.json`
+- `compile_rule_set.json`
+- `suggest_rule_set_category.json`

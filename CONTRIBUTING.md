@@ -1,39 +1,92 @@
 # Contributing to TrueSignal
 
-We welcome contributions to the TrueSignal rule system, tooling, and documentation.
+We welcome contributions from anyone who uses ChatGPT and wants to improve control over assistant behavior through rules, rule sets, and prompts.
 
-## 📋 Ways to Contribute
+---
 
-- 🧠 Write or revise a rule
-- 🧪 Add a test case for a rule or rule set
-- 🧰 Improve documentation or onboarding
-- 🧪 Propose new prompt logic or validation stages
+## 🔰 Before You Begin
 
-## ✅ Rules for Rules
+- Review the [Getting Started Guide](docs/getting_started.md)
+- Browse the [Glossary](docs/glossary.md)
+- Read relevant authoring guides in `/docs/writing/`
+- Reference contributor documentation in `/internal/docs/`
 
-- Must be testable and atomic
-- Must conform to [rule_schema.json](docs/rule_schema.md)
-- Must pass deduplication
-- Must be categorized with [rule_set_categorization.json](docs/rule_set_categorization.md)
+---
 
-## 📦 Submitting a Rule
+## 🧱 Contribution Types
 
-1. Draft the rule in a `.json` file
-2. Validate it using prompt `validate_rule.json`
-3. Check for duplicates using `rule_deduplication.json`
-4. Propose a category via `suggest_rule_set_category.json`
+| Type | Location | Key Standards |
+|------|----------|----------------|
+| **Rules** | `/rules/` | `rule.json`, `rule_schema.json` |
+| **Rule Sets** | `/internal/rule_sets/` → compiled to `/rule_sets/` | `rule_set.json`, `rule_set_categorization.json` |
+| **Prompts** | `/internal/prompts/` (internal), `/prompts/` (user-facing) | `prompt.json` |
+| **Tests** | `/internal/tests/` | See `test_cases.md` (rule set/prompt only) |
 
-## 🧪 Submitting a Test
+---
 
-Include:
-- Rule ID(s)
-- Input prompt
-- Expected behavior
-- Supported models (if relevant)
+## ✍️ Contributing a Rule
 
-## 🤝 Community Standards
+1. Add a new file in `/rules/`
+2. Ensure it conforms to:
+   - [`rule.json`](docs/reference/rule.json.md)
+   - [`rule_schema.json`](docs/reference/rule_schema.md)
+3. Run `validate_rule.json`
+4. Run `optimize_rule.json`
+5. Run `rule_deduplication.json`
+6. If redundant, use `rule_consolidation.json` to merge overlapping rules
+7. Run `is_core_rule.json` to determine placement in `core/` or elsewhere
 
-- Write clearly and concretely
-- Use schema validation
-- Cross-reference your changes with impacted rules or prompts
+> 📁 If the rule is core, move it into `/rules/core/`. Otherwise, leave it in the appropriate theme folder.
 
+---
+
+## 📦 Contributing a Rule Set
+
+1. Create your rule set in:
+   ```
+   /internal/rule_sets/{category}/{name}.json
+   ```
+2. Ensure it conforms to `rule_set.json`
+3. Use `suggest_rule_set_category.json` if you're unsure of the category
+4. Validate with `validate_rule_set.json`
+5. Compile with `compile_rule_set.json` — output goes to `/rule_sets/{category}/{name}.json`
+
+> Do **not** include `"core"` in `rule_sets` — it is added automatically at compile time.
+
+---
+
+## 💬 Contributing a Prompt
+
+### Internal Prompt (`/internal/prompts/`)
+- Must follow `prompt.json`
+- Should perform a reusable function (e.g. validation, transformation)
+- Should compose existing prompts where applicable
+- Must include example input/output
+
+### User-Facing Prompt (`/prompts/`)
+- Must follow `prompt.json`
+- Should be general-purpose and reusable by ChatGPT users
+- Should reference compiled rule sets by link or path
+- Must state which standards it supports (e.g. `rule.json`, `rule_set.json`)
+
+---
+
+## 🧪 Tests
+
+- Rule tests are not yet supported — skip for now
+- Prompt and rule set tests live in `/internal/tests/`
+- Test format is documented in [`test_cases.md`](internal/docs/validation/test_cases.md)
+
+---
+
+## 📤 Submitting a Pull Request
+
+1. Fork the repo
+2. Branch from `main`
+3. Make your change + test it
+4. Update any relevant documentation
+5. Open a pull request with a clear title and description
+
+---
+
+Thank you for contributing to a more structured, testable, and transparent ChatGPT experience.

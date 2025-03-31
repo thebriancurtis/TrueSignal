@@ -1,35 +1,51 @@
 # Prompt Index
 
-This document summarizes all system-level prompts used to validate, categorize, optimize, or compile rules and rule sets.
+This document summarizes all prompts used in TrueSignal — both internal toolchain prompts and user-facing instruction prompts.
 
 ---
 
-## 📋 Prompt Registry
+## 🧭 Prompt Types
 
-| Prompt | Purpose | Input | Output | Related Standards |
-|--------|---------|-------|--------|-------------------|
-| `validate_rule.json` | Check rule atomicity, teachability, testability | Rule JSON | `{ valid: true/false }` | `rule_authoring_standards.md`, `rule.json` |
-| `deduplicate_rule.json` | Detect semantic overlap | Rule JSON + rule base | `{ duplicate: true/false }` | Rule uniqueness |
-| `optimize_rule.json` | Improve clarity, brevity, compressibility | Rule JSON | Rule JSON | `rule_optimization.md` |
-| `suggest_rule_set_category.json` | Classify rule set theme | Rule Set JSON | `{ category: "tone" }` | `rule_set_categorization.json` |
-| `compile_rule_set.json` | Merge and validate full rule set | Raw rule set JSON | Compiled rule set JSON | `rule_set.json`, `core` auto-inclusion |
-| `validate_rule_set.json` | Schema + semantic check | Rule set JSON | `{ valid: true/false }` | `rule_set_framework.md` |
+### 🔧 Internal Prompts (`/internal/prompts/`)
+Used for validation, transformation, and compilation. Manually run in ChatGPT or composed into higher-level flows.
+
+| Prompt | Purpose |
+|--------|---------|
+| `validate_rule.json` | Checks atomicity, teachability, testability |
+| `optimize_rule.json` | Shortens rule language without losing intent |
+| `rule_deduplication.json` | Flags potential overlap with existing rules |
+| `rule_consolidation.json` | Merges redundant rules |
+| `is_core_rule.json` | Determines whether a rule belongs in `core` |
+| `validate_rule_set.json` | Checks rule set structure and references |
+| `compile_rule_set.json` | Merges and validates rule set + core |
+| `suggest_rule_set_category.json` | Classifies rule set by theme |
+
+### 💬 User-Facing Prompts (`/prompts/`)
+Prompts designed to be used directly by ChatGPT users (currently none published).
+
+User-facing prompts:
+- Must conform to `prompt.json`
+- Should reference compiled rule sets by link
+- Should expose helpful assistant functionality (e.g. enforcement, optimization)
 
 ---
 
-## 📄 Format and Structure
+## 📎 Prompt Format
 
-All prompts must conform to [`prompt.json`](../../docs/reference/prompt.json.md)
+All prompts must conform to:
+- [`prompt.json`](../../docs/reference/prompt.json.md)
 
-They must include:
-- Description
-- Input/output format
-- Example input/output
-- Full ChatGPT-native instruction block
+Required fields:
+- `description`
+- `input_format`
+- `output_format`
+- `example_input`
+- `example_output`
+- `instruction`
 
 ---
 
-## 📎 Related Docs
+## 🔗 Related Docs
 
-- [Writing a Prompt](../../docs/writing/how_to_write_a_prompt.md)
-- [Internal Prompt Authoring](how_to_write_an_internal_prompt.md)
+- [How to Write a Prompt](../../docs/writing/how_to_write_a_prompt.md)
+- [prompt.json Schema](../../docs/reference/prompt.json.md)
