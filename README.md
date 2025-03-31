@@ -61,6 +61,7 @@ docs/                # User-facing docs (how to use, write, contribute)
 ---
 
 ## 👥 Contributing
+- Internal contributor docs: [`/internal/docs/`](internal/docs/index.md)
 
 We welcome contributions!
 

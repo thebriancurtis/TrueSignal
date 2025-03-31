@@ -1,11 +1,40 @@
 # Folder Structure
 
-| Folder | Purpose |
-|--------|---------|
-| `rules/` | Atomic rule definitions |
-| `rule_sets/` | Compiled, user-facing sets |
-| `internal/rule_sets/` | Authoring source for rule sets |
-| `internal/standards/` | Constraint logic and fallback structures |
-| `prompts/` | an AI assistant-native logic prompts |
-| `internal/docs/` | Contributor documentation |
-| `docs/` | Public-facing guidance and usage |
+This document describes the organizational structure of the TrueSignal documentation system.
+
+---
+
+## 📂 /docs/
+
+User-facing documentation for anyone using TrueSignal with an AI assistant.
+
+- `index.md` — Entry point for the user docs
+- `getting_started.md` — How to start using rule sets and prompts
+- `glossary.md` — Terminology used throughout the project
+- `usage/` — How to use compiled rule sets
+- `writing/` — How to write rules and prompts
+
+---
+
+## 📂 /internal/docs/
+
+Contributor-facing documentation for people working on TrueSignal itself.
+
+### 📁 /internal/docs/meta/
+
+Meta-level documentation for organizing and maintaining the system.
+
+- `documentation_principles.md` — Principles that guide how documentation is written across the project
+- `project_principles.md` — High-level principles that guide the project's purpose and values
+
+### 📁 /internal/docs/prompts/
+
+Documentation for internal tooling prompts.
+
+- `index.md` — Describes prompt roles and categories
+
+### 📁 /internal/docs/standards/
+
+Standards for rules, prompts, schemas, and validations.
+
+- Files describing schema expectations and JSON structure
