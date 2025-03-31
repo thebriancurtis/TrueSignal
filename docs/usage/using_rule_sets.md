@@ -1,6 +1,6 @@
 # Using Rule Sets
 
-TrueSignal rule sets define how ChatGPT should behave in a given context.
+TrueSignal rule sets define how an AI assistant should behave in a given context.
 
 Each compiled rule set is a `.json` file containing validated, structured rules like:
 
@@ -15,7 +15,7 @@ Each compiled rule set is a `.json` file containing validated, structured rules 
 
 ## 🧠 What Does “Using a Rule Set” Mean?
 
-You apply a rule set by referencing it inside your ChatGPT context or tooling.
+You apply a rule set by referencing it inside your an AI assistant context or tooling.
 
 Do **not** copy/paste rule summaries into your prompt.  
 Instead, refer to the compiled rule set by **raw link** or **file path**.

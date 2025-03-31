@@ -40,7 +40,7 @@ Universal rules enforced in all compiled rule sets
 ---
 
 ### 🧠 Prompt
-A structured, reusable ChatGPT-native instruction
+A structured, reusable an AI assistant-native instruction
 
 - Stored in `/prompts/` (user) or `/internal/prompts/` (toolchain)
 - Must follow `prompt.json` schema

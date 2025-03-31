@@ -7,7 +7,7 @@ This document summarizes all prompts used in TrueSignal — both internal toolch
 ## 🧭 Prompt Types
 
 ### 🔧 Internal Prompts (`/internal/prompts/`)
-Used for validation, transformation, and compilation. Manually run in ChatGPT or composed into higher-level flows.
+Used for validation, transformation, and compilation. Manually run in an AI assistant or composed into higher-level flows.
 
 | Prompt | Purpose |
 |--------|---------|
@@ -21,7 +21,7 @@ Used for validation, transformation, and compilation. Manually run in ChatGPT or
 | `suggest_rule_set_category.json` | Classifies rule set by theme |
 
 ### 💬 User-Facing Prompts (`/prompts/`)
-Prompts designed to be used directly by ChatGPT users (currently none published).
+Prompts designed to be used directly by an AI assistant users (currently none published).
 
 User-facing prompts:
 - Must conform to `prompt.json`

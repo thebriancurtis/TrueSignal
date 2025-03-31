@@ -1,6 +1,6 @@
 # 📘 TrueSignal Documentation
 
-Welcome to the TrueSignal documentation hub. This system provides reliable, rule-based control over ChatGPT behavior using validated, testable rules and composable logic.
+Welcome to the TrueSignal documentation hub. This system provides reliable, rule-based control over an AI assistant behavior using validated, testable rules and composable logic.
 
 ---
 
@@ -23,7 +23,7 @@ Welcome to the TrueSignal documentation hub. This system provides reliable, rule
 
 ## 🧠 Using TrueSignal
 
-- [Using Rule Sets in ChatGPT](usage/using_rule_sets.md)
+- [Using Rule Sets in an AI assistant](usage/using_rule_sets.md)
 
 ---
 

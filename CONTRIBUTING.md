@@ -1,6 +1,6 @@
 # Contributing to TrueSignal
 
-We welcome contributions from anyone who uses ChatGPT and wants to improve control over assistant behavior through rules, rule sets, and prompts.
+We welcome contributions from anyone who uses an AI assistant and wants to improve control over assistant behavior through rules, rule sets, and prompts.
 
 ---
 
@@ -65,7 +65,7 @@ We welcome contributions from anyone who uses ChatGPT and wants to improve contr
 
 ### User-Facing Prompt (`/prompts/`)
 - Must follow `prompt.json`
-- Should be general-purpose and reusable by ChatGPT users
+- Should be general-purpose and reusable by an AI assistant users
 - Should reference compiled rule sets by link or path
 - Must state which standards it supports (e.g. `rule.json`, `rule_set.json`)
 
@@ -89,4 +89,4 @@ We welcome contributions from anyone who uses ChatGPT and wants to improve contr
 
 ---
 
-Thank you for contributing to a more structured, testable, and transparent ChatGPT experience.
+Thank you for contributing to a more structured, testable, and transparent an AI assistant experience.

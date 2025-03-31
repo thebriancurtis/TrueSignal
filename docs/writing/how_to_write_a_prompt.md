@@ -1,8 +1,8 @@
 # How to Write a Prompt (User-Facing)
 
-TrueSignal prompts are self-contained ChatGPT-native instruction files designed to guide or constrain assistant behavior.
+TrueSignal prompts are self-contained an AI assistant-native instruction files designed to guide or constrain assistant behavior.
 
-They are stored in `/prompts/` and used by anyone interacting with ChatGPT or TrueSignal APIs.
+They are stored in `/prompts/` and used by anyone interacting with an AI assistant or TrueSignal APIs.
 
 ---
 
@@ -15,7 +15,7 @@ All prompts must conform to [`prompt.json`](../reference/prompt.json.md). Requir
 - `output_format`
 - `example_input`
 - `example_output`
-- `instruction` (ChatGPT prompt content)
+- `instruction` (an AI assistant prompt content)
 
 ---
 

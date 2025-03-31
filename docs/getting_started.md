@@ -1,6 +1,6 @@
 # Getting Started with TrueSignal
 
-TrueSignal gives you precise control over how ChatGPT behaves using structured, validated rules grouped into named rule sets.
+TrueSignal gives you precise control over how an AI assistant behaves using structured, validated rules grouped into named rule sets.
 
 ---
 
