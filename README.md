@@ -37,40 +37,41 @@ Each compiled rule set is ready for use — validated, deduplicated, and include
 
 ---
 
-## 🧱 Project Structure
-
-```
-rules/               # Atomic rules
-internal/rule_sets/  # Authorable rule sets (uncompiled)
-rule_sets/           # Compiled, user-ready rule sets
-prompts/             # User-facing AI assistant prompts
-internal/prompts/    # Tooling prompts (validation, optimization, etc.)
-internal/docs/       # Contributor docs (architecture, standards, test cases)
-docs/                # User-facing docs (how to use, write, contribute)
-```
-
----
-
 ## 📚 Start Here
-- [TrueSignal Principles](PROJECT_PRINCIPLES.md)
-- [Rule Standards](standards/README.md): JSON schemas for defining and validating rules and rule sets.
 
 - [Getting Started](docs/getting_started.md)
 - [How to Use Rule Sets](docs/usage/using_rule_sets.md)
 - [How to Write a Rule](docs/writing/how_to_write_a_rule.md)
+- [How to Write a Prompt](docs/writing/how_to_write_a_prompt.md)
+- [Glossary](docs/glossary.md)
+
+---
+
+## 📐 Standards
+
+- [Rule Standards](standards/README.md) — JSON schemas for defining and validating rules, prompts, and rule sets
+- [TrueSignal Principles](PROJECT_PRINCIPLES.md)
+
+---
+
+## 🧱 Project Structure
+
+```
+/docs/                 # User-facing documentation
+/standards/            # Public JSON schemas for rules, prompts, and rule sets
+/internal/docs/        # Contributor documentation and standards
+/internal/prompts/     # Prompts used for validation, optimization, categorization
+/internal/rule_sets/   # Authorable rule sets (before compilation)
+/rule_sets/            # Compiled, user-ready rule sets
+```
 
 ---
 
 ## 👥 Contributing
-- Internal contributor docs: [`/internal/docs/`](internal/docs/index.md)
 
-We welcome contributions!
+We welcome both casual and core contributors.
 
-- [CONTRIBUTING.md](CONTRIBUTING.md)
-- Internal system docs in: [`/internal/docs/`](internal/docs/)
+- See the [CONTRIBUTING.md](CONTRIBUTING.md) guide for how to report issues, suggest improvements, or add rules and prompts.
+- For core contributors working on internal standards, prompts, or architecture, see  
+  [`internal/docs/meta/contributing.md`](internal/docs/meta/contributing.md)
 
----
-
-## 📝 License
-
-TrueSignal is licensed under the [Creative Commons Attribution 4.0 International License (CC-BY-4.0)](https://creativecommons.org/licenses/by/4.0/).
