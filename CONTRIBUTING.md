@@ -94,3 +94,7 @@ We welcome contributions from anyone who uses an AI assistant and wants to impro
 ---
 
 Thank you for contributing to a more structured, testable, and transparent an AI assistant experience.
+
+---
+
+See [PROJECT_PRINCIPLES.md](PROJECT_PRINCIPLES.md) to understand the values that guide all contributions.

@@ -52,6 +52,7 @@ docs/                # User-facing docs (how to use, write, contribute)
 ---
 
 ## 📚 Start Here
+- [TrueSignal Principles](PROJECT_PRINCIPLES.md)
 
 - [Getting Started](docs/getting_started.md)
 - [How to Use Rule Sets](docs/usage/using_rule_sets.md)
