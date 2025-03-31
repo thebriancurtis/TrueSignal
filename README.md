@@ -48,6 +48,7 @@ Each compiled rule set is ready for use — validated, deduplicated, and include
 ---
 
 ## 📐 Standards
+- [Rule Set Principles](docs/principles/rule_sets.md): Why TrueSignal rule sets are structured the way they are.
 
 - [Rule Standards](standards/README.md) — JSON schemas for defining and validating rules, prompts, and rule sets
 - [TrueSignal Principles](PROJECT_PRINCIPLES.md)

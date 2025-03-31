@@ -6,6 +6,7 @@ This documentation is for anyone using AI assistants with TrueSignal rule sets a
 ---
 
 ## 📚 Getting Started
+- [`principles/rule_sets.md`](principles/rule_sets.md): Guiding principles behind the inclusion and design of TrueSignal rule sets.
 
 - [`getting_started.md`](getting_started.md): Learn what TrueSignal is and how to begin
 - [`usage/using_rule_sets.md`](usage/using_rule_sets.md): How to apply rule sets in assistant prompts

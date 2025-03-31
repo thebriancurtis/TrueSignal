@@ -80,3 +80,11 @@ Internal prompt files used for categorizing, validating, optimizing, and dedupli
 - Prompt JSON files follow the `prompt.json` schema
 - Used manually or in composition with other prompts
 
+
+---
+
+## 📂 /docs/principles/
+
+User-facing principles that define TrueSignal's design philosophy.
+
+- `rule_sets.md` — Principles that determine what rule sets belong in the system
