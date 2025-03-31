@@ -33,8 +33,16 @@ Documentation for internal tooling prompts.
 
 - `index.md` — Describes prompt roles and categories
 
-### 📁 /internal/docs/standards/
+---
 
+## 📂 /standards/
+
+Public-facing schemas for defining rules, rule sets, and prompts.
+
+- `rule.json` — Schema for authoring an individual rule
+- `rule_schema.json` — Schema for validating structured rules
+- `rule_set_schema.json` — Schema for rule set authoring (pre-compilation)
+- `prompt.json` — Schema for authoring reusable assistant prompts
 Standards for rules, prompts, schemas, and validations.
 
 - Files describing schema expectations and JSON structure

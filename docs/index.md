@@ -1,43 +1,25 @@
-**Bring clarity to assistant behavior — with structured rules and reusable prompts.**
-Write it once. Validate it forever. All signal, none of the noise.
+# TrueSignal Documentation
 
-# 📘 TrueSignal Documentation
-
-Welcome to the TrueSignal documentation hub. This system provides reliable, rule-based control over an AI assistant behavior using validated, testable rules and composable logic.
+Welcome to TrueSignal's user-facing documentation.  
+This documentation is for anyone using AI assistants with TrueSignal rule sets and prompts.
 
 ---
 
-## 🔰 Start Here
+## 📚 Getting Started
 
-- [Getting Started](getting_started.md)
-- [Glossary](glossary.md)
-
----
-
-## ✍️ Authoring Guides
-
-| What You Want to Do | Go Here |
-|---------------------|---------|
-| Write a rule        | [How to Write a Rule](writing/how_to_write_a_rule.md) |
-| Define a rule set   | [How to Write a Rule Set](writing/how_to_write_a_rule_set.md) |
-| Build a prompt      | [How to Write a Prompt](writing/how_to_write_a_prompt.md) |
+- [`getting_started.md`](getting_started.md): Learn what TrueSignal is and how to begin
+- [`usage/using_rule_sets.md`](usage/using_rule_sets.md): How to apply rule sets in assistant prompts
+- [`writing/how_to_write_a_prompt.md`](writing/how_to_write_a_prompt.md): How to create reusable, assistant-agnostic prompts
 
 ---
 
-## 🧠 Using TrueSignal
+## 🧠 Concepts & Glossary
 
-- [Using Rule Sets in an AI assistant](usage/using_rule_sets.md)
-
----
-
-## 📄 Schema & Reference
-
-- [rule.json](reference/rule.json.md)
-- [rule_set.json](reference/rule_set.json.md)
-- [rule_set_categorization.json](reference/rule_set_categorization.md)
+- [`glossary.md`](glossary.md): Definitions of terms used throughout TrueSignal
 
 ---
 
-## 🛠 For Contributors
+## 🧩 Standards
 
-If you're working on this project, check `/internal/docs/` for architecture, standards, and testing strategy.
+- [`/standards/`](../../standards/README.md): Public schemas for defining and validating rules and rule sets
+

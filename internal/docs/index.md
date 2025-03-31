@@ -21,3 +21,7 @@ This directory contains documentation for contributors working on TrueSignal its
 ## Rule and Schema Standards
 
 - `standards/` — JSON schemas, rule structures, validation logic
+
+## 🔁 Public Standards
+
+- [`/standards/`](../../standards/README.md): Public schemas for defining and validating rules and rule sets.
