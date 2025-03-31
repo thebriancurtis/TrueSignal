@@ -1,5 +1,9 @@
 # Getting Started with TrueSignal
 
+**Bring clarity to assistant behavior — with structured rules and reusable prompts.**
+Write it once. Validate it forever. All signal, none of the noise.
+
+
 TrueSignal gives you precise control over how an AI assistant behaves using structured, validated rules grouped into named rule sets.
 
 ---

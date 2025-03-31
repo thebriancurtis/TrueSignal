@@ -1,3 +1,6 @@
+**Bring clarity to assistant behavior — with structured rules and reusable prompts.**
+Write it once. Validate it forever. All signal, none of the noise.
+
 # 📘 TrueSignal Documentation
 
 Welcome to the TrueSignal documentation hub. This system provides reliable, rule-based control over an AI assistant behavior using validated, testable rules and composable logic.

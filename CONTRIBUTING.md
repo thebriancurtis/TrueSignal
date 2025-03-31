@@ -1,5 +1,9 @@
 # Contributing to TrueSignal
 
+**Bring clarity to assistant behavior — with structured rules and reusable prompts.**
+Write it once. Validate it forever. All signal, none of the noise.
+
+
 We welcome contributions from anyone who uses an AI assistant and wants to improve control over assistant behavior through rules, rule sets, and prompts.
 
 ---
