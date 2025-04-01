@@ -58,6 +58,8 @@ If you’re working within `/internal/`, you are likely doing one or more of the
 ---
 
 ## 🧭 Design Standards
+- [Rule Set Principles](../../../docs/principles/rule_sets.md): What makes a rule set fit TrueSignal.
+- [Prompt Principles](../../../docs/principles/prompts.md): What defines a TrueSignal-worthy prompt.
 
 - Rules must be structured, deduplicated, and tested
 - Prompts must use TrueSignal standards wherever possible (via composition)

@@ -1,9 +1,11 @@
-> These principles reflect and apply the [TrueSignal Project Principles](../../internal/docs/meta/project_principles.md) to the domain of rule sets.
-
 # Rule Set Principles
 
 These principles define what makes a rule set worthy of inclusion in TrueSignal.  
-They are not implementation details — they are curatorial values that guide every decision.
+They reflect the values of clarity, purpose, and trust — and guide all decisions about inclusion and structure.
+
+> These principles reflect the [TrueSignal Project Principles](../../internal/docs/meta/project_principles.md).
+
+> See also: [Prompt Principles](prompts.md)
 
 ---
 
@@ -17,7 +19,7 @@ It should be consistent, auditable, and align with user expectations — not sur
 ## 2. Be Behavior-Shaping
 
 A rule set must improve assistant behavior.  
-No filler, no compliance theater. Clear, intentional behavioral impact — even if that means instructing the assistant to disobey.
+Polish, not padding. Clarity, not compliance. Disobedience, if necessary.
 
 ---
 
@@ -46,3 +48,8 @@ It should not depend on hidden context, prompt state, or the presence of other r
 
 A rule set should be immediately clear — in purpose, behavior, and boundaries.  
 Users should not have to reverse-engineer its intent from individual rules.
+
+---
+
+> 📄 Rule sets must only include rules that conform to the [rule.json standard](../../standards/rule.json).
+> 💡 For guidance on writing prompts that interact with rule sets, see the [Prompt Principles](prompts.md).
