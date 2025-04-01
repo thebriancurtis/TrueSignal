@@ -1,8 +1,10 @@
 # TrueSignal
 
 [![License](https://img.shields.io/github/license/thebriancurtis/truesignal)](./LICENSE)
-[![Docs Status](https://img.shields.io/badge/docs-100%25-success)](./docs)
+[![Docs](https://img.shields.io/badge/docs-100%25-success)](./docs)
 [![Standards](https://img.shields.io/badge/standards-strict-blue)](./standards)
+[![Last Commit](https://img.shields.io/github/last-commit/thebriancurtis/truesignal)](https://github.com/thebriancurtis/truesignal/commits/main)
+[![Contributors](https://img.shields.io/github/contributors/thebriancurtis/truesignal)](https://github.com/thebriancurtis/truesignal/graphs/contributors)
 
 Bring clarity to assistant behavior — with structured rules and reusable prompts. Write it once. Validate it forever. All signal, none of the noise.
 
