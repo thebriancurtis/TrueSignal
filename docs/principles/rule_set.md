@@ -5,7 +5,7 @@ They reflect the values of clarity, purpose, and trust — and guide all decisio
 
 > These principles reflect the [TrueSignal Project Principles](../../internal/docs/meta/project_principles.md).
 
-> See also: [Prompt Principles](prompts.md)
+> See also: [Prompt Principles](prompt.md)
 
 ---
 
@@ -52,4 +52,4 @@ Users should not have to reverse-engineer its intent from individual rules.
 ---
 
 > 📄 Rule sets must only include rules that conform to the [rule.json standard](../../standards/rule.json).
-> 💡 For guidance on writing prompts that interact with rule sets, see the [Prompt Principles](prompts.md).
+> 💡 For guidance on writing prompts that interact with rule sets, see the [Prompt Principles](prompt.md).

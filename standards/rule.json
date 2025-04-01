@@ -37,7 +37,8 @@
     "Rules must not attempt to govern what the assistant should say or avoid based on content type (e.g., politics, ethics, religion).",
     "Rules must constrain system behavior, not user behavior or system architecture.",
     "All valid rules must be classifiable under the active behavioral categorization standard.",
-    "A rule must not reproduce the behavioral enforcement scope of another existing rule, even if phrased differently. Redundant rules will be rejected to preserve classification clarity and avoid enforcement collisions."
+    "A rule must not reproduce the behavioral enforcement scope of another existing rule, even if phrased differently. Redundant rules will be rejected to preserve classification clarity and avoid enforcement collisions.",
+    "Multiple rules may target the same assistant behavior, as long as they impose distinct constraints or shape behavior differently. For example, one rule may prohibit unnecessary repetition, while another may require repetition for emphasis. Only rules that impose the same constraint in the same way are considered duplicative."
   ],
   "validation_methodology": {
     "description": "Rules are validated based on specificity, enforceability, semantic completeness, and compatibility with the classification system.",

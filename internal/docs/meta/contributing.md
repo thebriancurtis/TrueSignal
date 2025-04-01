@@ -58,8 +58,8 @@ If you’re working within `/internal/`, you are likely doing one or more of the
 ---
 
 ## 🧭 Design Standards
-- [Rule Set Principles](../../../docs/principles/rule_sets.md): What makes a rule set fit TrueSignal.
-- [Prompt Principles](../../../docs/principles/prompts.md): What defines a TrueSignal-worthy prompt.
+- [Rule Set Principles](../../../docs/principles/rule_set.md): What makes a rule set fit TrueSignal.
+- [Prompt Principles](../../../docs/principles/prompt.md): What defines a TrueSignal-worthy prompt.
 
 - Rules must be structured, deduplicated, and tested
 - Prompts must use TrueSignal standards wherever possible (via composition)
@@ -73,3 +73,5 @@ If you’re working within `/internal/`, you are likely doing one or more of the
 TrueSignal is not a product. It’s a system for designing behavior with clarity.  
 Small contributions matter. Consistency matters. Trust is built rule by rule.
 
+
+See also: [rule_categorization.json](../../../standards/rule_categorization.json) — defines required categories for rule contributions.

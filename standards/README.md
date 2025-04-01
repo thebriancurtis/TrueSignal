@@ -12,7 +12,13 @@ These schemas ensure structure, consistency, and clarity across the project.
 - `rule_schema.json` — Structural schema for individual rule validation
 - `rule.json` — Schema for authoring an individual rule
 - `rule_set_schema.json` — Schema for authoring a rule set (before compilation)
+- `rule_categorization.json` — Defines assistant behavior categories used for organizing rules
 
 ---
 
 These standards are intended for anyone writing, validating, or using structured rules with an AI assistant.
+
+
+
+Defines the categories used to classify assistant behavior at the rule level.
+Used for organizing and evaluating rules in conjunction with [rule.json](./rule.json).
