@@ -14,7 +14,7 @@ This directory contains documentation for contributors working on TrueSignal its
 
 ## Prompt Standards
 
-- [`prompts/index.md`](../prompts/index.md) — Overview of internal prompt types and usage
+- [`prompts/README.md`](../prompts/README.md) — Overview of internal prompt types and usage
 
 ---
 
