@@ -22,5 +22,5 @@ This documentation is for anyone using AI assistants with TrueSignal rule sets a
 
 ## 🧩 Standards
 
-- [`/standards/`](/standards/README.md): Public schemas for defining and validating rules and rule sets
+- [`/standards/`](../standards/README.md): Public schemas for defining and validating rules and rule sets
 

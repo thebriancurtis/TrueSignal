@@ -25,9 +25,9 @@ The schema ensures that prompts:
 
 ## 📎 Related Files
 
-- [prompt.json](/standards/prompt_schema.json) — the canonical schema
-- [How to Write a Prompt](/docs/writing/how_to_write_a_prompt.md)
-- [Prompt Principles](/docs/principles/prompt.md)
+- [prompt.json](../../standards/prompt_schema.json) — the canonical schema
+- [How to Write a Prompt](../writing/how_to_write_a_prompt.md)
+- [Prompt Principles](../principles/prompt.md)
 
 ## 🧠 Guidelines
 
@@ -37,3 +37,30 @@ Prompts should:
 - Produce reliable, observable outputs
 - Be testable using structured inputs and outputs
 
+This schema is designed to promote reusable, modular prompts that are easy to test and verify. It helps enforce best practices and encourages the composition of smaller prompt components into larger workflows.
+
+## 📦 Example
+
+Here's a basic example of a prompt that conforms to this schema:
+
+```json
+{
+  "name": "optimize_rules_for_clarity",
+  "description": "Improves phrasing and reduces redundancy in a given list of rules.",
+  "uses_standards": ["rule.json"],
+  "uses_rule_sets": ["clarity"],
+  "inputs": {
+    "rules": {
+      "type": "array",
+      "items": { "type": "object" }
+    }
+  },
+  "output_format": {
+    "optimized_rules": {
+      "type": "array",
+      "items": { "type": "object" }
+    }
+  },
+  "notes": "Apply rule deduplication and rephrasing for clarity while preserving original intent."
+}
+```
