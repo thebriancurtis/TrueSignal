@@ -33,7 +33,7 @@ We welcome contributions from anyone who uses an AI assistant and wants to impro
 1. Add a new file in `/rules/`
 2. Ensure it conforms to:
    - [`rule.json`](docs/reference/rule.json.md)
-   - [`rule_schema.json`](docs/reference/rule_schema.md)
+   - [`rule_schema.json`](docs/reference/rule_schema.json.md)
 3. Run `validate_rule.json`
 4. Run `optimize_rule.json`
 5. Run `rule_deduplication.json`

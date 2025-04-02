@@ -4,7 +4,7 @@ These principles define what makes a rule worthy of inclusion in TrueSignal.
 
 They guide the structure and constraints enforced by [rule.json](../../standards/rule.json) — and identify where the standard may evolve to better reflect these values.
 
-> These principles are grounded in the [TrueSignal Project Principles](../../internal/docs/meta/project_principles.md), and inform the [Rule Set Principles](rule_set.md) and [Prompt Principles](prompt.md).
+> These principles are grounded in the [TrueSignal Project Principles](../../PROJECT_PRINCIPLES.md), and inform the [Rule Set Principles](rule_set.md) and [Prompt Principles](prompt.md).
 
 ---
 

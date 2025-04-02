@@ -25,8 +25,8 @@ The schema ensures that prompts:
 
 ## 📎 Related Files
 
-- [prompt.json](/standards/prompt.json) — the canonical schema
-- [How to Write a Prompt](/docs/prompts/how_to_write_a_prompt.md)
+- [prompt.json](/standards/prompt_schema.json) — the canonical schema
+- [How to Write a Prompt](/docs/writing/how_to_write_a_prompt.md)
 - [Prompt Principles](/docs/principles/prompt.md)
 
 ## 🧠 Guidelines

@@ -6,7 +6,6 @@ Documentation that defines how the TrueSignal system is structured, governed, an
 
 ## Core Principles
 
-- [`project_principles.md`](project_principles.md) — High-level values that define TrueSignal's purpose
 - [`documentation_principles.md`](documentation_principles.md) — Principles for clarity, purpose, and structure in all documentation
 
 ---
