@@ -20,7 +20,7 @@ Rules are atomic constraints on assistant behavior. Each rule must be precise, t
 All rules must conform to two schemas:
 
 - [`rule.json`](../reference/rule.json.md): structural format
-- [`rule_schema.json`](../reference/rule_schema.md): semantic requirements
+- [`rule_schema.json`](../reference/rule_schema.json.md): semantic requirements
 
 ---
 
@@ -28,13 +28,13 @@ All rules must conform to two schemas:
 
 Follow this exact sequence:
 
-1. ✍️ **Author** your rule in `/rules/{theme}/`  
+1. ✍️ **Author** your rule in `/rules/`  
 2. ✅ **Validate** using `validate_rule.json`
 3. ✂️ **Optimize** using `optimize_rule.json`
 4. 🔁 **Check for duplication** with `rule_deduplication.json`
 5. 🧩 **If overlapping**, consolidate using `rule_consolidation.json`
 6. 🧠 **Determine if it's core** using `is_core_rule.json`
-   - If yes, move it to: `/rules/core/`
+   - If yes, move it to: `/internal/core/`
 
 ---
 
