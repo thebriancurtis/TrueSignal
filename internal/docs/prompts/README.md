@@ -33,7 +33,7 @@ User-facing prompts:
 ## 📎 Prompt Format
 
 All prompts must conform to:
-- [`prompt_schema.json`](../../docs/reference/prompt_schema.json.md)
+- [`prompt_schema.json`](../../../docs/reference/prompt_schema.json.md)
 
 Required fields:
 - `description`
@@ -47,5 +47,5 @@ Required fields:
 
 ## 🔗 Related Docs
 
-- [How to Write a Prompt](../../docs/writing/how_to_write_a_prompt.md)
-- [prompt_schema.json Schema](../../docs/reference/prompt_schema.json.md)
+- [How to Write a Prompt](../../../docs/writing/how_to_write_a_prompt.md)
+- [prompt_schema.json Schema](../../../docs/reference/prompt_schema.json.md)

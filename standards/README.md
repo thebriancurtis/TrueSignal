@@ -23,4 +23,4 @@ These standards are intended for anyone writing, validating, or using structured
 Defines the categories used to classify assistant behavior at the rule level.
 Used for organizing and evaluating rules in conjunction with [rule.json](./rule.json).
 
-- [`rule_set_categorization.json`](./rule_set_categorization.json) — Defines the official categories for rule sets, used to determine where compiled rule sets belong and how they are composed.
+- [`rule_set_categorization.json`](rule_set_categorization.json) — Defines the official categories for rule sets, used to determine where compiled rule sets belong and how they are composed.

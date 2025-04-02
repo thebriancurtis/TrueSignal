@@ -13,6 +13,6 @@ Defines the structure of TrueSignal rule set definitions (`rule_set.json` format
 - `notes`, `category`: Optional documentation and grouping
 
 ## 🔗 Related
-- [Compiled Rule Sets](/rule_sets/)
-- [`rule_set_categorization.json`](/docs/reference/rule_set_categorization.json.md)
-- [Rule Set Principles](/docs/principles/rule_sets.md)
+- [Compiled Rule Sets](../../rule_sets/)
+- [`rule_set_categorization.json`](rule_set_categorization.json.md)
+- [Rule Set Principles](../principles/rule_set.md)

@@ -11,5 +11,5 @@ Used to validate rule `category` values in compliance with core principles and t
 See the full list in [`/standards/rule_categorization.json`](../../standards/rule_categorization.json)
 
 ## 🔗 Related
-- [Rule Schema](/docs/reference/rule.json.md)
-- [Rule Principles](/docs/principles/rules.md)
+- [Rule Schema](rule.json.md)
+- [Rule Principles](../principles/rule.md)

@@ -3,7 +3,7 @@
 These principles define what makes a rule set worthy of inclusion in TrueSignal.  
 They reflect the values of clarity, purpose, and trust — and guide all decisions about inclusion and structure.
 
-> These principles reflect the [TrueSignal Project Principles](../../PROJECT_PRINCIPLES.md).
+> These principles reflect the [TrueSignal Principles](../../PRINCIPLES.md).
 
 > See also: [Prompt Principles](prompt.md)
 

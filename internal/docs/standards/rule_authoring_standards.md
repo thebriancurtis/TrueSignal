@@ -55,5 +55,5 @@ Rules are the atomic building blocks of TrueSignal. Every rule must meet strict 
 ## 🔗 Related
 
 - `validate_rule.json` prompt
-- [`rule.json`](../../docs/reference/rule.json.md)
+- [`rule.json`](../../../docs/reference/rule.json.md)
 - `rule_optimization.md`

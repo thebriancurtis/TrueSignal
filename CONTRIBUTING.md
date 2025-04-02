@@ -97,7 +97,7 @@ Thank you for contributing to a more structured, testable, and transparent an AI
 
 ---
 
-See [PROJECT_PRINCIPLES.md](PROJECT_PRINCIPLES.md) to understand the values that guide all contributions.
+See [PRINCIPLES.md](PRINCIPLES.md) to understand the values that guide all contributions.
 
 For writing and reviewing documentation, see our [documentation principles](internal/docs/meta/documentation_principles.md).
 

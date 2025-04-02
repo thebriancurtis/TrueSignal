@@ -1,4 +1,4 @@
-# PROJECT PRINCIPLES
+# TRUESIGNAL PRINCIPLES
 
 These are the core principles that guide everything in TrueSignal — from how it’s designed, to how it’s documented, to how it's used.
 

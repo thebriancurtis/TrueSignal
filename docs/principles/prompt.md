@@ -3,7 +3,7 @@
 These principles define what makes a prompt worthy of inclusion in TrueSignal.  
 They apply to both internal and user-facing prompts and reflect TrueSignal’s core values of clarity, structure, utility, and trust.
 
-> These principles reflect the [TrueSignal Project Principles](../../PROJECT_PRINCIPLES.md) and help ensure prompts align with the goals of the system.
+> These principles reflect the [TrueSignal Principles](../../PRINCIPLES.md) and help ensure prompts align with the goals of the system.
 
 ---
 

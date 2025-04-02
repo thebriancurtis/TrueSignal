@@ -1,6 +1,6 @@
 # Documentation Principles
 
-These principles reflect TrueSignal’s [Project Principles](../../../PROJECT_PRINCIPLES.md).  
+These principles reflect TrueSignal’s [Principles](../../../PRINCIPLES.md).  
 They guide how documentation is written, reviewed, and maintained across the project.
 
 ---

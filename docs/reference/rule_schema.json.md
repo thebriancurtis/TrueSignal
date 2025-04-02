@@ -12,5 +12,5 @@ Defines constraints and extensions for validating individual TrueSignal rules.
 This schema is not user-facing but is critical for ensuring correctness during rule creation and optimization.
 
 ## 🔗 Related
-- [rule.json](/docs/reference/rule.json.md)
-- [Internal Validation Docs](/internal/docs/validation/)
+- [rule.json](rule.json.md)
+- [Internal Validation Docs](../../internal/docs/validation/)

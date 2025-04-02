@@ -63,4 +63,4 @@ If you want to define your own rule set:
 - [rule_set.json Schema](../reference/rule_set.json.md)
 - [rule_set_categorization.json](../reference/rule_set_categorization.json.md)
 
-- [`principles/rule_set.md`](principles/rule_set.md): Guiding principles behind the inclusion and design of TrueSignal rule sets.
+- [`principles/rule_set.md`](../principles/rule_set.md): Guiding principles behind the inclusion and design of TrueSignal rule sets.
