@@ -1,6 +1,6 @@
 {
   "name": "validate_prompts.json",
-  "description": "Validates a set of prompt files against the official prompt.json schema.",
+  "description": "Validates a set of prompt files against the official prompt_schema.json schema.",
   "instructions": "Execute the purpose of `validate_prompts.json` using the schema-defined structure and rules.",
   "schema": {
     "inputs": {

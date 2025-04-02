@@ -24,7 +24,7 @@ Used for validation, transformation, and compilation. Manually run in an AI assi
 Prompts designed to be used directly by an AI assistant users (currently none published).
 
 User-facing prompts:
-- Must conform to `prompt.json`
+- Must conform to `prompt_schema.json`
 - Should reference compiled rule sets by link
 - Should expose helpful assistant functionality (e.g. enforcement, optimization)
 
@@ -33,7 +33,7 @@ User-facing prompts:
 ## 📎 Prompt Format
 
 All prompts must conform to:
-- [`prompt.json`](../../docs/reference/prompt.json.md)
+- [`prompt_schema.json`](../../docs/reference/prompt_schema.json.md)
 
 Required fields:
 - `description`
@@ -48,4 +48,4 @@ Required fields:
 ## 🔗 Related Docs
 
 - [How to Write a Prompt](../../docs/writing/how_to_write_a_prompt.md)
-- [prompt.json Schema](../../docs/reference/prompt.json.md)
+- [prompt_schema.json Schema](../../docs/reference/prompt_schema.json.md)

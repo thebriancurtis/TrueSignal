@@ -23,7 +23,7 @@ We welcome contributions from anyone who uses an AI assistant and wants to impro
 |------|----------|----------------|
 | **Rules** | `/rules/` | `rule.json`, `rule_schema.json` |
 | **Rule Sets** | `/internal/rule_sets/` → compiled to `/rule_sets/` | `rule_set.json`, `rule_set_categorization.json` |
-| **Prompts** | `/internal/prompts/` (internal), `/prompts/` (user-facing) | `prompt.json` |
+| **Prompts** | `/internal/prompts/` (internal), `/prompts/` (user-facing) | `prompt_schema.json` |
 | **Tests** | `/internal/tests/` | See `test_cases.md` (rule set/prompt only) |
 
 ---
@@ -62,13 +62,13 @@ We welcome contributions from anyone who uses an AI assistant and wants to impro
 ## 💬 Contributing a Prompt
 
 ### Internal Prompt (`/internal/prompts/`)
-- Must follow `prompt.json`
+- Must follow `prompt_schema.json`
 - Should perform a reusable function (e.g. validation, transformation)
 - Should compose existing prompts where applicable
 - Must include example input/output
 
 ### User-Facing Prompt (`/prompts/`)
-- Must follow `prompt.json`
+- Must follow `prompt_schema.json`
 - Should be general-purpose and reusable by an AI assistant users
 - Should reference compiled rule sets by link or path
 - Must state which standards it supports (e.g. `rule.json`, `rule_set.json`)
@@ -101,4 +101,4 @@ See [PROJECT_PRINCIPLES.md](PROJECT_PRINCIPLES.md) to understand the values that
 
 For writing and reviewing documentation, see our [documentation principles](internal/docs/meta/documentation_principles.md).
 
-For detailed architecture and documentation standards, see [`internal/docs/meta/index.md`](internal/docs/meta/index.md).
+For detailed architecture and documentation standards, see [`internal/docs/meta/README.md`](internal/docs/meta/README.md).

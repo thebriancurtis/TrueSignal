@@ -10,7 +10,7 @@ This document defines how rule sets are structured, categorized, and compiled wi
 |----------|---------|
 | `/internal/rule_sets/{category}/{name}.json` | Authorable, raw rule sets |
 | `/rule_sets/{category}/{name}.json` | Compiled, flattened rule sets ready for use |
-| `/internal/standards/rule_set_categorization.json` | Defines theme categories |
+| `/standards/rule_set_categorization.json` | Defines theme categories |
 | `/docs/reference/rule_set.json.md` | Rule set schema definition |
 
 ---
@@ -85,7 +85,7 @@ When you run `compile_rule_set.json`, the system will:
 
 Each rule set belongs to a category defined in:
 ```
-/internal/standards/rule_set_categorization.json
+/standards/rule_set_categorization.json
 ```
 
 Categories include: `tone`, `persona`, `tool`, `audience`, `context`, etc.

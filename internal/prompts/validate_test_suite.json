@@ -3,7 +3,7 @@
   "description": "Validates structure, assertions, and integrity of prompt test suites.",
   "instructions": "\nValidate a given test suite to ensure each test contains required fields: `name`, `input`, and at least one of `expected_keys`, `assert`, or `expected_error`. Verify that any `$template:` used resolves to a known input template. Check that `goal` and `type` are present and valid. Flag any missing or inconsistent structure.\n",
   "uses_standards": [
-    "prompt.json"
+    "prompt_schema.json"
   ],
   "schema": {
     "inputs": {

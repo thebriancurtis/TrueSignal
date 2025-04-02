@@ -9,7 +9,7 @@ Rule sets are stored in `/internal/rule_sets/{category}/{name}.json` and compile
 See [`rule_set.json`](../reference/rule_set.json.md)
 
 ## Categories
-Use a category from [`rule_set_categorization.json`](../reference/rule_set_categorization.md)
+Use a category from [`rule_set_categorization.json`](../reference/rule_set_categorization.json.md)
 
 ## 🔒 Core Rule Set
 

@@ -8,7 +8,7 @@ This document describes the organizational structure of the TrueSignal project a
 
 User-facing documentation for anyone using TrueSignal with an AI assistant.
 
-- `index.md` — Entry point for all user documentation
+- `README.md` — Entry point for all user documentation
 - `getting_started.md` — How to begin using rule sets and prompts
 - `glossary.md` — Definitions of key terms used across the project
 - `usage/` — How to use compiled rule sets in prompts
@@ -26,11 +26,11 @@ Contributor-facing documentation for people maintaining or extending TrueSignal.
 - `documentation_principles.md` — Expectations for writing and reviewing documentation
 - `contributing.md` — Internal contribution guidelines and standards
 - `folder_structure.md` — This file
-- `index.md` — Meta documentation index
+- `README.md` — Meta documentation index
 
 ### 📁 /internal/docs/prompts/
 
-- `index.md` — Describes prompt roles and types used internally
+- `README.md` — Describes prompt roles and types used internally
 
 ---
 
@@ -41,7 +41,7 @@ Public-facing JSON schemas used to define and validate rules, rule sets, and pro
 - `rule.json` — Schema for authoring an individual rule
 - `rule_schema.json` — Validation schema for structured rules
 - `rule_set_schema.json` — Schema for authoring uncompiled rule sets
-- `prompt.json` — Schema for writing reusable assistant prompts
+- `prompt_schema.json` — Schema for writing reusable assistant prompts
 - `README.md` — Explains the use and structure of each standard
 
 ---
@@ -77,7 +77,7 @@ Source rule sets authored by contributors.
 
 Internal prompt files used for categorizing, validating, optimizing, and deduplicating rules.
 
-- Prompt JSON files follow the `prompt.json` schema
+- Prompt JSON files follow the `prompt_schema.json` schema
 - Used manually or in composition with other prompts
 
 

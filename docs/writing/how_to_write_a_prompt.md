@@ -8,7 +8,7 @@ They are stored in `/prompts/` and used by anyone interacting with an AI assista
 
 ## ✅ Prompt Format
 
-All prompts must conform to [`prompt.json`](../reference/prompt.json.md). Required fields include:
+All prompts must conform to [`prompt_schema.json`](../reference/prompt_schema.json.md). Required fields include:
 
 - `description`
 - `input_format`

@@ -8,7 +8,7 @@ These schemas ensure structure, consistency, and clarity across the project.
 
 ## Included Schemas
 
-- `prompt.json` — Schema for defining reusable assistant prompts
+- `prompt_schema.json` — Schema for defining reusable assistant prompts
 - `rule_schema.json` — Structural schema for individual rule validation
 - `rule.json` — Schema for authoring an individual rule
 - `rule_set_schema.json` — Schema for authoring a rule set (before compilation)
@@ -22,3 +22,5 @@ These standards are intended for anyone writing, validating, or using structured
 
 Defines the categories used to classify assistant behavior at the rule level.
 Used for organizing and evaluating rules in conjunction with [rule.json](./rule.json).
+
+- [`rule_set_categorization.json`](./rule_set_categorization.json) — Defines the official categories for rule sets, used to determine where compiled rule sets belong and how they are composed.

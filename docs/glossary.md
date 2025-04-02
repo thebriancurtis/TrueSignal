@@ -43,7 +43,7 @@ Universal rules enforced in all compiled rule sets
 A structured, reusable an AI assistant-native instruction
 
 - Stored in `/prompts/` (user) or `/internal/prompts/` (toolchain)
-- Must follow `prompt.json` schema
+- Must follow `prompt_schema.json` schema
 - Validates, categorizes, optimizes, deduplicates
 
 ---
