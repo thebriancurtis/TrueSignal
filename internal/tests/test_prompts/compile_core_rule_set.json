@@ -1,0 +1,14 @@
+{
+  "description": "Tests compile_core_rule_set using mock core.json and resolution logic.",
+  "inputs": {
+    "rule_set_filename": "core.json"
+  },
+  "expect": {
+    "compiled_rule_set": {
+      "name": "Core Rules",
+      "composable_rules": [
+        "..."
+      ]
+    }
+  }
+}

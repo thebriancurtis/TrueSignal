@@ -7,7 +7,7 @@ A single behavior constraint (e.g. “Avoid speculation”)
 
 - Format: JSON (`rule.json`)
 - Must be atomic, testable, and teachable
-- Lives in `/rules/`
+- Lives in `/composable_rules/`
 - Validated using `validate_rule.json`
 
 ---

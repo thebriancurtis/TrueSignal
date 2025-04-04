@@ -98,10 +98,10 @@
   "input_schema": {
     "type": "object",
     "required": [
-      "rules"
+      "composable_rules"
     ],
     "properties": {
-      "rules": {
+      "composable_rules": {
         "type": "array",
         "items": {
           "type": "object"

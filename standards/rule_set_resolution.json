@@ -1,0 +1,8 @@
+{
+  "rule_set_resolution": {
+    "allowed_dirs": [
+      "internal/rule_sets"
+    ]
+  },
+  "composable_rules_dir": "composable_rules"
+}

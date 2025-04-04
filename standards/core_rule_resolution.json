@@ -1,0 +1,13 @@
+{
+  "what": "Defines the fixed location of the core rules used during core rule set compilation.",
+  "why": "Ensures core compilation is locked to a single, trusted directory and cannot be overridden or extended.",
+  "conventions": [
+    "Used only by the core compilation prompt.",
+    "Path must be relative to the prompt root."
+  ],
+  "constraints": [
+    "Must point to exactly one directory.",
+    "Must not match any allowed rule directories in rule_set_resolution."
+  ],
+  "core_rule_dir": "internal/core"
+}

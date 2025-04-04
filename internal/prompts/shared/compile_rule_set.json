@@ -1,0 +1,40 @@
+{
+  "description": "Compiles a rule set by resolving rule IDs to their full rule contents based on the given resolution context.",
+  "input_schema": "rule_set_schema.json",
+  "output_schema": "compiled_rule_set_schema.json",
+  "inputs": {
+    "rule_set_definition": "A rule set definition following the rule_set_schema.json format.",
+    "resolution_context": {
+      "rule_search_paths": [
+        "A prioritized list of folders to search for rule files (e.g., ['/composable_rules/', '/internal/core/'])."
+      ]
+    }
+  },
+  "steps": [
+    {
+      "action": "validate_schema",
+      "input": "$rule_set_definition",
+      "schema": "rule_set_schema.json"
+    },
+    {
+      "action": "resolve_rule_files",
+      "ids": "$rule_set_definition.rules",
+      "search_paths": "$resolution_context.rule_search_paths",
+      "assign_to": "resolved_rules"
+    },
+    {
+      "action": "merge_rule_set",
+      "base": "$rule_set_definition",
+      "composable_rules": "$resolved_rules",
+      "assign_to": "compiled_rule_set"
+    },
+    {
+      "action": "return",
+      "value": "$compiled_rule_set"
+    }
+  ],
+  "notes": [
+    "This logic is shared by compile_rule_set.json and compile_core_rule_set.json to centralize rule set compilation behavior.",
+    "If a rule file cannot be found, an error is returned indicating the missing rule and the paths searched."
+  ]
+}

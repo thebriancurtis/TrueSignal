@@ -28,13 +28,14 @@ All rules must conform to two schemas:
 
 Follow this exact sequence:
 
-1. ✍️ **Author** your rule in `/rules/`  
+1. ✍️ **Author** your rule in `/composable_rules/`  
 2. ✅ **Validate** using `validate_rule.json`
 3. ✂️ **Optimize** using `optimize_rule.json`
 4. 🔁 **Check for duplication** with `rule_deduplication.json`
 5. 🧩 **If overlapping**, consolidate using `rule_consolidation.json`
 6. 🧠 **Determine if it's core** using `is_core_rule.json`
    - If yes, move it to: `/internal/core/`
+> _Note: This path refers to internal system rules and is not used for authoring general-purpose rules._
 
 ---
 

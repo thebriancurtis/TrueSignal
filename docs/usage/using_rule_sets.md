@@ -6,7 +6,7 @@ Each compiled rule set is a `.json` file containing validated, structured rules 
 
 ```json
 {
-  "rules": ["ENF-R001", "CTX-R004", "TONE-R003", ...],
+  "composable_rules": ["ENF-R001", "CTX-R004", "TONE-R003", ...],
   "rule_sets": []
 }
 ```

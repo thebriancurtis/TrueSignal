@@ -1,0 +1,26 @@
+{
+  "description": "Tests shared rule set compiler logic with a mock rule set definition and dummy rule resolution context.",
+  "inputs": {
+    "rule_set_definition": {
+      "name": "Example",
+      "composable_rules": [
+        "RULE_001",
+        "RULE_002"
+      ]
+    },
+    "resolution_context": {
+      "rule_search_paths": [
+        "rules/",
+        "rules/"
+      ]
+    }
+  },
+  "expect": {
+    "compiled_rule_set": {
+      "name": "Example",
+      "composable_rules": [
+        "..."
+      ]
+    }
+  }
+}

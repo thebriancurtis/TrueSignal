@@ -1,0 +1,9 @@
+{
+  "what": "Specifies the location of the compiled core rule set for systems that need to read but not compile it.",
+  "why": "Allows safe referencing of the immutable core rule set without exposing raw core rules.",
+  "constraints": [
+    "Path must be relative.",
+    "File must match 'core.json'."
+  ],
+  "core_rule_set_path": "rule_sets/core.json"
+}

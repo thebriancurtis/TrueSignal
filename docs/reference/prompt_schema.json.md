@@ -50,7 +50,7 @@ Here's a basic example of a prompt that conforms to this schema:
   "uses_standards": ["rule.json"],
   "uses_rule_sets": ["clarity"],
   "inputs": {
-    "rules": {
+    "composable_rules": {
       "type": "array",
       "items": { "type": "object" }
     }

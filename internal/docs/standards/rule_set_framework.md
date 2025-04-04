@@ -21,7 +21,7 @@ Authorable rule sets must match the `rule_set.json` schema:
 
 ```json
 {
-  "rules": ["ENF-R001", "CTX-R002"],
+  "composable_rules": ["ENF-R001", "CTX-R002"],
   "rule_sets": ["shared_structure"]
 }
 ```
@@ -47,7 +47,7 @@ When you run `compile_rule_set.json`, the system will:
 ```json
 // internal/rule_sets/tone/educational.json
 {
-  "rules": ["TONE-R007"],
+  "composable_rules": ["TONE-R007"],
   "rule_sets": ["shared_structure"]
 }
 ```
@@ -57,7 +57,7 @@ When you run `compile_rule_set.json`, the system will:
 ```json
 // rule_sets/tone/educational.json (output)
 {
-  "rules": [
+  "composable_rules": [
     "TONE-R007",
     "ENF-R001",   // from core
     "CTX-R004",   // from shared_structure

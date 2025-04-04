@@ -10,7 +10,7 @@ This document explains how rules, rule sets, prompts, and standards work togethe
 
 | Component | Description |
 |----------|-------------|
-| `/rules/` | Atomic rule definitions |
+| `/composable_rules/` | Atomic rule definitions |
 | `/internal/rule_sets/` | Thematic collections of rule IDs |
 | `/internal/standards/` | Rule structure, duplication, optimization, categorization standards |
 | `/internal/prompts/` | Prompts used for validation, compilation, and tooling |

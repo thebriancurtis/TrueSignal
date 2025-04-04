@@ -1,0 +1,237 @@
+{
+  "what": "Compiles the core rule set (core.json) using shared resolution logic and path validation.",
+  "why": "Serves as the canonical entry point for compiling the core rules of the system, ensuring all constraints are applied consistently.",
+  "conventions": [
+    "Must delegate rule set resolution and compilation to a shared prompt.",
+    "Must not directly access or compile individual rule files.",
+    "Must only compile the core rule set\u2014never other rule sets."
+  ],
+  "constraints": [
+    "May only reference rules from /internal/core.",
+    "May not include any other rule sets in its compilation.",
+    "May not run without the required uses and input defined.",
+    "This prompt must be used within a structured archive and is not intended for copy-paste execution."
+  ],
+  "semantics": {
+    "what": "Defines the language-level rules and runtime behavior models that guide how the assistant should interpret and execute this prompt.",
+    "why": "Encapsulates global execution principles to ensure prompts are predictable, composable, and assistant-native.",
+    "conventions": [
+      "Semantics apply to all prompts unless explicitly overridden.",
+      "Each sub-object describes a specific execution behavior (e.g., scoping, resolution, chaining).",
+      "Assistants must respect all semantic constraints as core logic."
+    ],
+    "constraints": [
+      "Every semantic model must follow the object metadata standard.",
+      "Each entry must have a unique name and be documented for assistant interpretation.",
+      "Semantic behavior must not contradict prompt-local constraints."
+    ],
+    "reference_model": {
+      "what": "Defines how to reference fields and values across JSON objects in a prompt.",
+      "why": "Ensures consistent and unambiguous field resolution across all prompt components.",
+      "conventions": [
+        "Use dot-notation to reference a value from another object (e.g., `load_rule_set_dirs.output.rule_set_dirs`).",
+        "The reference chain must follow the structure of the prompt objects: step name \u2192 output/input \u2192 field name.",
+        "Top-level values (e.g., input fields) may be referenced directly using their name (e.g., `rule_set_filename`)."
+      ],
+      "constraints": [
+        "Only declared values may be referenced.",
+        "Circular references are not supported.",
+        "References to undeclared steps, inputs, or outputs must result in prompt validation failure."
+      ]
+    },
+    "execution_order": {
+      "what": "Describes how steps are executed within the routine.",
+      "why": "Establishes a deterministic order of operations for assistant execution and prompt correctness.",
+      "conventions": [
+        "Steps must be executed in the order listed in the `routine.order` array.",
+        "Each step\u2019s output may be referenced by later steps using its name.",
+        "Steps may not be skipped unless explicitly conditional (not currently supported)."
+      ],
+      "constraints": [
+        "The `order` array must list all defined step names exactly once and in intended execution order.",
+        "If a step is defined in `steps` but not listed in `order`, the prompt must fail with a descriptive error.",
+        "No step may depend on the output of a later step."
+      ]
+    },
+    "prompt_invocation": {
+      "what": "Defines how referenced prompts are executed during evaluation.",
+      "why": "Allows modular, reusable behavior to be composed across TrueSignal prompts using `uses`.",
+      "conventions": [
+        "Prompts listed in `uses` may be invoked by calling them explicitly from a step.",
+        "Inputs to the used prompt must match its declared input contract.",
+        "Outputs are assigned into the local scope using the name of the step performing the invocation."
+      ],
+      "constraints": [
+        "Only prompts declared in `uses` may be invoked.",
+        "Used prompts must conform to the prompt schema.",
+        "Prompt outputs must not conflict with other step names or output names."
+      ]
+    },
+    "scoping_and_resolution": {
+      "what": "Describes the scoping model used to resolve input and output references.",
+      "why": "Prevents naming conflicts and enforces namespace hygiene across complex prompts.",
+      "conventions": [
+        "Each step operates in its own scope, with access to previous steps' outputs and top-level input.",
+        "The name of the step must be used when referencing its output (e.g., `resolve_file.output.path`).",
+        "Nested objects must be referenced using fully qualified paths."
+      ],
+      "constraints": [
+        "Shadowing of existing names is not permitted.",
+        "Output values cannot be redefined by other steps.",
+        "Global state is not allowed\u2014only step-scoped and prompt-scoped values may be used."
+      ]
+    }
+  },
+  "uses": {
+    "what": "Declares all external resources required by this prompt.",
+    "why": "Ensures dependencies are explicitly declared so they can be resolved, validated, and reused across prompts.",
+    "conventions": [
+      "Each key in this object acts as a namespace used to reference content from that source.",
+      "Paths must be relative to this prompt\u2019s file location.",
+      "Referenced paths should point to prompts, standards, or validated components."
+    ],
+    "constraints": [
+      "All declared uses must resolve to existing, accessible files.",
+      "No undeclared external file may be accessed at runtime."
+    ],
+    "compile_rule_set": {
+      "what": "Shared prompt that performs rule set compilation.",
+      "why": "Provides general logic for loading, resolving, and validating rule sets across the system.",
+      "conventions": [],
+      "constraints": [],
+      "path": "shared/compile_rule_set.json"
+    },
+    "rule_set_resolution": {
+      "what": "Standard defining valid rule and rule set source directories.",
+      "why": "Ensures consistent resolution behavior and prevents access to unauthorized file locations.",
+      "conventions": [],
+      "constraints": [
+        "All rules must reside in directories listed in the standard's allowed rule paths."
+      ],
+      "path": "../../standards/rule_set_resolution.json"
+    }
+  },
+  "input": {
+    "what": "Declares values that must be passed into this prompt from the outside.",
+    "why": "Ensures assistants understand what data is required to execute the prompt.",
+    "conventions": [],
+    "constraints": [],
+    "rule_set_filename": {
+      "what": "Identifies the rule set file to compile.",
+      "why": "Used by the resolver step to locate the correct rule set file on disk.",
+      "conventions": [
+        "Should be a filename ending in '.json'.",
+        "Should not include directory paths\u2014resolution is handled by the prompt."
+      ],
+      "constraints": [
+        "Must be a string.",
+        "Must match exactly one file in the allowed rule set directories."
+      ],
+      "type": "string",
+      "required": true
+    }
+  },
+  "output": {
+    "what": "Declares the result this prompt produces upon successful execution.",
+    "why": "Allows other prompts or tooling to consume or validate the result of this compilation.",
+    "conventions": [],
+    "constraints": [],
+    "compiled_rule_set": {
+      "what": "The final, fully resolved rule set object.",
+      "why": "Represents the structured result of rule set compilation, ready for downstream use or validation.",
+      "conventions": [
+        "Should conform to the rule_set_schema.json.",
+        "May include resolved paths, rule references, and compiled metadata."
+      ],
+      "constraints": [
+        "Must be an object.",
+        "Must include a non-empty list of rules.",
+        "Must be compiled from a rule set located in a permitted rule set directory."
+      ],
+      "type": "object",
+      "required": true
+    }
+  },
+  "routine": {
+    "what": "Defines the procedural logic of this prompt.",
+    "why": "Groups and orders the steps that implement the core behavior.",
+    "conventions": [],
+    "constraints": [],
+    "order": [
+      "load_rule_set_dirs",
+      "resolve_rule_set_file",
+      "load_rule_set_definition",
+      "load_rule_dirs",
+      "execute_compile_rule_set_prompt"
+    ],
+    "steps": {
+      "load_rule_set_dirs": {
+        "what": "Retrieves the list of valid directories where rule sets may be found.",
+        "why": "Used to constrain file lookup to only approved directories.",
+        "conventions": [],
+        "constraints": [],
+        "input": {},
+        "output": {
+          "rule_set_dirs": "list of strings"
+        },
+        "instruction": "Extract the list of allowed rule set directories from rule_set_resolution.rule_set_resolution.composable_rules_dir."
+      },
+      "resolve_rule_set_file": {
+        "what": "Identifies the full path to the rule set file to be compiled.",
+        "why": "Prevents ambiguity and ensures the correct file is selected from allowed directories.",
+        "conventions": [],
+        "constraints": [
+          "If multiple matching filenames are found, the input must provide a fully qualified relative path."
+        ],
+        "input": {
+          "search_dirs": "load_rule_set_dirs.output.rule_set_dirs",
+          "filename": "rule_set_filename"
+        },
+        "output": {
+          "rule_set_path": "string"
+        },
+        "instruction": "Ensure the provided filename resolves unambiguously to one rule set file."
+      },
+      "load_rule_set_definition": {
+        "what": "Loads and parses the rule set file from disk.",
+        "why": "Converts the file into a usable in-memory object.",
+        "conventions": [],
+        "constraints": [],
+        "input": {
+          "path": "resolve_rule_set_file.output.rule_set_path"
+        },
+        "output": {
+          "definition": "object"
+        },
+        "instruction": "Deserialize the rule set file into a usable object."
+      },
+      "load_rule_dirs": {
+        "what": "Retrieves the list of valid directories where individual rules may be found.",
+        "why": "Used to constrain resolution of rule file references.",
+        "conventions": [],
+        "constraints": [],
+        "input": {},
+        "output": {
+          "rule_dirs": "list of strings"
+        },
+        "instruction": "Extract the list of allowed rule directories from rule_set_resolution.rule_resolution.composable_rules_dir."
+      },
+      "execute_compile_rule_set_prompt": {
+        "what": "Delegates to the shared prompt that performs actual rule set compilation.",
+        "why": "Uses centralized logic for compiling rule sets with rule path resolution.",
+        "conventions": [],
+        "constraints": [],
+        "input": {
+          "rule_set_definition": "load_rule_set_definition.output.definition",
+          "resolution_context": {
+            "rule_search_paths": "load_rule_dirs.output.rule_dirs"
+          }
+        },
+        "output": {
+          "compiled_rule_set": "object"
+        },
+        "instruction": "Execute the compile_rule_set prompt, passing in the rule set definition and the resolution context containing allowed rule directories, to compile a fully resolved rule set."
+      }
+    }
+  }
+}

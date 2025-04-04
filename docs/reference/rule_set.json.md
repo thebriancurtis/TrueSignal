@@ -7,7 +7,7 @@ Each rule set file contains:
 ## Example
 ```json
 {
-  "rules": ["ENF-R001", "CTX-R004"],
+  "composable_rules": ["ENF-R001", "CTX-R004"],
   "rule_sets": ["common_structure"]
 }
 ```

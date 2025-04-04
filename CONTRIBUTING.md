@@ -21,7 +21,7 @@ We welcome contributions from anyone who uses an AI assistant and wants to impro
 
 | Type | Location | Key Standards |
 |------|----------|----------------|
-| **Rules** | `/rules/` | `rule.json`, `rule_schema.json` |
+| **Rules** | `/composable_rules/` | `rule.json`, `rule_schema.json` |
 | **Rule Sets** | `/internal/rule_sets/` → compiled to `/rule_sets/` | `rule_set.json`, `rule_set_categorization.json` |
 | **Prompts** | `/internal/prompts/` (internal), `/prompts/` (user-facing) | `prompt_schema.json` |
 | **Tests** | `/internal/tests/` | See `test_cases.md` (rule set/prompt only) |
@@ -30,7 +30,7 @@ We welcome contributions from anyone who uses an AI assistant and wants to impro
 
 ## ✍️ Contributing a Rule
 
-1. Add a new file in `/rules/`
+1. Add a new file in `/composable_rules/`
 2. Ensure it conforms to:
    - [`rule.json`](docs/reference/rule.json.md)
    - [`rule_schema.json`](docs/reference/rule_schema.json.md)
@@ -40,7 +40,7 @@ We welcome contributions from anyone who uses an AI assistant and wants to impro
 6. If redundant, use `rule_consolidation.json` to merge overlapping rules
 7. Run `is_core_rule.json` to determine placement in `core/` or elsewhere
 
-> 📁 If the rule is core, move it into `/rules/core/`. Otherwise, leave it in the appropriate theme folder.
+> 📁 If the rule is core, move it into `/composable_rules/core/`. Otherwise, leave it in the appropriate theme folder.
 
 ---
 

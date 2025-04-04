@@ -25,7 +25,7 @@
             "name": {
               "type": "string"
             },
-            "rules": {
+            "composable_rules": {
               "type": "array",
               "items": {
                 "type": "string"
@@ -34,7 +34,7 @@
           },
           "required": [
             "name",
-            "rules"
+            "composable_rules"
           ]
         }
       },
@@ -72,7 +72,7 @@
   "example_input": {
     "rule_set_definition": {
       "name": "Core Access Controls",
-      "rules": [
+      "composable_rules": [
         "ENF-R001.json",
         "VAL-R004.json"
       ]

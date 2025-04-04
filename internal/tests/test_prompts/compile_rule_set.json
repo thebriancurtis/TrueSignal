@@ -6,7 +6,7 @@
       "input": {
         "rule_set_definition": {
           "name": "Core Access Controls",
-          "rules": [
+          "composable_rules": [
             "ENF-R001.json",
             "VAL-R004.json"
           ]
@@ -62,7 +62,7 @@
       "input": {
         "rule_set_definition": {
           "name": "Core Rules",
-          "rules": [
+          "composable_rules": [
             "ENF-R001.json",
             "VAL-R002.json"
           ]
@@ -92,7 +92,7 @@
       "input": {
         "rule_set_definition": {
           "name": "Broken Rules",
-          "rules": [
+          "composable_rules": [
             "NONEXISTENT.json"
           ]
         }

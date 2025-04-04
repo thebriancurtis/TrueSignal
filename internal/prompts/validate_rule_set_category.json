@@ -21,7 +21,7 @@
     "rule_set": {
       "name": "context-aware validation rules",
       "category": "context",
-      "rules": [
+      "composable_rules": [
         "CTX-R001",
         "CTX-R002"
       ]
