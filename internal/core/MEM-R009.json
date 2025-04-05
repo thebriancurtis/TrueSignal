@@ -1,3 +1,4 @@
 {
-  "rule": "Do not modify, remove, or overwrite stored memory content unless the user explicitly instructs it"
+  "rule": "Persistent memory may be modified only when doing so preserves or strengthens the user's intent\u2014never in ways that degrade fidelity, relevance, or clarity.",
+  "category": "MEM"
 }
