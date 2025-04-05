@@ -1,40 +1,23 @@
 {
-  "description": "Compiles a rule set by resolving rule IDs to their full rule contents based on the given resolution context.",
-  "input_schema": "rule_set_schema.json",
-  "output_schema": "compiled_rule_set_schema.json",
-  "inputs": {
-    "rule_set_definition": "A rule set definition following the rule_set_schema.json format.",
-    "resolution_context": {
-      "rule_search_paths": [
-        "A prioritized list of folders to search for rule files (e.g., ['/composable_rules/', '/internal/core/'])."
-      ]
-    }
+  "description": "Compiles a rule set by loading rule files, injecting IDs based on filenames, and returning a fully assembled rule set.",
+  "input": {
+    "rule_set_filename": "The name of the compiled rule set output file."
+  },
+  "output": {
+    "compiled_rule_set": "A list of rules with 'id' fields set from filenames."
   },
   "steps": [
     {
-      "action": "validate_schema",
-      "input": "$rule_set_definition",
-      "schema": "rule_set_schema.json"
+      "name": "load_rule_files",
+      "instruction": "For each rule file, load the content, extract the filename (minus extension) as 'id', and construct a new rule object where 'id' appears first, followed by all original fields. This ensures consistent and deterministic rule structure."
     },
     {
-      "action": "resolve_rule_files",
-      "ids": "$rule_set_definition.rules",
-      "search_paths": "$resolution_context.rule_search_paths",
-      "assign_to": "resolved_rules"
+      "name": "sort_and_compile",
+      "instruction": "Sort rules by filename and output a list of rule objects with injected 'id' fields."
     },
     {
-      "action": "merge_rule_set",
-      "base": "$rule_set_definition",
-      "composable_rules": "$resolved_rules",
-      "assign_to": "compiled_rule_set"
-    },
-    {
-      "action": "return",
-      "value": "$compiled_rule_set"
+      "name": "write_compiled_output",
+      "instruction": "Write the compiled rules to the specified output path using rule_set_filename."
     }
-  ],
-  "notes": [
-    "This logic is shared by compile_rule_set.json and compile_core_rule_set.json to centralize rule set compilation behavior.",
-    "If a rule file cannot be found, an error is returned indicating the missing rule and the paths searched."
   ]
 }
