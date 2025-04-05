@@ -1,0 +1,9 @@
+{
+  "description": "This is fine.",
+  "justification": "Still okay.",
+  "unrelated_key": "should not appear between metadata",
+  "type": "object",
+  "constraints": [],
+  "conventions": [],
+  "examples": []
+}

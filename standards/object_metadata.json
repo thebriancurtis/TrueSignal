@@ -1,0 +1,51 @@
+{
+  "description": "Defines the required metadata fields for every JSON object used in TrueSignal.",
+  "justification": "Ensures every object is explainable, composable, auditable, and compatible with assistant-based validation and automation.",
+  "type": "specification",
+  "constraints": [
+    "The object must begin with the following fields, in this exact order: description, justification, type, constraints, conventions, examples.",
+    "All six metadata fields must be present and contain non-empty values.",
+    "Additional fields are allowed, but they must follow the metadata block."
+  ],
+  "conventions": [
+    "Metadata fields must always appear as the first six fields in a JSON object.",
+    "Each metadata field must contain complete and meaningful content.",
+    "Field names must be written in lowercase snake_case.",
+    "This standard must be referenced by any schema or prompt that defines object structures."
+  ],
+  "examples": [
+    {
+      "description": "An example of a metadata-compliant object.",
+      "justification": "Demonstrates how metadata should be structured at the top of a JSON object.",
+      "type": "object",
+      "constraints": [
+        "Must be used only in rule definitions."
+      ],
+      "conventions": [
+        "Use inside a metadata-compliant prompt."
+      ],
+      "examples": [
+        {
+          "rule_set_filename": "core.json"
+        }
+      ],
+      "members": {
+        "rule_set_filename": {
+          "description": "The name of the rule set to compile.",
+          "justification": "Used to locate and compile the specified rule set from disk.",
+          "type": "string",
+          "constraints": [
+            "Must be a valid file name and end in .json."
+          ],
+          "conventions": [
+            "Typically 'core.json'",
+            "No folder path required."
+          ],
+          "examples": [
+            "core.json"
+          ]
+        }
+      }
+    }
+  ]
+}

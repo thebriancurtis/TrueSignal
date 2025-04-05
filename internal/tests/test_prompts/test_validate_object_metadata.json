@@ -1,0 +1,696 @@
+{
+  "description": "Tests the validate_object_metadata prompt with complete coverage of all valid and invalid metadata permutations.",
+  "justification": "Ensures metadata validator identifies all possible edge cases and failure states with precision.",
+  "type": "test_prompt",
+  "constraints": [
+    "Must assert exact failure reason and location.",
+    "Must include all permutations of invalid metadata structures."
+  ],
+  "conventions": [
+    "Covers missing, empty, out-of-order, interleaved, and extra fields.",
+    "Includes one fully valid case and all relevant invalid permutations."
+  ],
+  "input": {},
+  "output": {
+    "test_results": "list of test case result objects"
+  },
+  "uses": {
+    "validator": "../prompts/validate_object_metadata.json"
+  },
+  "steps": [
+    {
+      "test_valid_case": {
+        "description": "Validates a fully compliant object_metadata.json file.",
+        "justification": "Ensures the validator correctly passes a valid input.",
+        "type": "test step",
+        "input": {
+          "file": "standards/object_metadata.json"
+        },
+        "output": {
+          "result": {
+            "valid": true,
+            "violations": []
+          }
+        }
+      }
+    },
+    {
+      "test_missing_multiple_fields": {
+        "description": "Tests failure when multiple required fields are missing.",
+        "justification": "Ensures all missing fields are detected.",
+        "type": "test step",
+        "input": {
+          "file": "internal/tests/test_files/missing_multiple_fields.json"
+        },
+        "output": {
+          "result": {
+            "valid": false,
+            "violations": [
+              {
+                "location": "root",
+                "issue": "Missing required metadata field: justification"
+              },
+              {
+                "location": "root",
+                "issue": "Missing required metadata field: type"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "test_empty_fields": {
+        "description": "Tests failure when required fields are present but empty.",
+        "justification": "Ensures empty fields are caught as invalid.",
+        "type": "test step",
+        "input": {
+          "file": "internal/tests/test_files/empty_fields.json"
+        },
+        "output": {
+          "result": {
+            "valid": false,
+            "violations": [
+              {
+                "location": "root",
+                "issue": "Metadata field 'description' is empty"
+              },
+              {
+                "location": "root",
+                "issue": "Metadata field 'justification' is empty"
+              },
+              {
+                "location": "root",
+                "issue": "Metadata field 'type' is empty"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "test_wrong_order": {
+        "description": "Tests failure when metadata fields are out of order.",
+        "justification": "Ensures required ordering is enforced.",
+        "type": "test step",
+        "input": {
+          "file": "internal/tests/test_files/wrong_order.json"
+        },
+        "output": {
+          "result": {
+            "valid": false,
+            "violations": [
+              {
+                "location": "root",
+                "issue": "Incorrect metadata field order"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "test_interleaved_fields": {
+        "description": "Tests failure when metadata fields are split by unrelated keys.",
+        "justification": "Ensures metadata block is contiguous.",
+        "type": "test step",
+        "input": {
+          "file": "internal/tests/test_files/interleaved_fields.json"
+        },
+        "output": {
+          "result": {
+            "valid": false,
+            "violations": [
+              {
+                "location": "root",
+                "issue": "Metadata fields are interleaved with unrelated keys"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "test_extra_metadata_field": {
+        "description": "Tests failure when an unapproved metadata field is present.",
+        "justification": "Ensures metadata block does not include unknown keys.",
+        "type": "test step",
+        "input": {
+          "file": "internal/tests/test_files/extra_metadata_field.json"
+        },
+        "output": {
+          "result": {
+            "valid": false,
+            "violations": [
+              {
+                "location": "root",
+                "issue": "Unexpected metadata field: notes"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "test_trailing_junk": {
+        "description": "Validates a case with valid metadata followed by unrelated fields.",
+        "justification": "Trailing unrelated fields are permitted after valid metadata block.",
+        "type": "test step",
+        "input": {
+          "file": "internal/tests/test_files/trailing_junk.json"
+        },
+        "output": {
+          "result": {
+            "valid": true,
+            "violations": []
+          }
+        }
+      }
+    },
+    {
+      "missing_description": {
+        "description": "Detects issue: Missing description",
+        "justification": "Part of full permutation validation of the metadata specification.",
+        "type": "test step",
+        "input": {
+          "file": "internal/tests/test_files/missing_description.json"
+        },
+        "output": {
+          "result": {
+            "valid": false,
+            "violations": [
+              {
+                "location": "root",
+                "issue": "Missing required metadata field: description"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "missing_justification": {
+        "description": "Detects issue: Missing justification",
+        "justification": "Part of full permutation validation of the metadata specification.",
+        "type": "test step",
+        "input": {
+          "file": "internal/tests/test_files/missing_justification.json"
+        },
+        "output": {
+          "result": {
+            "valid": false,
+            "violations": [
+              {
+                "location": "root",
+                "issue": "Missing required metadata field: justification"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "missing_type": {
+        "description": "Detects issue: Missing type",
+        "justification": "Part of full permutation validation of the metadata specification.",
+        "type": "test step",
+        "input": {
+          "file": "internal/tests/test_files/missing_type.json"
+        },
+        "output": {
+          "result": {
+            "valid": false,
+            "violations": [
+              {
+                "location": "root",
+                "issue": "Missing required metadata field: type"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "missing_constraints": {
+        "description": "Detects issue: Missing constraints",
+        "justification": "Part of full permutation validation of the metadata specification.",
+        "type": "test step",
+        "input": {
+          "file": "internal/tests/test_files/missing_constraints.json"
+        },
+        "output": {
+          "result": {
+            "valid": false,
+            "violations": [
+              {
+                "location": "root",
+                "issue": "Missing required metadata field: constraints"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "missing_conventions": {
+        "description": "Detects issue: Missing conventions",
+        "justification": "Part of full permutation validation of the metadata specification.",
+        "type": "test step",
+        "input": {
+          "file": "internal/tests/test_files/missing_conventions.json"
+        },
+        "output": {
+          "result": {
+            "valid": false,
+            "violations": [
+              {
+                "location": "root",
+                "issue": "Missing required metadata field: conventions"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "missing_examples": {
+        "description": "Detects issue: Missing examples",
+        "justification": "Part of full permutation validation of the metadata specification.",
+        "type": "test step",
+        "input": {
+          "file": "internal/tests/test_files/missing_examples.json"
+        },
+        "output": {
+          "result": {
+            "valid": false,
+            "violations": [
+              {
+                "location": "root",
+                "issue": "Missing required metadata field: examples"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "empty_description": {
+        "description": "Detects issue: Empty description",
+        "justification": "Part of full permutation validation of the metadata specification.",
+        "type": "test step",
+        "input": {
+          "file": "internal/tests/test_files/empty_description.json"
+        },
+        "output": {
+          "result": {
+            "valid": false,
+            "violations": [
+              {
+                "location": "root",
+                "issue": "Metadata field 'description' is empty"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "empty_justification": {
+        "description": "Detects issue: Empty justification",
+        "justification": "Part of full permutation validation of the metadata specification.",
+        "type": "test step",
+        "input": {
+          "file": "internal/tests/test_files/empty_justification.json"
+        },
+        "output": {
+          "result": {
+            "valid": false,
+            "violations": [
+              {
+                "location": "root",
+                "issue": "Metadata field 'justification' is empty"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "empty_type": {
+        "description": "Detects issue: Empty type",
+        "justification": "Part of full permutation validation of the metadata specification.",
+        "type": "test step",
+        "input": {
+          "file": "internal/tests/test_files/empty_type.json"
+        },
+        "output": {
+          "result": {
+            "valid": false,
+            "violations": [
+              {
+                "location": "root",
+                "issue": "Metadata field 'type' is empty"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "empty_constraints": {
+        "description": "Detects issue: Empty constraints",
+        "justification": "Part of full permutation validation of the metadata specification.",
+        "type": "test step",
+        "input": {
+          "file": "internal/tests/test_files/empty_constraints.json"
+        },
+        "output": {
+          "result": {
+            "valid": false,
+            "violations": [
+              {
+                "location": "root",
+                "issue": "Metadata field 'constraints' is empty"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "empty_conventions": {
+        "description": "Detects issue: Empty conventions",
+        "justification": "Part of full permutation validation of the metadata specification.",
+        "type": "test step",
+        "input": {
+          "file": "internal/tests/test_files/empty_conventions.json"
+        },
+        "output": {
+          "result": {
+            "valid": false,
+            "violations": [
+              {
+                "location": "root",
+                "issue": "Metadata field 'conventions' is empty"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "empty_examples": {
+        "description": "Detects issue: Empty examples",
+        "justification": "Part of full permutation validation of the metadata specification.",
+        "type": "test step",
+        "input": {
+          "file": "internal/tests/test_files/empty_examples.json"
+        },
+        "output": {
+          "result": {
+            "valid": false,
+            "violations": [
+              {
+                "location": "root",
+                "issue": "Metadata field 'examples' is empty"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "wrong_type_description": {
+        "description": "Detects issue: Wrong type description",
+        "justification": "Part of full permutation validation of the metadata specification.",
+        "type": "test step",
+        "input": {
+          "file": "internal/tests/test_files/wrong_type_description.json"
+        },
+        "output": {
+          "result": {
+            "valid": false,
+            "violations": [
+              {
+                "location": "root",
+                "issue": "Metadata field 'description' has incorrect type"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "wrong_type_justification": {
+        "description": "Detects issue: Wrong type justification",
+        "justification": "Part of full permutation validation of the metadata specification.",
+        "type": "test step",
+        "input": {
+          "file": "internal/tests/test_files/wrong_type_justification.json"
+        },
+        "output": {
+          "result": {
+            "valid": false,
+            "violations": [
+              {
+                "location": "root",
+                "issue": "Metadata field 'justification' has incorrect type"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "wrong_type_type": {
+        "description": "Detects issue: Wrong type type",
+        "justification": "Part of full permutation validation of the metadata specification.",
+        "type": "test step",
+        "input": {
+          "file": "internal/tests/test_files/wrong_type_type.json"
+        },
+        "output": {
+          "result": {
+            "valid": false,
+            "violations": [
+              {
+                "location": "root",
+                "issue": "Metadata field 'type' has incorrect type"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "wrong_type_constraints": {
+        "description": "Detects issue: Wrong type constraints",
+        "justification": "Part of full permutation validation of the metadata specification.",
+        "type": "test step",
+        "input": {
+          "file": "internal/tests/test_files/wrong_type_constraints.json"
+        },
+        "output": {
+          "result": {
+            "valid": false,
+            "violations": [
+              {
+                "location": "root",
+                "issue": "Metadata field 'constraints' has incorrect type"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "wrong_type_conventions": {
+        "description": "Detects issue: Wrong type conventions",
+        "justification": "Part of full permutation validation of the metadata specification.",
+        "type": "test step",
+        "input": {
+          "file": "internal/tests/test_files/wrong_type_conventions.json"
+        },
+        "output": {
+          "result": {
+            "valid": false,
+            "violations": [
+              {
+                "location": "root",
+                "issue": "Metadata field 'conventions' has incorrect type"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "wrong_type_examples": {
+        "description": "Detects issue: Wrong type examples",
+        "justification": "Part of full permutation validation of the metadata specification.",
+        "type": "test step",
+        "input": {
+          "file": "internal/tests/test_files/wrong_type_examples.json"
+        },
+        "output": {
+          "result": {
+            "valid": false,
+            "violations": [
+              {
+                "location": "root",
+                "issue": "Metadata field 'examples' has incorrect type"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "casing_description": {
+        "description": "Detects issue: Casing description",
+        "justification": "Part of full permutation validation of the metadata specification.",
+        "type": "test step",
+        "input": {
+          "file": "internal/tests/test_files/casing_description.json"
+        },
+        "output": {
+          "result": {
+            "valid": false,
+            "violations": [
+              {
+                "location": "root",
+                "issue": "Incorrect metadata field name casing: description"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "casing_justification": {
+        "description": "Detects issue: Casing justification",
+        "justification": "Part of full permutation validation of the metadata specification.",
+        "type": "test step",
+        "input": {
+          "file": "internal/tests/test_files/casing_justification.json"
+        },
+        "output": {
+          "result": {
+            "valid": false,
+            "violations": [
+              {
+                "location": "root",
+                "issue": "Incorrect metadata field name casing: justification"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "casing_type": {
+        "description": "Detects issue: Casing type",
+        "justification": "Part of full permutation validation of the metadata specification.",
+        "type": "test step",
+        "input": {
+          "file": "internal/tests/test_files/casing_type.json"
+        },
+        "output": {
+          "result": {
+            "valid": false,
+            "violations": [
+              {
+                "location": "root",
+                "issue": "Incorrect metadata field name casing: type"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "casing_constraints": {
+        "description": "Detects issue: Casing constraints",
+        "justification": "Part of full permutation validation of the metadata specification.",
+        "type": "test step",
+        "input": {
+          "file": "internal/tests/test_files/casing_constraints.json"
+        },
+        "output": {
+          "result": {
+            "valid": false,
+            "violations": [
+              {
+                "location": "root",
+                "issue": "Incorrect metadata field name casing: constraints"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "casing_conventions": {
+        "description": "Detects issue: Casing conventions",
+        "justification": "Part of full permutation validation of the metadata specification.",
+        "type": "test step",
+        "input": {
+          "file": "internal/tests/test_files/casing_conventions.json"
+        },
+        "output": {
+          "result": {
+            "valid": false,
+            "violations": [
+              {
+                "location": "root",
+                "issue": "Incorrect metadata field name casing: conventions"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "casing_examples": {
+        "description": "Detects issue: Casing examples",
+        "justification": "Part of full permutation validation of the metadata specification.",
+        "type": "test step",
+        "input": {
+          "file": "internal/tests/test_files/casing_examples.json"
+        },
+        "output": {
+          "result": {
+            "valid": false,
+            "violations": [
+              {
+                "location": "root",
+                "issue": "Incorrect metadata field name casing: examples"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "simulated_duplicate_description": {
+        "description": "Detects issue: Simulated duplicate description",
+        "justification": "Part of full permutation validation of the metadata specification.",
+        "type": "test step",
+        "input": {
+          "file": "internal/tests/test_files/simulated_duplicate_description.json"
+        },
+        "output": {
+          "result": {
+            "valid": false,
+            "violations": [
+              {
+                "location": "root",
+                "issue": "Duplicate metadata field simulated: description"
+              }
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

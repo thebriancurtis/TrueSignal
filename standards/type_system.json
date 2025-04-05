@@ -1,0 +1,70 @@
+{
+  "description": "Defines the official TrueSignal semantic type system used in 'type' fields across all standards, prompts, rules, and schemas.",
+  "justification": "Enables structured reasoning, validation, and explainability by assigning meaningful roles to all JSON objects.",
+  "type": "specification",
+  "constraints": [
+    "Only listed types may be used in the 'type' field across TrueSignal standards and prompts.",
+    "All entries must follow the object metadata specification."
+  ],
+  "conventions": [
+    "Each type entry must include description, justification, constraints, conventions, and examples.",
+    "Type names must be lowercase, underscore-delimited tokens."
+  ],
+  "examples": [
+    {
+      "type": "prompt"
+    },
+    {
+      "type": "schema"
+    },
+    {
+      "type": "specification"
+    }
+  ],
+  "members": {
+    "prompt": {
+      "description": "A structured, reusable instruction for AI assistants to execute a TrueSignal task.",
+      "justification": "Forms the core logic unit of the system and drives composable automation.",
+      "type": "prompt",
+      "constraints": [
+        "Must include input, output, and steps."
+      ],
+      "conventions": [
+        "May reference shared prompts via 'uses'.",
+        "Must include metadata."
+      ],
+      "examples": [
+        "compile_core_rule_set.json"
+      ]
+    },
+    "schema": {
+      "description": "Defines the expected structural layout of a TrueSignal-compliant file.",
+      "justification": "Enables structural validation of field names, types, and hierarchy.",
+      "type": "schema",
+      "constraints": [
+        "Must enforce structure only, not behavior or interpretation."
+      ],
+      "conventions": [
+        "Should follow JSON Schema practices and avoid encoding intent."
+      ],
+      "examples": [
+        "rule_set_schema.json"
+      ]
+    },
+    "specification": {
+      "description": "Defines intended behavior, semantic rules, or system-wide expectations.",
+      "justification": "Guides validation and alignment beyond structural correctness.",
+      "type": "specification",
+      "constraints": [
+        "Must define behavioral rules, field meanings, and enforcement logic."
+      ],
+      "conventions": [
+        "May be referenced by prompts and validators for compliance checking."
+      ],
+      "examples": [
+        "object_metadata.json",
+        "type_system.json"
+      ]
+    }
+  }
+}

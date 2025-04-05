@@ -1,0 +1,9 @@
+{
+  "description": "Has extra field",
+  "justification": "Testing an unapproved metadata tag",
+  "type": "object",
+  "constraints": [],
+  "conventions": [],
+  "examples": [],
+  "notes": "This field should not be part of metadata"
+}

@@ -1,0 +1,12 @@
+{
+  "description": "All metadata is valid",
+  "justification": "But this object includes trailing garbage",
+  "type": "object",
+  "constraints": [],
+  "conventions": [],
+  "examples": [],
+  "garbage_data": {
+    "foo": "bar",
+    "baz": 123
+  }
+}

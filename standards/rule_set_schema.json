@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "TrueSignal Rule Set Definition Schema",
   "description": "Schema for a declarative rule set definition. Requires 'rules' and 'rule_sets' fields, even if empty.",
-  "type": "object",
+  "type": "schema",
   "required": [
     "rules",
     "rule_sets"

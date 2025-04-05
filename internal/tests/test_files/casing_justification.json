@@ -1,0 +1,8 @@
+{
+  "description": "Valid description.",
+  "type": "object",
+  "constraints": [],
+  "conventions": [],
+  "examples": [],
+  "Justification": "Valid justification."
+}
